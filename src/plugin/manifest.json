@@ -1,0 +1,25 @@
+{
+  "name": "Sketch Plugin Boilerplate",
+  "identifier": "com.julianburr.sketch-boilerplate",
+  "description": "This is just a simple development boilerplate for sketch plugins!",
+  "authorEmail": "julian.burr@rexsoftware.com",
+  "author": "Julian Burr",
+  "disableCocoaScriptPreprocessor": true,
+  "commands": [
+    {
+      "script": "plugin.js",
+      "handler": "runTestCommand",
+      "name": "Test Command",
+      "identifier": "test"
+    }
+  ],
+  "menu": {
+    "isRoot": 1,
+    "items": [
+      {
+        "title": "Does it work?",
+        "items": ["test"]
+      }
+    ]
+  }
+}
