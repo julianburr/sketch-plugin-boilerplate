@@ -17,7 +17,7 @@ The build structure is set according to the [Sketch Guidlines](http://developer.
 During development you don't want to manually rebuild every time you make a tiny little change. When running `yarn start` you create a development build (into the actual build folder structure, so Sketch automatically uses the files as a plugin) and stays alive watching for any changes. The bundled JS file is not minified (for better debugging) and a cache is used for faster rebuilding.
 
 ### `yarn build`
-This command creates a uglified production build.
+This command creates an uglified production build.
 
 ##  Todos
  - [ ] eslint integration
