@@ -20,6 +20,7 @@ During development you don't want to manually rebuild every time you make a tiny
 This command creates a uglified production build.
 
 ##  Todos
-[ ] eslint integration
-[ ] React integration for webviews
-[ ] test integration
+ - [ ] eslint integration
+ - [ ] React integration for webviews
+ - [ ] test integration
+ - [ ] simple support for xcode framework integration
