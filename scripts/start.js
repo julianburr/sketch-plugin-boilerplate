@@ -15,11 +15,11 @@ var pkg = require('../package.json');
 var watching = false;
 
 // Start by clearing current build folder
-console.log('Remove old production build...');
+console.log('Remove old build...');
 fs.emptyDirSync(paths.build);
 
 // Then start rollup
-console.log('Create optimized production build...');
+console.log('Create development production build...');
 build();
 
 function build () {

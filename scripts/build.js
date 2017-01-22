@@ -16,11 +16,7 @@ console.log('Remove old production build...');
 fs.emptyDirSync(paths.build);
 
 // Then start rollup
-if (process.env.NODE_ENV === 'development') {
-  console.log('Create development build...');
-} else {
-  console.log('Create optimized production build...');
-}
+console.log('Create optimized production build...');
 build();
 
 function build () {
@@ -37,6 +33,10 @@ function build () {
     console.log('Copy manifest (version ' + pkg.version + ')');
     manifest.version = pkg.version;
     fs.outputJson(paths.build + '/manifest.json', manifest);
+
+    // Copy files to .sketchplugin folder
+    // fs.emptyDirSync(paths.buildSketch);
+    // fs.copyDir(Contents, paths.buildSketch)
 
     // Done :)
     console.log(chalk.green('✓ Compiled successfully.'));
