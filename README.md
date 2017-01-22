@@ -19,7 +19,7 @@ During development you don't want to manually rebuild every time you make a tiny
 ### `yarn build`
 This command creates an uglified production build.
 
-## `yarn lint` and `yarn lint-fix`
+### `yarn lint` and `yarn lint-fix`
 Simply runs `eslint` and `eslint --fix` on the plugin source folder.
 
 ##  Todos
