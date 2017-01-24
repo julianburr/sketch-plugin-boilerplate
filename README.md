@@ -24,6 +24,6 @@ Simply runs `eslint` and `eslint --fix` on the plugin source folder.
 
 ##  Todos
  - [x] ~~eslint integration~~
- - [ ] React integration for webviews
+ - [x] ~~React integration for webviews~~
  - [ ] test integration
  - [ ] simple support for xcode framework integration
