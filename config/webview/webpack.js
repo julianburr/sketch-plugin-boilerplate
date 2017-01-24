@@ -102,7 +102,7 @@ var configProd = {
   ],
   'output': {
     path: paths.build,
-    filename: 'js/main.js',
+    filename: 'main.js',
     // Chunk file for async code in production
     chunkFilename: 'js/[name].chunk.js',
     publicPath: publicPath
@@ -130,7 +130,7 @@ var configProd = {
     new webpack.DefinePlugin(env),
     new webpack.optimize.OccurrenceOrderPlugin(),
     new webpack.optimize.DedupePlugin(),
-    new ExtractTextPlugin('css/[name].css'), // .[contenthash:8]
+    new ExtractTextPlugin('[name].css'), // .[contenthash:8]
     new webpack.optimize.UglifyJsPlugin({
       compress: {
         screw_ie8: true, // React doesn't support IE8
