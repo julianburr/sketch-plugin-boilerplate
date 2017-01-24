@@ -6,11 +6,11 @@ var fs = require('fs-extra');
 var chalk = require('chalk');
 var watch = require('watch')
 
-var config = require('../config/plugin/rollup');
-var paths = require('../config/plugin/paths');
+var config = require('../../config/plugin/rollup');
+var paths = require('../../config/plugin/paths');
 
-var manifest = require('../src/plugin/manifest.json');
-var pkg = require('../package.json');
+var manifest = require('../../src/plugin/manifest.json');
+var pkg = require('../../package.json');
 
 var watching = false;
 
