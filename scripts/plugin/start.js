@@ -46,6 +46,11 @@ function build () {
     manifest.version = pkg.version;
     fs.outputJson(paths.build + '/manifest.json', manifest);
 
+    // Copy framework
+    console.log('Copy satchel framework');
+    fs.emptyDirSync(paths.build + '/Satchel.framework');
+    fs.copySync(paths.framework, paths.build + '/Satchel.framework');
+
     // Done :)
     console.log(chalk.green('✓ Compiled successfully.'));
     console.log();

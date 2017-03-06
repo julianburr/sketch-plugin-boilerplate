@@ -4,14 +4,11 @@ module.exports = {
   ],
   'plugins': [
     'transform-object-rest-spread',
-    [
-      'module-resolver', 
-      {
-        alias: {
-          utils: './src/plugin/utils'
-        }
+    ['module-resolver', {
+      alias: {
+        utils: './src/plugin/utils'
       }
-    ]
+    }]
   ],
   exclude: 'node_modules/**'
 }
