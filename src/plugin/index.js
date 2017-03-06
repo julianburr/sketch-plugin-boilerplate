@@ -1,5 +1,7 @@
-import Test from 'utils/test/index';
-
-const runTestCommand = function (context) {
-  Test.Message.show(context, Test.someConstant);
+const helloWorld = function (context) {
+  context.document.showMessage('Hello World')
 };
+
+const openWindow = function (context) {
+  context.document.showMessage('Open Window')
+}

@@ -16,7 +16,6 @@ module.exports = {
   src: resolveApp('src/plugin'),
   entry: resolveApp('src/plugin/index.js'),
   manifest: resolveApp('src/plugin/manifest.json'),
-  framework: resolveApp('src/framework/Satchel.framework'),
   build: resolveApp('Contents/Sketch'),
   packageJson: resolveApp('package.json'),
   nodeModules: resolveApp('node_modules'),

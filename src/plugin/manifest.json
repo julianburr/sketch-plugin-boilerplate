@@ -8,17 +8,23 @@
   "commands": [
     {
       "script": "plugin.js",
-      "handler": "runTestCommand",
-      "name": "Test Command",
-      "identifier": "test"
+      "handler": "helloWorld",
+      "name": "Hello World",
+      "identifier": "helloWorld"
+    },
+    {
+      "script": "plugin.js",
+      "handler": "openWindow",
+      "name": "Open Window",
+      "identifier": "openWindow"
     }
   ],
   "menu": {
     "isRoot": 1,
     "items": [
       {
-        "title": "Does it work?",
-        "items": ["test"]
+        "title": "Sketch Plugin Boilerplate",
+        "items": ["helloWorld", "openWindow"]
       }
     ]
   }
