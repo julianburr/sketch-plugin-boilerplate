@@ -34,9 +34,15 @@ function build () {
     manifest.version = pkg.version;
     fs.outputJson(paths.build + '/manifest.json', manifest);
 
-    // Copy files to .sketchplugin folder
-    // fs.emptyDirSync(paths.buildSketch);
-    // fs.copyDir(Contents, paths.buildSketch)
+    // Copy framework(s)
+    console.log('Copy frameworks');
+    fs.emptyDirSync(paths.frameworksBuild);
+    var list = fs.readdirSync(paths.frameworks);
+    list.forEach(function (item) {
+      if (item.endsWith('.framework')) {
+        fs.copySync(paths.frameworks + '/' + item, paths.frameworksBuild + '/' + item);
+      }
+    });
 
     // Done :)
     console.log(chalk.green('✓ Compiled successfully.'));
