@@ -1,0 +1,6 @@
+framework module SketchPluginBoilerplate {
+  umbrella header "SketchPluginBoilerplate.h"
+
+  export *
+  module * { export * }
+}

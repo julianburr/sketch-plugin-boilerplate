@@ -16,17 +16,34 @@ export default {
     let threadDictionary = NSThread.mainThread().threadDictionary();
     threadDictionary[identifier] = window;
     
-    const webConfig = WKWebViewConfiguration.alloc().init();
-    const webView = WKWebView.alloc().initWithFrame_configuration(frame, webConfig);
-    const fullUrl = NSURL.fileURLWithPath(this.getFilePath(path));
+    const config = WKWebViewConfiguration.alloc().init();
+    const messageHandler = SPBWebViewMessageHandler.alloc();
+    config.userContentController().addScriptMessageHandler_name(messageHandler, 'Sketch');
+
+    const webView = WKWebView.alloc().initWithFrame_configuration(frame, config);
+    const url = NSURL.fileURLWithPath(this.getFilePath(path));
 
     webView.setAutoresizingMask(NSViewWidthSizable | NSViewHeightSizable);
-    webView.loadRequest(NSURLRequest.requestWithURL(fullUrl));
+    webView.loadRequest(NSURLRequest.requestWithURL(url));
 
     window.title = 'Sketch Debugger'
     window.center();
     window.contentView().addSubview(webView);
 
     window.makeKeyAndOrderFront(null);
+  },
+
+  findWindowOrPanel () {
+    let threadDictionary = NSThread.mainThread().threadDictionary();
+    return threadDictionary[identifier];
+  }
+
+  sendAction (name, payload) {
+    const webView = this.findWindowOrPanel();
+    
+  },
+
+  receiveAction (name, payload) {
+    
   }
 }
