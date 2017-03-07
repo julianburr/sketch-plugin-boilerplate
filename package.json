@@ -64,12 +64,14 @@
     "build:plugin": "node scripts/plugin/build.js",
     "build:webview": "node scripts/webview/build.js",
     "build": "yarn build:plugin && yarn build:webview",
+    "bundle": "yarn build && node scripts/plugin/bundle.js",
     "lint:plugin": "eslint ./src/plugin/ -c ./config/plugin/eslint.js || true",
     "lint:webview": "eslint ./src/webview/ -c ./config/webview/eslint.js || true",
     "lint": "yarn lint:plugin && yarn lint:webview",
     "lint-fix:plugin": "eslint ./src/plugin/ --fix -c ./config/plugin/eslint.js || true",
     "lint-fix:webview": "eslint ./src/webview/ --fix -c ./config/webview/eslint.js || true",
-    "lint-fix": "yarn lint-fix:plugin && yarn lint-fix:webview"
+    "lint-fix": "yarn lint-fix:plugin && yarn lint-fix:webview",
+    "todos": "node scripts/todos.js"
   },
   "dependencies": {
     "moment": "^2.17.1",
