@@ -2,5 +2,3 @@ node_modules/
 
 # Build folder
 Contents/
-
-yarn.lock
