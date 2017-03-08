@@ -7,7 +7,6 @@ module.exports = {
     "MSSymbolInstance": false,
     "MSSymbolMaster": false,
     "MSTextLayer": false,
-    "Mocha": false,
     "NSAlert": false,
     "NSApp": false,
     "NSClassFromString": false,
@@ -36,9 +35,16 @@ module.exports = {
     "NSViewWidthSizable": false,
     "NSWindow": false,
     "NSWorkspace": false,
-    "SatchelBridgeHelper": false,
-    "SatchelSketchMessenger": false,
-    "SatchelUtility": false
+    "WKWebView": false,
+    "WKWebViewConfiguration": false,
+    "Mocha": false,
+    "log": false,
+    "NSBackingStoreBuffered": false,
+    "NSPanel": false,
+    "NSResizableWindowMask": false,
+    "NSWindowStyleMaskClosable": false,
+    "SPBWebViewMessageHandler": false,
+    "SPBWebViewMessageUtils": false
   },
   "parser": "babel-eslint",
   "plugins": [
