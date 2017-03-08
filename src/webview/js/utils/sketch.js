@@ -29,7 +29,7 @@ export const check = () => {
  */
 export const sendAction = (name, payload = {}) => {
   return new Promise((resolve, reject) => {
-    if (!this.check()) {
+    if (!check()) {
       reject(new Error('Could not connect to Sketch!'));
     }
     window.webkit.messageHandlers.Sketch.postMessage(JSON.stringify({name, payload}));

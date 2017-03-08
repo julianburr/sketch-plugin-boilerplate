@@ -14,7 +14,7 @@
 @implementation SPBWebViewMessageHandler
 
 -(void)userContentController:(WKUserContentController *)userContentController didReceiveScriptMessage:(WKScriptMessage *)message {
-    NSLog(@"Received event %@", message.body);
+    NSLog(@"SPBWebViewMessageHandler received event %@", message.body);
 }
 
 @end

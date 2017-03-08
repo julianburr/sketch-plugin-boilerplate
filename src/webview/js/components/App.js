@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 import { sendAction } from 'utils/sketch';
 import 'styles/index.scss';
+import { autobind } from 'core-decorators';
 
-class App extends Component {
+@autobind
+export default class App extends Component {
   constructor () {
     super();
     this.state = {
@@ -11,6 +13,7 @@ class App extends Component {
   }
 
   sendMessage () {
+    console.log('sendAction', sendAction)
     sendAction('foo', {foo: 'bar'}).then(() => {
       this.setState({buttonText: 'Message sent...'});
     }).catch(error => {
@@ -35,5 +38,3 @@ class App extends Component {
     );
   }
 }
-
-export default App;
