@@ -19,7 +19,7 @@ export default {
   },
 
   initWithContext (context) {
-    log('initWithContext')
+    log('initWithContext');
     this.context = context;
     this.document = context.document || context.actionContext.document || MSDocument.currentDocument();
     this.selection = this.document.findSelectedLayers();
@@ -28,31 +28,31 @@ export default {
     this.pluginFolderPath = this.getPluginFolderPath(context);
 
     this.loadFrameworks();
-    log('loaded')
-    log(SPBWebViewMessageHandler)
+    log('loaded');
+    log(SPBWebViewMessageHandler);
   },
 
   loadFrameworks () {
     for (let framework in this.frameworks) {
       for (let className in this.frameworks[framework]) {
         const test = this.loadFramework(framework, this.frameworks[framework][className]);
-        log('test')
-        log(test)
+        log('test');
+        log(test);
       }
     }
   },
 
   loadFramework (frameworkName, frameworkClass) {
-    log('Loading framework')
-    log(frameworkName)
-    log(frameworkClass)
+    log('Loading framework');
+    log(frameworkName);
+    log(frameworkClass);
     if (Mocha && NSClassFromString(frameworkClass) == null) {
       const frameworkDir = `${this.pluginFolderPath}/Contents/Resources/frameworks/`;
-      log(`frameworkDir=${frameworkDir}`)
-      log(this.context.scriptPath)
+      log(`frameworkDir=${frameworkDir}`);
+      log(this.context.scriptPath);
       const mocha = Mocha.sharedRuntime();
       return mocha.loadFrameworkWithName_inDirectory(frameworkName, frameworkDir);
     }
     return true;
   }
-}
+};

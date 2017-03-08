@@ -23,6 +23,12 @@
       "handler": "handleBridgeMessage",
       "name": "Handle Bridge Message",
       "identifier": "handleBridgeMessage"
+    },
+    {
+      "script": "plugin.js",
+      "handler": "sendBridgeMessage",
+      "name": "Send Bridge Message",
+      "identifier": "sendBridgeMessage"
     }
   ],
   "menu": {
@@ -30,7 +36,7 @@
     "items": [
       {
         "title": "Sketch Plugin Boilerplate",
-        "items": ["helloWorld", "openWindow"]
+        "items": ["helloWorld", "openWindow", "sendBridgeMessage"]
       }
     ]
   }
