@@ -33,17 +33,25 @@ export default {
     window.makeKeyAndOrderFront(null);
   },
 
+  openPanel (path = 'index.html', width = 250) {
+
+  },
+
   findWindowOrPanel () {
     let threadDictionary = NSThread.mainThread().threadDictionary();
     return threadDictionary[identifier];
-  }
-
-  sendAction (name, payload) {
-    const webView = this.findWindowOrPanel();
-    
   },
 
-  receiveAction (name, payload) {
-    
+  sendAction (name, payload = {}) {
+    const webView = this.findWindowOrPanel();
+    if (!webView || !webView.evaluateJavaScript) {
+      return;
+    }
+    const script = `sketchBridge(${JSON.stringify({name, payload})});`;
+    webView.evaluateJavaScript_completionHandler(script, null);
+  },
+
+  receiveAction (name, payload = {}) {
+    Core.document.showMessage('I received a message! :)');
   }
 }

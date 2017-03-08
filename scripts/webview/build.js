@@ -50,6 +50,5 @@ webpack(config).run((err, stats) => {
     process.exit(1);
   }
 
-  console.log();
   console.log(chalk.green('✓ Compiled successfully.'));
 });
