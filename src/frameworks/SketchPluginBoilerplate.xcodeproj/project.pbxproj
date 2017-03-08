@@ -10,6 +10,7 @@
 		6A07E3461E6F6A4700FC67CC /* SketchPluginBoilerplate.h in Headers */ = {isa = PBXBuildFile; fileRef = 6A07E3441E6F6A4700FC67CC /* SketchPluginBoilerplate.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6A07E34E1E6F6A8200FC67CC /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A07E34D1E6F6A8200FC67CC /* WebKit.framework */; };
 		6A07E3511E6F6AED00FC67CC /* SPBWebViewMessageHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A07E3501E6F6AED00FC67CC /* SPBWebViewMessageHandler.m */; };
+		6A2CCD5F1E6FB26E0080B076 /* SPBWebViewMessageUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A2CCD5E1E6FB26E0080B076 /* SPBWebViewMessageUtils.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +20,8 @@
 		6A07E34D1E6F6A8200FC67CC /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		6A07E34F1E6F6AC800FC67CC /* SPBWebViewMessageHandler.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SPBWebViewMessageHandler.h; sourceTree = "<group>"; };
 		6A07E3501E6F6AED00FC67CC /* SPBWebViewMessageHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPBWebViewMessageHandler.m; sourceTree = "<group>"; };
+		6A2CCD5E1E6FB26E0080B076 /* SPBWebViewMessageUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPBWebViewMessageUtils.m; sourceTree = "<group>"; };
+		6A2CCD601E6FB3BA0080B076 /* SPBWebViewMessageUtils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SPBWebViewMessageUtils.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +59,8 @@
 				6A07E3441E6F6A4700FC67CC /* SketchPluginBoilerplate.h */,
 				6A07E34F1E6F6AC800FC67CC /* SPBWebViewMessageHandler.h */,
 				6A07E3501E6F6AED00FC67CC /* SPBWebViewMessageHandler.m */,
+				6A2CCD601E6FB3BA0080B076 /* SPBWebViewMessageUtils.h */,
+				6A2CCD5E1E6FB26E0080B076 /* SPBWebViewMessageUtils.m */,
 				6A07E3451E6F6A4700FC67CC /* Info.plist */,
 			);
 			path = SketchPluginBoilerplate;
@@ -150,6 +155,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6A07E3511E6F6AED00FC67CC /* SPBWebViewMessageHandler.m in Sources */,
+				6A2CCD5F1E6FB26E0080B076 /* SPBWebViewMessageUtils.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

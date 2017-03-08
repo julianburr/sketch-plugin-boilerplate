@@ -17,7 +17,7 @@ export default {
     threadDictionary[identifier] = window;
     
     const config = WKWebViewConfiguration.alloc().init();
-    const messageHandler = SPBWebViewMessageHandler.alloc();
+    const messageHandler = SPBWebViewMessageHandler.alloc().init();
     config.userContentController().addScriptMessageHandler_name(messageHandler, 'Sketch');
 
     const webView = WKWebView.alloc().initWithFrame_configuration(frame, config);

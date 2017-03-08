@@ -10,12 +10,13 @@
 #import <WebKit/WebKit.h>
 
 #import "SPBWebViewMessageHandler.h"
+#import "SPBWebViewMessageUtils.h"
 
 @implementation SPBWebViewMessageHandler
 
 -(void)userContentController:(WKUserContentController *)userContentController didReceiveScriptMessage:(WKScriptMessage *)message {
     NSLog(@"SPBWebViewMessageHandler received event %@", message.body);
+    [SPBWebViewMessageUtils send:message.body];
 }
 
 @end
-

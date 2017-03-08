@@ -8,7 +8,8 @@
 
 #import <Cocoa/Cocoa.h>
 
-FOUNDATION_EXPORT double versionNumber;
+FOUNDATION_EXPORT double versionNumber = 1.0;
 
 #import "SPBWebViewMessageHandler.h"
+#import "SPBWebViewMessageUtils.h"
 

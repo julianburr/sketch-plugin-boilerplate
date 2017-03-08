@@ -17,6 +17,12 @@
       "handler": "openWindow",
       "name": "Open Window",
       "identifier": "openWindow"
+    },
+    {
+      "script": "plugin.js",
+      "handler": "handleBridgeMessage",
+      "name": "Handle Bridge Message",
+      "identifier": "handleBridgeMessage"
     }
   ],
   "menu": {
