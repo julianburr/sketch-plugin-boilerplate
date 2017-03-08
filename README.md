@@ -16,16 +16,16 @@ During development you don't want to manually rebuild every time you make a tiny
 
 _NOTE: since it is much more convenient I split most of the scripts into `:plugin` and `:webview` as well, so you can start and watch your webview development by simply calling `yarn start:webview`_
 
-### `yarn build`
+**`yarn build`**
 This command creates an uglified production build.
 
-### `yarn lint` and `yarn lint-fix`
+**`yarn lint` and `yarn lint-fix`**
 Simply runs `eslint` and `eslint --fix` on the plugin source folder.
 
-### `yarn bundle`
+**`yarn bundle`**
 Bundles the code into a `*.sketchplugin` folder ready to be pusblished or shared.
 
-### `yarn todos`
+**`yarn todos`**
 Basically just because I got tired of noting todos in my code and then forget about it 😅
 
 ##  Todos
