@@ -63,12 +63,14 @@ function build () {
 
     // Start watching
     if (!watching) {
-      console.log('Start watching...');
+      console.log(chalk.yellow('Start watching...'));
       watching = true;
-      watch.createMonitor(paths.src, function (monitor) {
-        monitor.on("created", build);
-        monitor.on("changed", build);
-        monitor.on("removed", build);
+      [paths.src, paths.frameworks].forEach(function (root) {
+        watch.createMonitor(root, function (monitor) {
+          monitor.on("created", build);
+          monitor.on("changed", build);
+          monitor.on("removed", build);
+        });
       });
     }
   }).catch(function (e) {
