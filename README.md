@@ -25,8 +25,9 @@ Simply runs `eslint` and `eslint --fix` on the plugin source folder.
 ##  Todos
  - [x] ~~eslint integration~~
  - [x] ~~React integration for webviews~~
- - [ ] test integration
  - [x] ~~simple support for xcode framework integration~~
- - [ ] sample implementation of web view in window (for custom GUI)
+ - [x] ~~sample implementation of web view in window (for custom GUI)~~
  - [ ] same for Panels (within the Sketch interface)
- - [ ] integrate message handler to allow two way communication between web view and Sketch
+ - [x] ~~integrate message handler to allow two way communication between web view and Sketch~~
+ - [ ] test integration
+ - [ ] documentation
