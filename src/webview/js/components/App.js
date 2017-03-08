@@ -1,39 +1,42 @@
 import React, { Component } from 'react';
-import { sendAction } from 'utils/sketch';
-import 'styles/index.scss';
+import { sendAction } from 'actions/bridge';
 import { autobind } from 'core-decorators';
+import { connect } from 'react-redux';
 
+import sketchLogo from 'assets/sketch-logo.svg';
+import 'styles/index.scss';
+
+const mapStateToProps = state => {
+  return {
+    actions: state.bridge.actions
+  };
+};
+
+const mapDispatchToProps = dispatch => {
+  return {
+    sendAction: (name, payload) => dispatch(sendAction(name, payload))
+  };
+};
+
+@connect(mapStateToProps, mapDispatchToProps)
 @autobind
 export default class App extends Component {
-  constructor () {
-    super();
-    this.state = {
-      buttonText: 'Send Message'
-    };
-  }
-
   sendMessage () {
-    console.log('sendAction', sendAction)
-    sendAction('foo', {foo: 'bar'}).then(() => {
-      this.setState({buttonText: 'Message sent...'});
-    }).catch(error => {
-      this.setState({buttonText: 'Failed to send :('});
-    });
+    this.props.sendAction('foo', {foo: 'bar'});
   }
 
-  render() {
+  render () {
     return (
-      <div className="App">
-        <div id="logo" />
-        <div className="App-header">
-          <h2>Welcome</h2>
+      <div className="app">
+        <img src={sketchLogo} width={100} />
+        <h1>Sketch Plugin Boilerplate</h1>
+        <div className="app-content">
+          <p>To get started, edit <code>components/App.js</code> and save to reload. I can see this...</p>
+          {this.props.actions.map(action => {
+            return <pre>{JSON.stringify(action, null, 2)}</pre>;
+          })}
+          <p><button onClick={this.sendMessage}>Send Action</button></p>
         </div>
-        <p className="App-intro">
-          To get started, edit <code>src/webview/components/App.js</code> and save to reload. I can see this...
-        </p>
-        <p>
-          <button onClick={this.sendMessage}>{this.state.buttonText}</button>
-        </p>
       </div>
     );
   }

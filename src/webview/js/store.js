@@ -3,12 +3,10 @@ import { syncHistoryWithStore } from 'react-router-redux';
 import { hashHistory } from 'react-router';
 import rootReducer from './reducers';
 
-import { defaultState as status } from './reducers/status';
-import { defaultState as sketch } from './reducers/sketch';
+import { defaultState as bridge } from './reducers/bridge';
 
 const defaultState = {
-  status,
-  sketch
+  bridge
 };
 
 const store = createStore(rootReducer, defaultState, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
