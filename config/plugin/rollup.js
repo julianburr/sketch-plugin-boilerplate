@@ -20,5 +20,6 @@ module.exports = {
   exports: 'none',
   format: 'cjs',
   treeshake: false, // this is important in this case, otherwise handlers won't get output
-  plugins: plugins
+  plugins: plugins,
+  sourceMap: true
 }

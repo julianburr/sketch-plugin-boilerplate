@@ -38,7 +38,8 @@ function build () {
     bundle.write({
       format: 'cjs',
       dest: 'Contents/Sketch/plugin.js',
-      exports: 'none'
+      exports: 'none',
+      sourceMap: true
     });
 
     // Copy manifest.json + add version number form manifest
