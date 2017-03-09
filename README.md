@@ -1,6 +1,8 @@
 # Sketch Plugin Boilerplate
 
-This is a basic boilerplate setup for creating [Sketch](https://www.sketchapp.com/) plugins, including custom GUIs build with JS (React). The main task of it is to bundle the JS code using [`rollup`](https://github.com/rollup/rollup) and [`rollup-plugin-babel`](https://github.com/rollup/rollup-plugin-babel). Besides that it offers some other tweaks and helpers to make your life as a developer easier.
+This is a basic JS boilerplate for creating [Sketch](https://www.sketchapp.com/) plugins, including custom GUIs build with JS (React). It bundles the code using [`rollup`](https://github.com/rollup/rollup) and [`rollup-plugin-babel`](https://github.com/rollup/rollup-plugin-babel), as well as [`webpack`]() for the GUI side. Besides that it offers some other tweaks and helpers to make your life as a developer easier.
+
+I used as little Objective C as possible, as this is really thought as an entry point for JS developers who don't want to deal with this side but still create awesome plugin.
 
 ## Get started
 I recommend using [`yarn`](https://yarnpkg.com/), alternatively you can run the equivalent commands with `npm` as well. To get started install all the dependencies with `yarn install` and you're good to go.
@@ -8,7 +10,7 @@ I recommend using [`yarn`](https://yarnpkg.com/), alternatively you can run the 
 ## Folder structure
 In the sample plugin you can see the expected folder structure. `src/plugin/index.js` is the entry point, the rest is wherever you put it. The subfolder is intended to allow space for extended development files, such as webviews, etc. Feel free to change the file structure to your needs. All you should be needing to do then is to adjust the paths defined in `config/plugin/paths.js` :)
 
-The build structure is set according to the [Sketch Guidlines](http://developer.sketchapp.com/introduction/plugin-bundles/), so that all you need to do is to clone this repo into your Sketch Plugins folder (`/Users/[USER]/Library/Application Support/com.bohemiancoding.sketch3/Plugins/`) with the extension `.sketchplugin` and you are all good to go!
+The build structure is set according to the [Sketch Guidlines](http://developer.sketchapp.com/introduction/plugin-bundles/), so that all you need to do is to clone this repo into your Sketch Plugins folder (`~/Library/Application Support/com.bohemiancoding.sketch3/Plugins/`) with the extension `.sketchplugin` and you are all good to go!
 
 ## Scripts
 
@@ -20,7 +22,7 @@ _NOTE: since it is much more convenient I split most of the scripts into `:plugi
 
 **`yarn build`**
 
-This command creates an uglified production build.
+This command creates an (*not yet* uglified) production build.
 
 **`yarn lint` and `yarn lint-fix`**
 
@@ -42,5 +44,5 @@ Basically just because I got tired of noting todos in my code and then forget ab
  - [ ] same for Panels (within the Sketch interface)
  - [x] ~~integrate message handler to allow two way communication between web view and Sketch~~
  - [x] ~~set up redux for webviews + add actions to store as sample~~
- - [ ] test integration (yest?)
+ - [ ] test integration (jest? how can you write unit tests for sketch plugins?!)
  - [ ] documentation
