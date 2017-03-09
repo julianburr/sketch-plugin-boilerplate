@@ -1,6 +1,6 @@
 # Sketch Plugin Boilerplate
 
-This is a basic JS boilerplate for creating [Sketch](https://www.sketchapp.com/) plugins, including custom GUIs build with JS (React). It bundles the code using [`rollup`](https://github.com/rollup/rollup) and [`rollup-plugin-babel`](https://github.com/rollup/rollup-plugin-babel), as well as [`webpack`]() for the GUI side. Besides that it offers some other tweaks and helpers to make your life as a developer easier.
+This is a basic JS boilerplate for creating [Sketch](https://www.sketchapp.com/) plugins, including custom GUIs build with JS (React). It bundles the code using [`rollup`](https://github.com/rollup/rollup) and [`rollup-plugin-babel`](https://github.com/rollup/rollup-plugin-babel), as well as [`webpack`](https://github.com/webpack/webpack) for the GUI side. Besides that it offers some other tweaks and helpers to make your life as a developer easier.
 
 I used as little Objective C as possible, as this is really thought as an entry point for JS developers who don't want to deal with this side but still create awesome plugin.
 
