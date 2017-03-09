@@ -22,7 +22,7 @@ _NOTE: since it is much more convenient I split most of the scripts into `:plugi
 
 **`yarn build`**
 
-This command creates a (*not yet* uglified) production build.
+This command creates an uglified production build.
 
 **`yarn lint` and `yarn lint-fix`**
 
