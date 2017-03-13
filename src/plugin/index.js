@@ -1,6 +1,12 @@
 import Core from 'utils/core';
 import WebViewUtil from 'utils/web-view';
 
+/**
+ * NOTE: as eslint complains about unused vars and functions
+ *  we add the ignore comment before every of the global
+ *  entry functions
+ */
+
 // eslint-disable-next-line no-unused-vars
 const helloWorld = function (context) {
   context.document.showMessage('Hello World');
@@ -14,15 +20,26 @@ const openWindow = function (context) {
    * variables for later usage
    */
   Core.initWithContext(context);
-  context.document.showMessage('Open Window');
   WebViewUtil.openWindow();
+};
+
+// eslint-disable-next-line no-unused-vars
+const openPanel = function (context) {
+  Core.initWithContext(context);
+  WebViewUtil.togglePanel();
 };
 
 // eslint-disable-next-line no-unused-vars
 const handleBridgeMessage = function (context) {
   Core.initWithContext(context);
   let data = SPBWebViewMessageUtils.getPayload();
-  data = data ? JSON.parse(data) : {};
+  try {
+    data = JSON.parse(data);
+  } catch (err) {
+    log(err.message);
+    log(err.stack);
+    return;
+  }
   WebViewUtil.receiveAction(data.name, data.payload);
 };
 

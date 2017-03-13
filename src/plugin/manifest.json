@@ -20,6 +20,12 @@
     },
     {
       "script": "plugin.js",
+      "handler": "openPanel",
+      "name": "Open Panel",
+      "identifier": "openPanel"
+    },
+    {
+      "script": "plugin.js",
       "handler": "handleBridgeMessage",
       "name": "Handle Bridge Message",
       "identifier": "handleBridgeMessage"
@@ -36,7 +42,12 @@
     "items": [
       {
         "title": "Sketch Plugin Boilerplate",
-        "items": ["helloWorld", "openWindow", "sendBridgeMessage"]
+        "items": [
+          "helloWorld", 
+          "openWindow",
+          "openPanel", 
+          "sendBridgeMessage"
+        ]
       }
     ]
   }
