@@ -52,6 +52,7 @@
     "rollup-plugin-uglify": "^1.0.1",
     "sass-loader": "^4.1.1",
     "url": "^0.11.0",
+    "url-loader": "^0.5.8",
     "watch": "^1.0.1",
     "webpack": "^1.14.0",
     "webpack-dev-server": "^1.16.2",
