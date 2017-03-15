@@ -1,5 +1,6 @@
 import Core from 'utils/core';
 import WebViewUtil from 'utils/web-view';
+import Debugger from 'sketch-debugger';
 
 /**
  * NOTE: as eslint complains about unused vars and functions
@@ -10,6 +11,7 @@ import WebViewUtil from 'utils/web-view';
 // eslint-disable-next-line no-unused-vars
 const helloWorld = function (context) {
   context.document.showMessage('Hello World');
+  Debugger.log('Hello', 'World')
 };
 
 // eslint-disable-next-line no-unused-vars

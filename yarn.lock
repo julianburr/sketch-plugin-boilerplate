@@ -4333,6 +4333,10 @@ signal-exit@^3.0.0:
   version "3.0.2"
   resolved "https://registry.yarnpkg.com/signal-exit/-/signal-exit-3.0.2.tgz#b5fdc08f1287ea1178628e415e25132b73646c6d"
 
+"sketch-debugger@git+https://github.com/julianburr/sketch-debugger.git":
+  version "0.0.1"
+  resolved "git+https://github.com/julianburr/sketch-debugger.git#98915d2fb78f488ef6b7d6fc47fdb65fd4607f18"
+
 slash@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/slash/-/slash-1.0.0.tgz#c41f2f6c39fc16d1cd17ad4b5d896114ae470d55"
