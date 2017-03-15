@@ -5,12 +5,25 @@ This is a basic JS boilerplate for creating [Sketch](https://www.sketchapp.com/)
 I used as little Objective C as possible, as this is really thought as an entry point for JS developers who don't want to deal with this side but still create awesome plugins.
 
 ## Get started
-I recommend using [`yarn`](https://yarnpkg.com/), alternatively you can run the equivalent commands with `npm` as well. To get started install all the dependencies with `yarn install` and you're good to go.
+I recommend using [`yarn`](https://yarnpkg.com/), alternatively you can run the equivalent commands with `npm` as well. Also I recommend cloning the repo right into your Sketch plugin folder, cause it will development much faster and easier.
+
+```bash
+# Change to plugin folder
+cd ~/Library/Application Support/com.bohemiancoding.sketch3/Plugins/
+
+# Clone repo (as .sketchplugin!)
+git clone https://github.com/julianburr/sketch-plugin-boilerplate.git sketch-plugin-boilerplate.sketchplugin
+
+# Install dependecies
+git install
+```
+
+...and you're ready to go
 
 ## Folder structure
-In the sample plugin you can see the expected folder structure. `src/plugin/index.js` is the entry point, the rest is wherever you put it. The subfolder is intended to allow space for extended development files, such as webviews, etc. Feel free to change the file structure to your needs. All you should be needing to do then is to adjust the paths defined in `config/plugin/paths.js` :)
+In the sample plugin you can see the expected folder structure. `src/plugin/index.js` is the entry point, the rest is wherever you want put it. Feel free to change the file structure to your needs. All you should be needing to do then is to adjust the paths defined in `config/plugin/paths.js` :)
 
-The build structure is set according to the [Sketch Guidlines](http://developer.sketchapp.com/introduction/plugin-bundles/), so that all you need to do is to clone this repo into your Sketch Plugins folder (`~/Library/Application Support/com.bohemiancoding.sketch3/Plugins/`) with the extension `.sketchplugin` and you are all good to go!
+The build structure is set according to the [Sketch Guidlines](http://developer.sketchapp.com/introduction/plugin-bundles/), so that the repo can be used as fully functional sketch plugin within the plugin folder (`~/Library/Application Support/com.bohemiancoding.sketch3/Plugins/`) for faster development.
 
 ## Scripts
 
@@ -41,8 +54,10 @@ Basically just because I got tired of noting todos in my code and then forget ab
  - [x] ~~React integration for webviews~~
  - [x] ~~simple support for xcode framework integration~~
  - [x] ~~sample implementation of web view in window (for custom GUI)~~
- - [x] ~~same for Panels (within the Sketch interface)~~ *TODO: add action support*
+ - [x] ~~same for Panels (within the Sketch interface)~~ ~~*TODO: add action support*~~
  - [x] ~~integrate message handler to allow two way communication between web view and Sketch~~
  - [x] ~~set up redux for webviews + add actions to store as sample~~
+ - [ ] create new repo for debugger tools + integrate them here as dependency
  - [ ] test integration (jest? how can you write unit tests for sketch plugins?!)
- - [ ] documentation
+ - [ ] make a GIF to show how fast and easy the setup is 😂
+ - [ ] documentation / simple website
