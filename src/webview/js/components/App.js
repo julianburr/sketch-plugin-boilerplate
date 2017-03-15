@@ -28,14 +28,14 @@ export default class App extends Component {
   render () {
     return (
       <div className="app">
-        <img src={sketchLogo} width={100} />
+        <img className='logo' src={sketchLogo} />
         <h1>Sketch Plugin Boilerplate</h1>
         <div className="app-content">
-          <p>To get started, edit <code>components/App.js</code> and save to reload. I can see this...</p>
+          <p>To get started, edit <code>components/App.js</code> and save to reload.</p>
+          <p><button onClick={this.sendMessage}>Send Action</button></p>
           {this.props.actions.map(action => {
             return <pre>{JSON.stringify(action, null, 2)}</pre>;
           })}
-          <p><button onClick={this.sendMessage}>Send Action</button></p>
         </div>
       </div>
     );

@@ -2,8 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import store from './store';
-// import Routes from './routes';
-import App from 'components/App';
+import App from 'components/app';
 import { bridge as sketchBridge } from 'utils/sketch';
 
 ReactDOM.render(

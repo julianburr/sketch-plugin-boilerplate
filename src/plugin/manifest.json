@@ -20,9 +20,9 @@
     },
     {
       "script": "plugin.js",
-      "handler": "openPanel",
-      "name": "Open Panel",
-      "identifier": "openPanel"
+      "handler": "togglePanel",
+      "name": "Toggle Panel",
+      "identifier": "togglePanel"
     },
     {
       "script": "plugin.js",
@@ -32,9 +32,15 @@
     },
     {
       "script": "plugin.js",
-      "handler": "sendBridgeMessage",
+      "handler": "sendMessageToWindow",
       "name": "Send Bridge Message",
-      "identifier": "sendBridgeMessage"
+      "identifier": "sendMessageToWindow"
+    },
+    {
+      "script": "plugin.js",
+      "handler": "sendMessageToPanel",
+      "name": "Send Bridge Message",
+      "identifier": "sendMessageToPanel"
     }
   ],
   "menu": {
@@ -44,9 +50,21 @@
         "title": "Sketch Plugin Boilerplate",
         "items": [
           "helloWorld", 
-          "openWindow",
-          "openPanel", 
-          "sendBridgeMessage"
+          "-",
+          {
+            "title": "Window",
+            "items": [
+              "openWindow",
+              "sendMessageToWindow"
+            ]
+          },
+          {
+            "title": "Panel",
+            "items": [
+              "togglePanel",
+              "sendMessageToPanel"
+            ]
+          }
         ]
       }
     ]

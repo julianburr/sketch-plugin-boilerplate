@@ -22,13 +22,13 @@ const openWindow = function (context) {
    * variables for later usage
    */
   Core.initWithContext(context);
-  WebViewUtil.openWindow();
+  WebViewUtil.Window.open(WebViewUtil.identifierWindow);
 };
 
 // eslint-disable-next-line no-unused-vars
-const openPanel = function (context) {
+const togglePanel = function (context) {
   Core.initWithContext(context);
-  WebViewUtil.togglePanel();
+  WebViewUtil.Panel.toggle(WebViewUtil.identifierPanel);
 };
 
 // eslint-disable-next-line no-unused-vars
@@ -46,7 +46,13 @@ const handleBridgeMessage = function (context) {
 };
 
 // eslint-disable-next-line no-unused-vars
-const sendBridgeMessage = function (context) {
+const sendMessageToWindow = function (context) {
   Core.initWithContext(context);
-  WebViewUtil.sendAction('foo', {foo: 'bar'});
+  WebViewUtil.Window.sendAction(WebViewUtil.identifierWindow, 'foo', {foo: 'bar'});
+};
+
+// eslint-disable-next-line no-unused-vars
+const sendMessageToPanel = function (context) {
+  Core.initWithContext(context);
+  WebViewUtil.Panel.sendAction(WebViewUtil.identifierPanel, 'foo', {foo: 'bar'});
 };
