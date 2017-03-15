@@ -13,6 +13,7 @@ cd ~/Library/Application Support/com.bohemiancoding.sketch3/Plugins/
 
 # Clone repo (as .sketchplugin!)
 git clone https://github.com/julianburr/sketch-plugin-boilerplate.git sketch-plugin-boilerplate.sketchplugin
+cd sketch-plugin-boilerplate.sketchplugin
 
 # Install dependecies
 git install
@@ -57,6 +58,7 @@ Basically just because I got tired of noting todos in my code and then forget ab
  - [x] ~~same for Panels (within the Sketch interface)~~ ~~*TODO: add action support*~~
  - [x] ~~integrate message handler to allow two way communication between web view and Sketch~~
  - [x] ~~set up redux for webviews + add actions to store as sample~~
+ - [ ] make web view framework flexible, right now the plugin name is hard coded...
  - [ ] create new repo for debugger tools + integrate them here as dependency
  - [ ] test integration (jest? how can you write unit tests for sketch plugins?!)
  - [ ] make a GIF to show how fast and easy the setup is 😂
