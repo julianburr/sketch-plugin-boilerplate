@@ -16,7 +16,10 @@ git clone https://github.com/julianburr/sketch-plugin-boilerplate.git sketch-plu
 cd sketch-plugin-boilerplate.sketchplugin
 
 # Install dependecies
-git install
+yarn install
+
+# ...and create a first build
+yarn build
 ```
 
 ...and you're ready to go
