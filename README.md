@@ -62,7 +62,8 @@ Basically just because I got tired of noting todos in my code and then forget ab
  - [x] ~~integrate message handler to allow two way communication between web view and Sketch~~
  - [x] ~~set up redux for webviews + add actions to store as sample~~
  - [ ] make web view framework flexible, right now the plugin name is hard coded...
- - [ ] create new repo for debugger tools + integrate them here as dependency
+ - [ ] create simple HTTP request util for async requests (maybe better seperate?!)
+ - [x] ~~create new repo for debugger tools + integrate them here as dependency~~ => see [`sketch-debugger`](https://github.com/julianburr/sketch-debugger)
  - [ ] test integration (jest? how can you write unit tests for sketch plugins?!)
  - [ ] make a GIF to show how fast and easy the setup is 😂
  - [ ] documentation / simple website
