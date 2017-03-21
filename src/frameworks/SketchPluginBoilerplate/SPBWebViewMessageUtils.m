@@ -12,7 +12,7 @@
 
 @implementation SPBWebViewMessageUtils
 
-+(NSMutableArray *) list{
++(NSMutableArray *) list {
     static NSMutableArray* messageList = nil;
     static dispatch_once_t oncePredicate;
     dispatch_once(&oncePredicate, ^{
@@ -44,7 +44,7 @@
     [[self list] addObject:message];
 }
 
-+(NSString *)getPayload{
++(NSString *)getPayload {
     id obj = [[self list] objectAtIndex:0];
     [[self list] removeObjectAtIndex:0];
     return obj;
