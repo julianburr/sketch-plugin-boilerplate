@@ -72,6 +72,7 @@
     "lint-fix:plugin": "eslint ./src/plugin/ --fix -c ./config/plugin/eslint.js || true",
     "lint-fix:webview": "eslint ./src/webview/ --fix -c ./config/webview/eslint.js || true",
     "lint-fix": "yarn lint-fix:plugin && yarn lint-fix:webview",
+    "lint-fox": "node scripts/lint-fox && yarn lint-fix",
     "todos": "node scripts/todos.js"
   },
   "dependencies": {
