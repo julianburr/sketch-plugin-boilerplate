@@ -8,7 +8,8 @@ export default {
 
   frameworks: {
     SketchPluginBoilerplate: {
-      SPBWebViewMessageHandler: 'SPBWebViewMessageHandler'
+      SPBWebViewMessageHandler: 'SPBWebViewMessageHandler',
+      SPBHttpRequestUtils: 'SPBHttpRequestUtils'
     }
   },
 
