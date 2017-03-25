@@ -12,7 +12,7 @@ I tried to use as little Obj C as possible, again, this is supposed to be a help
 
 <br>
 
->This is meant as a starting point, so clone the repo, modify anything and everything to your needs and build an awesome Sketch plugin
+> This is meant as a starting point, so clone the repo, modify anything and everything to your needs and build an awesome Sketch plugin
 
 <br>
 
@@ -97,3 +97,4 @@ The build structure follows [Sketch's guidelines](http://developer.sketchapp.com
  - [ ] Create simple github.io website
  - [ ] Create tutorials for JS developers to get started with Sketch plugins
  - [ ] Implement testing ([Jest](https://facebook.github.io/jest/)?)
+ - [ ] Try to use WKUser​Content​Controller without the xcode framework (would get rid of one dependecy?!)
