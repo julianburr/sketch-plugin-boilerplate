@@ -1,11 +1,11 @@
 # Sketch Plugin Boilerplate
 
-This is a basic JS boilerplate for creating [Sketch](https://www.sketchapp.com/) plugins, including custom GUIs build with JS (React). It bundles the code using [`rollup`](https://github.com/rollup/rollup) and [`rollup-plugin-babel`](https://github.com/rollup/rollup-plugin-babel), as well as [`webpack`](https://github.com/webpack/webpack) for the GUI side. Besides that it offers some other tweaks and helpers to make your life as a developer easier.
+This is a basic JS boilerplate for creating [Sketch](https://www.sketchapp.com/) plugins, including custom GUIs build with JS (React). It bundles the code using [`rollup`](https://github.com/rollup/rollup) and [`rollup-plugin-babel`](https://github.com/rollup/rollup-plugin-babel), as well as [`webpack`](https://github.com/webpack/webpack) for the GUI. Besides, it offers other tweaks to make your life as a developer easier.
 
-I used as little Objective C as possible, as this is really thought as an entry point for JS developers who don't want to deal with this side but still create awesome plugins.
+I used little Objective C, as this is thought as an entry point for JS developers who don't want to deal with this side but still create awesome plugins.
 
 ## Get started
-I recommend using [`yarn`](https://yarnpkg.com/), alternatively you can run the equivalent commands with `npm` as well. Also I recommend cloning the repo right into your Sketch plugin folder, cause it will development much faster and easier.
+I recommend using [`yarn`](https://yarnpkg.com/). Alternatively you can run the equivalent commands with `npm` as well. Also I recommend cloning the repo right into your Sketch plugin folder, because it will develop much faster and easier.
 
 ```bash
 # Change to plugin folder
@@ -25,17 +25,17 @@ yarn build
 ...and you're ready to go
 
 ## Folder structure
-In the sample plugin you can see the expected folder structure. `src/plugin/index.js` is the entry point, the rest is wherever you want put it. Feel free to change the file structure to your needs. All you should be needing to do then is to adjust the paths defined in `config/plugin/paths.js` :)
+In the sample plugin you can see the expected folder structure. `src/plugin/index.js` is the entry point, and the rest is wherever you want put it. Feel free to change the file structure to your needs. All you need to do is adjust the paths defined in `config/plugin/paths.js` :)
 
-The build structure is set according to the [Sketch Guidlines](http://developer.sketchapp.com/introduction/plugin-bundles/), so that the repo can be used as fully functional sketch plugin within the plugin folder (`~/Library/Application Support/com.bohemiancoding.sketch3/Plugins/`) for faster development.
+The build structure is set according to the [Sketch Guidlines](http://developer.sketchapp.com/introduction/plugin-bundles/), so that the repo can be used as a fully functional sketch plugin within the plugin folder (`~/Library/Application Support/com.bohemiancoding.sketch3/Plugins/`) for faster development.
 
 ## Scripts
 
 **`yarn start`**
 
-During development you don't want to manually rebuild every time you make a tiny little change. When running `yarn start` you create a development build (into the actual build folder structure, so Sketch automatically uses the files as a plugin) and stays alive watching for any changes. The bundled JS file is not minified (for better debugging) and a cache is used for faster rebuilding.
+During development you don't want to manually rebuild every time you make a tiny change. When running `yarn start` you create a development build (into the actual build folder structure), so Sketch automatically uses the files as a plugin and stays alive watching for any changes. The bundled JS file is not minified (for better debugging), and a cache is used for faster rebuilding.
 
-_NOTE: since it is much more convenient I split most of the scripts into `:plugin` and `:webview` as well, so you can start and watch your webview development by simply calling `yarn start:webview`_
+_NOTE: since it is much more convenient to split most of the scripts into `:plugin` and `:webview` as well, you can start and watch your webview development by simply calling `yarn start:webview`_
 
 **`yarn build`**
 
@@ -51,7 +51,7 @@ Bundles the code into a `*.sketchplugin` folder ready to be pusblished or shared
 
 **`yarn todos`**
 
-Basically just because I got tired of noting todos in my code and then forget about it 😅
+Basically because I got tired of noting todos in my code and then forget about it 😅
 
 ##  Todos
  - [x] ~~eslint integration~~
