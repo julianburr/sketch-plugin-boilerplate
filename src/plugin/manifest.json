@@ -41,6 +41,18 @@
       "handler": "sendMessageToPanel",
       "name": "Send Bridge Message",
       "identifier": "sendMessageToPanel"
+    },
+    {
+      "script": "plugin.js",
+      "handler": "sendRequest",
+      "name": "Send HTTP Request",
+      "identifier": "sendRequest"
+    },
+    {
+      "script": "plugin.js",
+      "handler": "handleHttpResponse",
+      "name": "Handle HTTP Response",
+      "identifier": "handleHttpResponse"
     }
   ],
   "menu": {
@@ -49,7 +61,8 @@
       {
         "title": "Sketch Plugin Boilerplate",
         "items": [
-          "helloWorld", 
+          "helloWorld",
+          "sendRequest",
           "-",
           {
             "title": "Window",

@@ -1,6 +1,7 @@
 import Core from 'utils/core';
 import WebViewUtil from 'utils/web-view';
 import Debugger from 'sketch-debugger';
+import fetch, { handleResponses } from 'utils/fetch';
 
 /**
  * NOTE: as eslint complains about unused vars and functions
@@ -56,3 +57,19 @@ const sendMessageToPanel = function (context) {
   Core.initWithContext(context);
   WebViewUtil.Panel.sendAction(WebViewUtil.identifierPanel, 'foo', {foo: 'bar'});
 };
+
+// eslint-disable-next-line no-unused-vars
+const sendRequest = function (context) {
+  Core.initWithContext(context);
+  fetch('https://jsonplaceholder.typicode.com/posts/1').then(data => {
+    log('async worked');
+    log(data);
+    Core.document.showMessage('Async rulez!')
+  }).send();
+}
+
+// eslint-disable-next-line no-unused-vars
+const handleHttpResponse = function(context) {
+  Core.initWithContext(context);
+  handleResponses();
+}
