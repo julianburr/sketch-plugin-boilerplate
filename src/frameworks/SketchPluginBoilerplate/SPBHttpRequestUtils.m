@@ -65,6 +65,7 @@
         }
         
         NSLog(@"Sending async request done");
+        [self setResponse:payload forIdentifier:identifier];
         
         // Set selector and check if Sketch responses to it to avoid crashes
         SEL runPluginCmdSel = NSSelectorFromString(@"runPluginCommandWithIdentifier:fromBundleAtURL:");
@@ -90,7 +91,18 @@
 }
 
 +(NSDictionary *)getResponseForIdentifier:(NSString *)identifier {
-    return [[self responses] objectForKey:identifier];
+    NSDictionary *response = [[self responses] objectForKey:identifier];
+    [[self responses] removeObjectForKey:identifier];
+    return response;
+}
+
++(NSMutableDictionary *)getResponses {
+    NSArray *keys = [[self responses] allKeys];
+    NSMutableDictionary *responses = [NSMutableDictionary dictionaryWithDictionary:@{}];
+    for (id key in keys) {
+        [responses setValue:[self getResponseForIdentifier:key] forKey:key];
+    }
+    return responses;
 }
 
 @end
