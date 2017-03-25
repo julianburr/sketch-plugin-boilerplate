@@ -6,7 +6,7 @@
 
 # Sketch Plugin Boilerplate
 
-The Sketch Plugin Boilerplate is targeted at JS Developers, who want to create awesome plugins for [Sketch](https://sketchapp.com), but don't want to have to go through all the Obj C hussle to be able to do more complex stuff, like building GUIs, handling API requests, etc.
+The Sketch Plugin Boilerplate is targeted at JS Developers, who want to create awesome plugins for [Sketch](https://sketchapp.com), but don't want to have to go through all the Obj C frustrations to be able to do more complex stuff, like building GUIs, handling HTTP requests, etc.
 
 I tried to use as little Obj C as possible, again, this is supposed to be a helpful starting point for JS developers.
 
