@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="435px" height="152px" viewBox="0 0 435 152" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 42 (36781) - http://www.bohemiancoding.com/sketch -->
+    <title>Logo Reverse With Shadow</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <rect id="path-1" x="21" y="13" width="124" height="124" rx="10"></rect>
+        <filter x="-50%" y="-50%" width="200%" height="200%" filterUnits="objectBoundingBox" id="filter-2">
+            <feOffset dx="0" dy="0" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="10" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.4 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+        </filter>
+        <text id="text-3" font-family="ProximaNova-Semibold, Proxima Nova" font-size="22" font-weight="500" letter-spacing="0.200000003" fill-opacity="0.5" fill="#FFFFFF">
+            <tspan x="171" y="113">PLUGIN BOILERPLATE</tspan>
+        </text>
+        <filter x="-50%" y="-50%" width="200%" height="200%" filterUnits="objectBoundingBox" id="filter-4">
+            <feOffset dx="0" dy="0" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="5" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.3 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+        </filter>
+        <text id="text-5" font-family="ProximaNova-Extrabld, Proxima Nova" font-size="72" font-weight="600" letter-spacing="0.200000003" fill="#FFFFFF">
+            <tspan x="171" y="84">Sketch</tspan>
+        </text>
+        <filter x="-50%" y="-50%" width="200%" height="200%" filterUnits="objectBoundingBox" id="filter-6">
+            <feOffset dx="0" dy="0" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="5" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.3 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+        </filter>
+    </defs>
+    <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Logo-Reverse-With-Shadow">
+            <g id="Rectangle">
+                <use fill="black" fill-opacity="1" filter="url(#filter-2)" xlink:href="#path-1"></use>
+                <use fill="#4990E2" fill-rule="evenodd" xlink:href="#path-1"></use>
+                <use fill="#FFFFFF" fill-rule="evenodd" xlink:href="#path-1"></use>
+            </g>
+            <g id="PLUGIN-BOILERPLATE" fill-opacity="0.5" fill="#FFFFFF">
+                <use filter="url(#filter-4)" xlink:href="#text-3"></use>
+                <use xlink:href="#text-3"></use>
+            </g>
+            <g id="Sketch" fill-opacity="1" fill="#FFFFFF">
+                <use filter="url(#filter-6)" xlink:href="#text-5"></use>
+                <use xlink:href="#text-5"></use>
+            </g>
+            <g id="3" transform="translate(39.000000, 34.000000)">
+                <path d="M0,21.9441285 L12.5402328,6.35564771 L27.3571902,0 L44.5,6.33831683e-07 L44.5,82 L0,21.9441285 Z M89,21.9441285 L76.4597672,6.35564771 L61.6428098,0 L44.5,6.33831683e-07 L44.5,82 L89,21.9441285 Z M4.25367647,22.5541488 L15.6413143,8.41137393 L29.096419,2.64516129 L44.6636029,2.64516187 L44.6636029,77.0403226 L4.25367647,22.5541488 Z M85.0735294,22.5541488 L73.6858916,8.41137393 L60.2307869,2.64516129 L44.6636029,2.64516187 L44.6636029,77.0403226 L85.0735294,22.5541488 Z" id="Combined-Shape" fill="#B3D1F3"></path>
+                <path d="M15.171297,8.26031691 L27.7016207,15.2677986 L61.6860008,15.2677986 L74.7058321,7.8441044 L74.7058321,8.26031691 M61.5565652,15.2648926 L73.6484842,30.9343734 L87.3962438,21.0311634 M27.8447732,15.2648926 L15.7528543,30.9343734 L2.00509464,21.0311634 M73.383807,30.4832259 L43.6423581,78.151712 L44.4727163,78.6807398 L74.2141652,31.0122536 L87.0214844,21.8769531 M16.0058046,30.4832259 L45.7472535,78.151712 L44.9168952,78.6807398 L15.1754463,31.0122536 L3.63476562,22.6132812 M16.0989129,30.9734089 L73.5074186,30.9734089 L73.5074186,30.4193548 L16.0989129,30.4193548" id="Combined-Shape" stroke="#B3D1F3"></path>
+            </g>
+        </g>
+    </g>
+</svg>
