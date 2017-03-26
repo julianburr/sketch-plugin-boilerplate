@@ -1,7 +1,7 @@
 import Core from 'utils/core';
 import WebViewUtil from 'utils/web-view';
 import Debugger from 'sketch-debugger';
-import fetch, { handleResponses } from 'utils/fetch';
+import fetch, { handleResponses } from 'sketch-fetch';
 
 /**
  * NOTE: as eslint complains about unused vars and functions

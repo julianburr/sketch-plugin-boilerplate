@@ -1,8 +1,8 @@
 var babel = require('rollup-plugin-babel');
 var uglify = require('rollup-plugin-uglify');
-var paths = require('./paths');
 var resolve = require('rollup-plugin-node-resolve');
 
+var paths = require('./paths');
 var babelConfig = require('./babel');
 
 var plugins = [
