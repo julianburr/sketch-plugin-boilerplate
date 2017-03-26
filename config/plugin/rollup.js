@@ -15,11 +15,11 @@ if (process.env.NODE_ENV === 'production') {
 }
 
 module.exports = {
-  // tell rollup our main entry point
+  // Tell rollup our main entry point
   entry: paths.entry,
   exports: 'none',
   format: 'cjs',
-  treeshake: false, // this is important in this case, otherwise handlers won't get output
+  treeshake: false, // This is important in this case, otherwise handlers won't get output
   plugins: plugins,
   sourceMap: true
 }

@@ -2,7 +2,7 @@ export class HttpRequest {
   constructor () {
     this.url = null;
     this.options = {};
-    this.callbacks = {};
+    this.callback = null;
 
     // Create unique request identifier
     //  This will also be used to store and get the callbacks
@@ -21,14 +21,19 @@ export class HttpRequest {
 
   setUrl (url) {
     this.url = url;
-  }
-
-  setCallback (callback, type) {
-    this.callbacks[type] = callback;
+    return this;
   }
 
   setOptions (options) {
-    this.options = options || {};
+    const { callback, ...rest } = options;
+    this.options = rest || {};
+    this.callback = callback || null;
+    return this;
+  }
+
+  setCallback (callback) {
+    this.callback = callback;
+    return this;
   }
 
   createRequest () {
@@ -137,73 +142,42 @@ export class HttpRequest {
     return NSString.stringWithString(string).dataUsingEncoding(NSUTF8StringEncoding);
   }
 
-  saveCallbacks () {
-    let threadDictionary = NSThread.mainThread().threadDictionary();
-    threadDictionary[`HTTPRequestCallbacks::${String(this.identifier)}`] = this.callbacks;
-  }
-
-  static clearCallbacks (identifier, response) {
-    //...
-  }
-
-  static triggerCallbacks (identifier, response) {
-    //...
-  }
-
-  then (callback) {
-    log('try to set `then` callback')
-    log(callback)
-    this.setCallback(callback, 'success');
-    return this;
-  }
-
-  catch (callback) {
-    this.setCallback(callback, 'failure');
-    return this;
-  }
-
-  always (callback) {
-    this.setCallback(callback, 'always');
-    return this;
-  }
-
-  send (success, failure, always) {
-    success && this.setCallback(success, 'success');
-    failure && this.setCallback(failure, 'failure');
-    always && this.setCallback(always, 'always');
-
+  send () {
     this.createRequest();
-    this.saveCallbacks();
-
-    log('Send request')
-    log(this.identifier);
-    log(this.url);
-    log(this.options);
-    log(this.callbacks);
-
-    log('checks')
-    log(SPBHttpRequestUtils)
-    log(this.request)
     if (this.request && SPBHttpRequestUtils) {
-      SPBHttpRequestUtils.sendRequest_withMetaData_withIdentifier(this.request, null, this.identifier);
+      SPBHttpRequestUtils.sendRequest_withMetaData_withIdentifier(this.request, {callback: this.callback}, this.identifier);
     }
   }
 }
 
-export const handleResponses = () => {
+export const handleResponses = fn => {
   const responses = SPBHttpRequestUtils.getResponses();
-  log('responses')
-  log(responses);
+  if (typeof fn !== 'function' || !responses) {
+    return;
+  }
   for (let key in responses) {
-    log('The response for ' + key)
-    log(responses[key])
+    const response = responses[key];
+    const callback = response.callback;
+    fn(`${callback}.ALWAYS`, response);
+    if (response.result == 'error') {
+      fn(`${callback}.FAILURE`, response);
+    } else {
+      fn(`${callback}.SUCCESS`, response);
+    }
   }
 }
 
 export default (url, options) => {
+  // We need an URL to be able to create request instance
+  if (!url) {
+    return;
+  }
+  // Initiate and return request class instance
   const request = new HttpRequest();
   request.setUrl(url);
-  request.setOptions(options);
+  if (options) {
+    request.setOptions(options);
+  }
   return request;
 }
 

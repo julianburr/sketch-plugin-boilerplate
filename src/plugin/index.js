@@ -11,8 +11,8 @@ import fetch, { handleResponses } from 'utils/fetch';
 
 // eslint-disable-next-line no-unused-vars
 const helloWorld = function (context) {
-  context.document.showMessage('Hello World');
-  Debugger.log('Hello', 'World')
+  Core.initWithContext(context);
+  Core.document.showMessage('Hello World!');
 };
 
 // eslint-disable-next-line no-unused-vars
@@ -36,13 +36,6 @@ const togglePanel = function (context) {
 const handleBridgeMessage = function (context) {
   Core.initWithContext(context);
   let data = SPBWebViewMessageUtils.getPayload();
-  try {
-    data = JSON.parse(data);
-  } catch (err) {
-    log(err.message);
-    log(err.stack);
-    return;
-  }
   WebViewUtil.receiveAction(data.name, data.payload);
 };
 
@@ -61,15 +54,22 @@ const sendMessageToPanel = function (context) {
 // eslint-disable-next-line no-unused-vars
 const sendRequest = function (context) {
   Core.initWithContext(context);
-  fetch('https://jsonplaceholder.typicode.com/posts/1').then(data => {
-    log('async worked');
-    log(data);
-    Core.document.showMessage('Async rulez!')
-  }).send();
+  fetch('https://jsonplaceholder.typicode.com/posts/1')
+    .setCallback('test') // So we can handle the async response
+    .send();
 }
 
 // eslint-disable-next-line no-unused-vars
 const handleHttpResponse = function(context) {
   Core.initWithContext(context);
-  handleResponses();
+  handleResponses((callback, response) => {
+    switch (callback) {
+      case 'test.ALWAYS': // using the response key we defined in the request
+        log('awesome, this works');
+        log(response);
+        break;
+      default:
+        break;
+    }
+  })
 }

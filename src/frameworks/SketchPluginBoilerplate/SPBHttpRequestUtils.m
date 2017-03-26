@@ -32,6 +32,10 @@
         NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *) response;
         id payload;
         NSString *body;
+        NSString *callback = metaData[@"callback"];
+        if (!callback) {
+            callback = @"HttpRequest";
+        }
         [NSString stringEncodingForData:data encodingOptions:nil convertedString:&body usedLossyConversion:nil];
         if( [httpResponse statusCode] >= 300 ){
             payload = @{
@@ -40,7 +44,8 @@
                 @"message":[NSHTTPURLResponse localizedStringForStatusCode:[httpResponse statusCode]],
                 @"body":body,
                 @"metaData":metaData,
-                @"identifier":identifier
+                @"identifier":identifier,
+                @"callback":callback
             };
         } else if ( !error ){
             payload = @{
@@ -49,7 +54,8 @@
                 @"message":[NSHTTPURLResponse localizedStringForStatusCode:[httpResponse statusCode]],
                 @"body":body,
                 @"metaData":metaData,
-                @"identifier":identifier
+                @"identifier":identifier,
+                @"callback":callback
             };
         } else {
             NSLog(@"error = %@", error);
@@ -60,7 +66,8 @@
                 @"message":[error localizedDescription],
                 @"body":body,
                 @"metaData":metaData,
-                @"identifier":identifier
+                @"identifier":identifier,
+                @"callback":callback
             };
         }
         
