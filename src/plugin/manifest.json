@@ -4,7 +4,7 @@
   "description": "This is just a simple development boilerplate for sketch plugins!",
   "authorEmail": "julian.burr@rexsoftware.com",
   "author": "Julian Burr",
-  "disableCocoaScriptPreprocessor": true,
+  "disableCocoaScriptPreprocessor": false,
   "commands": [
     {
       "script": "plugin.js",
