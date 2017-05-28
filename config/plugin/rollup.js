@@ -10,9 +10,10 @@ var plugins = [
   babel(babelConfig),
 ];
 
-if (process.env.NODE_ENV === 'production') {
-  plugins.push(uglify());
-}
+// Uglify breaks the build process, so disabled for now
+// if (process.env.NODE_ENV === 'production') {
+//   plugins.push(uglify());
+// }
 
 module.exports = {
   // Tell rollup our main entry point
