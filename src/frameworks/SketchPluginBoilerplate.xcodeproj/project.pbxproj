@@ -11,7 +11,6 @@
 		6A07E34E1E6F6A8200FC67CC /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A07E34D1E6F6A8200FC67CC /* WebKit.framework */; };
 		6A07E3511E6F6AED00FC67CC /* SPBWebViewMessageHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A07E3501E6F6AED00FC67CC /* SPBWebViewMessageHandler.m */; };
 		6A2CCD5F1E6FB26E0080B076 /* SPBWebViewMessageUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A2CCD5E1E6FB26E0080B076 /* SPBWebViewMessageUtils.m */; };
-		6AF368EB1E80FE9000AE3E0E /* SPBHttpRequestUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AF368EA1E80FE9000AE3E0E /* SPBHttpRequestUtils.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,8 +22,6 @@
 		6A07E3501E6F6AED00FC67CC /* SPBWebViewMessageHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPBWebViewMessageHandler.m; sourceTree = "<group>"; };
 		6A2CCD5E1E6FB26E0080B076 /* SPBWebViewMessageUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPBWebViewMessageUtils.m; sourceTree = "<group>"; };
 		6A2CCD601E6FB3BA0080B076 /* SPBWebViewMessageUtils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SPBWebViewMessageUtils.h; sourceTree = "<group>"; };
-		6AF368E91E80FDA400AE3E0E /* SPBHttpRequestUtils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SPBHttpRequestUtils.h; sourceTree = "<group>"; };
-		6AF368EA1E80FE9000AE3E0E /* SPBHttpRequestUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPBHttpRequestUtils.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,8 +62,6 @@
 				6A2CCD601E6FB3BA0080B076 /* SPBWebViewMessageUtils.h */,
 				6A2CCD5E1E6FB26E0080B076 /* SPBWebViewMessageUtils.m */,
 				6A07E3451E6F6A4700FC67CC /* Info.plist */,
-				6AF368E91E80FDA400AE3E0E /* SPBHttpRequestUtils.h */,
-				6AF368EA1E80FE9000AE3E0E /* SPBHttpRequestUtils.m */,
 			);
 			path = SketchPluginBoilerplate;
 			sourceTree = "<group>";
@@ -161,7 +156,6 @@
 			files = (
 				6A07E3511E6F6AED00FC67CC /* SPBWebViewMessageHandler.m in Sources */,
 				6A2CCD5F1E6FB26E0080B076 /* SPBWebViewMessageUtils.m in Sources */,
-				6AF368EB1E80FE9000AE3E0E /* SPBHttpRequestUtils.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

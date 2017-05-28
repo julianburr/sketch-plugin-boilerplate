@@ -7,6 +7,7 @@ var chalk = require('chalk');
 
 var config = require('../../config/plugin/rollup');
 var paths = require('../../config/plugin/paths');
+var fetch = require('sketch-fetch/lib/node');
 
 var manifest = require('../../src/plugin/manifest.json');
 var pkg = require('../../package.json');
@@ -44,6 +45,7 @@ function build () {
         fs.copySync(paths.frameworks + '/' + item, paths.frameworksBuild + '/' + item);
       }
     });
+    fetch.copyFrameworks(paths.frameworksBuild);
 
     // Done :)
     console.log(chalk.green('✓ Compiled successfully.'));

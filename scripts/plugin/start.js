@@ -11,6 +11,7 @@ var paths = require('../../config/plugin/paths');
 
 var manifest = require('../../src/plugin/manifest.json');
 var pkg = require('../../package.json');
+var fetch = require('sketch-fetch/lib/node');
 
 var watching = false;
 
@@ -56,6 +57,7 @@ function build () {
         fs.copySync(paths.frameworks + '/' + item, paths.frameworksBuild + '/' + item);
       }
     });
+    fetch.copyFrameworks(paths.frameworksBuild);
 
     // Done :)
     console.log(chalk.green('✓ Compiled successfully.'));

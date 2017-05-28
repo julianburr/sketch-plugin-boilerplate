@@ -54,6 +54,7 @@ const sendMessageToPanel = function (context) {
 // eslint-disable-next-line no-unused-vars
 const sendRequest = function (context) {
   Core.initWithContext(context);
+  Core.document.showMessage('Sending HTTP request')
   fetch('https://jsonplaceholder.typicode.com/posts/1')
     .setCallback('test') // So we can handle the async response
     .send();
@@ -62,11 +63,18 @@ const sendRequest = function (context) {
 // eslint-disable-next-line no-unused-vars
 const handleHttpResponse = function(context) {
   Core.initWithContext(context);
+  log('handleHttpResponse')
   handleResponses((callback, response) => {
     switch (callback) {
       case 'test.ALWAYS': // using the response key we defined in the request
-        log('awesome, this works');
-        log(response);
+        Debugger.log('awesome, this works', response);
+        /**
+         * NOTE: context.document.showMessage() does not work on background threads,
+         *  which we are on at this point, as the async response is not handled
+         *  by the main thread, which means it also doesn't block the main thread
+         *  and therefore the main process, which is exactly what we want :)
+         */
+        Core.document.showMessage('Http requests work!');
         break;
       default:
         break;

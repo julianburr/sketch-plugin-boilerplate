@@ -51,7 +51,6 @@
     "rollup-plugin-node-resolve": "^2.0.0",
     "rollup-plugin-uglify": "^1.0.1",
     "sass-loader": "^4.1.1",
-    "sketch-fetch": "^0.0.5",
     "url": "^0.11.0",
     "url-loader": "^0.5.8",
     "watch": "^1.0.1",
@@ -85,6 +84,7 @@
     "react-router": "^3.0.2",
     "react-router-redux": "^4.0.7",
     "redux": "^3.6.0",
-    "sketch-debugger": "git+https://github.com/julianburr/sketch-debugger.git"
+    "sketch-debugger": "git+https://github.com/julianburr/sketch-debugger.git",
+    "sketch-fetch": "^0.0.12"
   }
 }

@@ -4337,9 +4337,9 @@ signal-exit@^3.0.0:
   version "0.0.1"
   resolved "git+https://github.com/julianburr/sketch-debugger.git#98915d2fb78f488ef6b7d6fc47fdb65fd4607f18"
 
-sketch-fetch@^0.0.5:
-  version "0.0.5"
-  resolved "https://registry.yarnpkg.com/sketch-fetch/-/sketch-fetch-0.0.5.tgz#761aa3f9ebb6cb48db9c7d4c4628ac972d8441f0"
+sketch-fetch@^0.0.12:
+  version "0.0.12"
+  resolved "https://registry.yarnpkg.com/sketch-fetch/-/sketch-fetch-0.0.12.tgz#9964bed7f571545571802d69d9f203387b7e4c92"
   dependencies:
     sketch-debugger "git+https://github.com/julianburr/sketch-debugger.git"
 

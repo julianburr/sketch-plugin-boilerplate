@@ -1,3 +1,5 @@
+import { FetchCore } from 'sketch-fetch';
+
 export default {
   context: null,
   document: null,
@@ -9,8 +11,7 @@ export default {
   frameworks: {
     SketchPluginBoilerplate: {
       SPBWebViewMessageHandler: 'SPBWebViewMessageHandler',
-      SPBHttpRequestUtils: 'SPBHttpRequestUtils'
-    }
+    },
   },
 
   getPluginFolderPath (context) {
@@ -28,6 +29,7 @@ export default {
     this.pluginFolderPath = this.getPluginFolderPath(context);
 
     this.loadFrameworks();
+    FetchCore.initWithContext(this.context, 'sketch-plugin-boilerplate');
   },
 
   loadFrameworks () {

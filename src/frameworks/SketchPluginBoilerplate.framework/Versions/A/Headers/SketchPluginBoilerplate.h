@@ -12,5 +12,4 @@ FOUNDATION_EXPORT double versionNumber = 1.0;
 
 #import "SPBWebViewMessageHandler.h"
 #import "SPBWebViewMessageUtils.h"
-#import "SPBHttpRequestUtils.h"
 
