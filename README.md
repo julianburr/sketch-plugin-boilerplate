@@ -56,6 +56,9 @@ yarn build:webview
 
 # Run eslint --fix on the source directory
 yarn lint-fix
+
+# Run Jest tests (needs sketchtool installed locally)
+yarn test
 ```
 
 For the rest, see `package.json`
@@ -68,6 +71,7 @@ For the rest, see `package.json`
 The build structure follows [Sketch's guidelines](http://developer.sketchapp.com/introduction/plugin-bundles/) of how your plugin has to be structured. This makes development so much easier. All you have to do is to create the repo in your Sketch plugin folder (usually `~/Library/Application Support/com.bohemiancoding.sketch3/Plugins/`) and start coding. The watch and build scripts automatically put everything in the right place so you see the changes immediately in Sketch :)
 
 ```bash
+└─── /__test__ # Jest tests and assets (SKetch files, etc) that are used for test scenarios
 └─── /config # Here you will find all necessary configurations, feel free to adjust them to your needs! :)
 │
 └─── /Contents  # This is the build folder that Sketch reads
@@ -93,8 +97,7 @@ The build structure follows [Sketch's guidelines](http://developer.sketchapp.com
 
 ## Roadmap / Todos
 
- - [ ] Create useful documentation
- - [ ] Create simple github.io website
+ - [ ] Create useful documentation (integrated into a simple github.io page)
  - [ ] Create tutorials for JS developers to get started with Sketch plugins
- - [ ] Implement testing ([Jest](https://facebook.github.io/jest/)?)
+ - [x] ~~Implement testing ([Jest](https://facebook.github.io/jest/)?)~~ *- Note: using [sketchtool](https://www.sketchapp.com/tool/) for accessing Sketch files and running plugin commands, however using own util functions, since the [node package](https://github.com/marekhrabe/sketchtool) does not seem to be maintained anymore (currently at version 39.x)*
  - [ ] Try to use WKUser​Content​Controller without the xcode framework (would get rid of one dependecy?!)
