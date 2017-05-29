@@ -71,7 +71,7 @@ For the rest, see `package.json`
 The build structure follows [Sketch's guidelines](http://developer.sketchapp.com/introduction/plugin-bundles/) of how your plugin has to be structured. This makes development so much easier. All you have to do is to create the repo in your Sketch plugin folder (usually `~/Library/Application Support/com.bohemiancoding.sketch3/Plugins/`) and start coding. The watch and build scripts automatically put everything in the right place so you see the changes immediately in Sketch :)
 
 ```bash
-└─── /__test__ # Jest tests and assets (SKetch files, etc) that are used for test scenarios
+└─── /__tests__ # Jest tests and assets (e.g. Sketch files, etc) that are used for test scenarios
 └─── /config # Here you will find all necessary configurations, feel free to adjust them to your needs! :)
 │
 └─── /Contents  # This is the build folder that Sketch reads
