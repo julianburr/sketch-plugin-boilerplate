@@ -1,5 +1,5 @@
 
-![Image](http://dev.burrdesign.de/sketch-plugin-boilerplate-logo.svg)
+![Image](http://dev.burrdesign.de/sketch-plugin-boilerplate-logo-20170702.svg)
  
 <br>
 <br>
