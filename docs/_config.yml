@@ -1,0 +1,9 @@
+---
+siteTitle: Sketch Plugin Boilerplate
+siteDescription: A JS based boilerplate for developing sketch plugins
+siteUrl: https://julianburr.github.io
+githubUrl: https://github.com/julianburr/sketch-plugin-boilerplate
+baseurl: "/sketch-plugin-boilerplate"
+sass:
+  style: :compressed
+  sass_dir: _sass

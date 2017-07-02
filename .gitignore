@@ -6,3 +6,7 @@ Contents/
 
 # Ignore knowledge base for now until cleaned up :D
 knowledge/
+
+# Docs files
+docs/.sass-cache
+docs/_site
