@@ -1,0 +1,20 @@
+.highlight code {
+  width: 100%;
+  padding: 2rem;
+  float: left;
+  background: none $colors-grey-very-light;
+  border-radius: .5rem;
+  font-size: 1.2rem;
+  overflow: auto;
+  margin: 0 0 2rem;
+  font-family: "Overpass Mono";
+}
+
+code.highlighter-rouge {
+  background: none $colors-grey-very-light;
+  border-radius: .3rem;
+  display: inline-block;
+  padding: .3rem .5rem;
+  font-family: "Overpass Mono";
+  font-size: 90%;
+}

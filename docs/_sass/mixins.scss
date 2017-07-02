@@ -1,0 +1,8 @@
+$container-width: 90rem;
+
+@mixin centered-container() {
+  width: $container-width;
+  margin: 0 0 0 ($container-width / -2);
+  padding: 0 0 0 50%;
+  box-sizing: content-box;
+}

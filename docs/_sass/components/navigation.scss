@@ -1,0 +1,59 @@
+.nav--main {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: none $colors-blue;
+  color: $colors-white;
+
+  .container {
+    @include centered-container();
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+
+    .logo {
+      float: left;
+      color: inherit;
+      text-decoration: none;
+
+      svg {
+        height: 3rem;
+        width: auto;
+        float: left;
+        margin: 0 0 1rem;
+      }
+
+      .label {
+        font-weight: 800;
+        line-height: 3rem;
+        font-size: 1.8rem;
+        float: left;
+        margin: 0 0 0 1rem;
+      }
+    }
+
+    ul {
+      float:right;
+      margin: .5rem 0;
+      padding: 0;
+
+      li {
+        padding: 0;
+        margin: 0;
+        display: inline-block;
+
+        a {
+          color: inherit;
+          padding: 1rem 0;
+          margin: 0 0 0 1.5rem;
+          text-decoration: none;
+          font-weight: 500;
+
+          &:hover {
+            text-decoration: underline;
+          }
+        }
+      }
+    }
+  }
+}

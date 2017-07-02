@@ -1,0 +1,87 @@
+#page-home {
+  padding-top: 0;
+
+  .nav--main {
+    position: absolute;
+
+    .logo .label {
+      display: none;
+    }
+  }
+
+  .hero {
+    background: $colors-blue;
+    color: $colors-white;
+    width: 100%;
+    float: left;
+    text-align: center;
+
+    .content {
+      @include centered-container();
+      padding-top: 10rem;
+      padding-bottom: 10rem;
+
+      h1 {
+        font-size: 7rem;
+        font-weight: 800;
+
+        .small {
+          font-size: 2.1rem;
+          opacity: .7;
+          text-transform: uppercase;
+          display: block;
+        }
+      }
+
+      .hero--buttons {
+
+        .button {
+          margin: 0 1rem 0 0;
+          padding: 1rem;
+          border: .2rem solid $colors-white;
+          border-radius: .5rem;
+          color: $colors-white;
+          background: none transparent;
+          transition: background .3s, color .3s;
+          text-decoration: none;
+
+          &:hover {
+            background: none $colors-white;
+            color: $colors-blue;
+          }
+        }
+      }
+    }
+  }
+
+  .features {
+    background: none $colors-grey-very-light;
+    width: 100%;
+    float: left;
+    margin: 0 0 5rem;
+    
+    .content {
+      @include centered-container();
+
+      .feature {
+        width: 33.3333%;
+        float: left;
+        padding: 3rem;
+
+        .icon {
+          width: 100%;
+          float: left;
+          margin: 0 0 2.5rem;
+          text-align: center;
+          font-size: 7rem;
+          color: $colors-grey-light;
+        }
+
+        h2 {
+          text-align: center;
+          font-weight: 600;
+        }
+      }
+    }
+  }
+}

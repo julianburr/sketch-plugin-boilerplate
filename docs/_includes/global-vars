@@ -1,0 +1,4 @@
+{% assign title = site.siteTitle %}
+{% if page.title %}
+  {% assign title = page.title | append: ' - ' | append: site.siteTitle %}
+{% endif %}

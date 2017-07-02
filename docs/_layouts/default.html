@@ -1,0 +1,11 @@
+{% include global-vars %}
+<!DOCTYPE html>
+<html>
+  {% include head.html %}
+  <body id="page-{{ page.id }}">
+    {% include navigation.html %}
+    <main class="main-content">
+      {{ content }}
+    </main>
+  </body>
+</html>

@@ -1,0 +1,13 @@
+.main-content {
+  @include centered-container();
+
+  .sidebar-nav {
+    width: 30%;
+    float: left;
+  }
+
+  .sidebar-content {
+    width: 70%;
+    float: left;
+  }
+}
