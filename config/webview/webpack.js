@@ -82,11 +82,11 @@ var configDev = {
 var loadersDev = [
   {
     test: /\.css$/,
-    loaders: ['style', 'css', 'postcss']
+    loaders: ['style-loader', 'css', 'postcss']
   },
   {
     test: /\.scss$/,
-    loaders: ['style', 'css', 'sass', 'postcss']
+    loaders: ['style-loader', 'css', 'sass', 'postcss']
   }
 ];
 
@@ -153,11 +153,11 @@ var configProd = {
 var loadersProd = [
   {
     test: /\.css$/,
-    loader: ExtractTextPlugin.extract('style', 'css?importLoaders=1!postcss')
+    loader: ExtractTextPlugin.extract('style-loader', 'css?importLoaders=1!postcss')
   },
   {
     test: /\.scss$/,
-    loader: ExtractTextPlugin.extract('style', 'css?importLoaders=1!sass!postcss')
+    loader: ExtractTextPlugin.extract('style-loader', 'css?importLoaders=1!sass!postcss')
   }
 ];
 
@@ -208,7 +208,7 @@ module.exports = objectAssign({
       {
         test: /\.(js|jsx)$/,
         include: paths.src,
-        loader: 'babel',
+        loader: 'babel-loader',
         query: babelConfig
       },
       {
