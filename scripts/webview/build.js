@@ -1,54 +1,38 @@
-process.env.NODE_ENV = 'production';
-require('dotenv').config({silent: true});
-
-var chalk = require('chalk');
 var fs = require('fs-extra');
-var path = require('path');
-var pathExists = require('path-exists');
+var chalk = require('chalk');
 var webpack = require('webpack');
-var config = require('../../config/webview/webpack');
+
+var config = require('../../config/webview/webpack-prod');
 var paths = require('../../config/webview/paths');
-var checkRequiredFiles = require('react-dev-utils/checkRequiredFiles');
-var recursive = require('recursive-readdir');
-var stripAnsi = require('strip-ansi');
 
-var useYarn = pathExists.sync(paths.yarnLockFile);
+function build (callback) {
+  console.log(chalk.grey.italic('Build web view'));
 
-// Warn and crash if required files are missing
-if (!checkRequiredFiles([paths.indexHtml, paths.indexJs])) {
-  process.exit(1);
-}
+  console.log('  ✓ Remove old build...');
+  fs.emptyDirSync(paths.build);
 
-// Print out errors
-function printErrors(summary, errors) {
-  console.log(chalk.red(summary));
-  console.log();
-  errors.forEach(err => {
-    console.log(err.message || err);
+  webpack(config).run((err, stats) => {
+    // Catch all errors
+    var error = null;
+    if (err) {
+      error = err;
+    } else if (stats.compilation.errors.length) {
+      error = stats.compilation.errors;
+    } else if (process.env.CI && stats.compilation.warnings.length) {
+      error = stats.compilation.warnings;
+    }
+
+    if (error) {
+      callback(error);
+      return;
+    }
+
+    // Done :)
+    console.log(chalk.green.bold('  ✓ Web view compiled successfully'));
     console.log();
+
+    callback();
   });
 }
 
-console.log('Clear old build directory...')
-fs.emptyDirSync(paths.build);
-
-// Create the production build and print the deployment instructions.
-console.log('Creating an optimized production build...');
-webpack(config).run((err, stats) => {
-  if (err) {
-    printErrors('Failed to compile.', [err]);
-    process.exit(1);
-  }
-
-  if (stats.compilation.errors.length) {
-    printErrors('Failed to compile.', stats.compilation.errors);
-    process.exit(1);
-  }
-
-  if (process.env.CI && stats.compilation.warnings.length) {
-    printErrors('Failed to compile.', stats.compilation.warnings);
-    process.exit(1);
-  }
-
-  console.log(chalk.green('✓ Compiled successfully.'));
-});
+module.exports = build;

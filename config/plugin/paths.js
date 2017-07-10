@@ -1,26 +1,21 @@
 var path = require('path');
-var fs = require('fs');
+var fs = require('fs-extra');
 
 var appDirectory = fs.realpathSync(process.cwd());
 function resolveApp(relativePath) {
   return path.resolve(appDirectory, relativePath);
 }
 
-var nodePaths = (process.env.NODE_PATH || '')
-  .split(process.platform === 'win32' ? ';' : ':')
-  .filter(Boolean)
-  .filter(folder => !path.isAbsolute(folder))
-  .map(resolveApp);
+var src = resolveApp('src/plugin');
+var frameworks = resolveApp('src/frameworks');
 
 module.exports = {
-  src: resolveApp('src/plugin'),
+  src,
   entry: resolveApp('src/plugin/index.js'),
   manifest: resolveApp('src/plugin/manifest.json'),
   build: resolveApp('Contents/Sketch'),
   bundle: resolveApp('sketch-plugin-boilerplate.sketchplugin'),
-  frameworks: resolveApp('src/frameworks'),
+  frameworks,
   frameworksBuild: resolveApp('Contents/Resources/frameworks'),
-  packageJson: resolveApp('package.json'),
-  nodeModules: resolveApp('node_modules'),
-  nodePaths: nodePaths
+  watch: [src, frameworks]
 };

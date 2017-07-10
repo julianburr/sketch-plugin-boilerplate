@@ -1,4 +1,4 @@
-var sketchtool = require('../scripts/sketchtool-utils');
+var sketchtool = require('../scripts/utils/sketchtool');
 
 var testFilePath = '__tests__/test.sketch';
 

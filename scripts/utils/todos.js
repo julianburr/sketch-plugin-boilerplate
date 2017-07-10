@@ -1,8 +1,3 @@
-/**
- * This script basically just runs through all source files and
- * prints out a list of files and lines where it found the TODO
- * keyword
- */
 var fs = require('fs-extra');
 var chalk = require('chalk');
 
@@ -38,7 +33,7 @@ function readDir(dirPath){
 
 readDir('./src');
 if (todoCnt > 0) {
-  console.log(chalk.red(chalk.bold('\n✖ ' + todoCnt + ' todos found in code\n')));
+  console.log(chalk.red.bold('\n✖ ' + todoCnt + ' todos found in code\n'));
 } else {
-  console.log(chalk.green(chalk.bold('\nGreat, seems you are todo-free\n')));
+  console.log(chalk.green.bold('\nGreat, seems you are todo-free\n'));
 }

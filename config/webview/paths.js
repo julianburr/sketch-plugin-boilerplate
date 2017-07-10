@@ -1,5 +1,5 @@
 var path = require('path');
-var fs = require('fs');
+var fs = require('fs-extra');
 
 var appDirectory = fs.realpathSync(process.cwd());
 function resolveApp(relativePath) {
@@ -23,5 +23,6 @@ module.exports = {
   appNodeModules: resolveApp('node_modules'),
   ownNodeModules: resolveApp('node_modules'),
   nodePaths: nodePaths,
+  yarnLockFile: resolveApp('yarn.lock'),
   homepage: './'
 };
