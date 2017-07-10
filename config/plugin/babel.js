@@ -9,6 +9,5 @@ module.exports = {
         utils: './src/plugin/utils'
       }
     }]
-  ],
-  exclude: 'node_modules/**'
+  ]
 }
