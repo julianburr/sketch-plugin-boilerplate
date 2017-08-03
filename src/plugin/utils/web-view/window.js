@@ -1,36 +1,43 @@
-import Core from 'utils/core';
-import WebViewCore from './web-view';
+import { 
+  createWebView, 
+  sendAction as sendActionToWebView 
+} from './web-view';
 
-export default {
-  open (identifier, path = 'index.html', width = 450, height = 350) {
-    const frame = NSMakeRect(0, 0, width, height);
-    const masks = NSTitledWindowMask |
-      NSWindowStyleMaskClosable |
-      NSResizableWindowMask;
-    const window = NSPanel.alloc().initWithContentRect_styleMask_backing_defer(frame, masks, NSBackingStoreBuffered, false);
-    window.setMinSize({width: 200, height: 200});
+export function open (identifier, path = 'index.html', options = {}) {
+  // Sensible defaults for options
+  const { 
+    width = 450, 
+    height = 350, 
+    title = 'Sketch Plugin Boilerplate' 
+  } = options;
 
-    // We use this dictionary to have a persistant storage of our NSWindow/NSPanel instance
-    // Otherwise the instance is stored nowhere and gets release => Window closes
-    let threadDictionary = NSThread.mainThread().threadDictionary();
-    threadDictionary[identifier] = window;
+  const frame = NSMakeRect(0, 0, width, height);
+  const masks = NSTitledWindowMask |
+    NSWindowStyleMaskClosable |
+    NSResizableWindowMask;
+  const window = NSPanel.alloc().initWithContentRect_styleMask_backing_defer(frame, masks, NSBackingStoreBuffered, false);
+  window.setMinSize({width: 200, height: 200});
 
-    const webView = WebViewCore.createWebView(path, frame);
+  // We use this dictionary to have a persistant storage of our NSWindow/NSPanel instance
+  // Otherwise the instance is stored nowhere and gets release => Window closes
+  let threadDictionary = NSThread.mainThread().threadDictionary();
+  threadDictionary[identifier] = window;
 
-    window.title = 'Sketch Debugger';
-    window.center();
-    window.contentView().addSubview(webView);
+  const webView = createWebView(path, frame);
 
-    window.makeKeyAndOrderFront(null);
-  },
+  window.title = title;
+  window.center();
+  window.contentView().addSubview(webView);
 
-  findWebView (identifier) {
-    let threadDictionary = NSThread.mainThread().threadDictionary();
-    const window = threadDictionary[identifier];
-    return window.contentView().subviews()[0];
-  },
+  window.makeKeyAndOrderFront(null);
+}
 
-  sendAction (identifier, name, payload = {}) {
-    return WebViewCore.sendAction(this.findWebView(identifier), name, payload);
-  }
-};
+export function findWebView (identifier) {
+  let threadDictionary = NSThread.mainThread().threadDictionary();
+  const window = threadDictionary[identifier];
+  return window.contentView().subviews()[0];
+}
+
+export function sendAction (identifier, name, payload = {}) {
+  return sendActionToWebView(findWebView(identifier), name, payload);
+}

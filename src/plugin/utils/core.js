@@ -1,35 +1,46 @@
-export default {
-  context: null,
-  document: null,
-  selection: null,
-  sketch: null,
+let context = null;
+let document = null;
+let selection = null;
+let sketch = null;
 
-  pluginFolderPath: null,
+let pluginFolderPath = null;
+let frameworkFolderPath = '/Contents/Resources/frameworks/';
 
-  getPluginFolderPath (context) {
-    let split = context.scriptPath.split('/');
-    split.splice(-3, 3);
-    return split.join('/');
-  },
+export function getPluginFolderPath () {
+  // Get absolute folder path of plugin
+  let split = context.scriptPath.split('/');
+  split.splice(-3, 3);
+  return split.join('/');
+}
 
-  initWithContext (context) {
-    this.context = context;
-    this.document = context.document || context.actionContext.document || MSDocument.currentDocument();
-    this.selection = this.document.selectedLayers();
-    this.sketch = this.context.api();
+export function initWithContext (ctx) {
+  // This function needs to be called in the beginning of every entry point!
+  // Set all env variables according to current context
+  context = ctx;
+  document = ctx.document 
+    || ctx.actionContext.document 
+    || MSDocument.currentDocument();
+  selection = document ? document.selectedLayers() : null;
+  pluginFolderPath = getPluginFolderPath();
 
-    this.pluginFolderPath = this.getPluginFolderPath(context);
+  // Load cocoa frameworks as you need them
+  loadFramework('SketchPluginBoilerplate', 'SPBWebViewMessageHandler');
+}
 
-    // Load your cocoa frameworks here :)
-    this.loadFramework('SketchPluginBoilerplate', 'SPBWebViewMessageHandler');
-  },
-
-  loadFramework (frameworkName, frameworkClass) {
-    if (Mocha && NSClassFromString(frameworkClass) == null) {
-      const frameworkDir = `${this.pluginFolderPath}/Contents/Resources/frameworks/`;
-      const mocha = Mocha.sharedRuntime();
-      return mocha.loadFrameworkWithName_inDirectory(frameworkName, frameworkDir);
-    }
-    return true;
+export function loadFramework (frameworkName, frameworkClass) {
+  // Only load framework if class not already available
+  if (Mocha && NSClassFromString(frameworkClass) == null) {
+    const frameworkDir = `${pluginFolderPath}${frameworkFolderPath}`;
+    const mocha = Mocha.sharedRuntime();
+    return mocha.loadFrameworkWithName_inDirectory(frameworkName, frameworkDir);
   }
+  return false;
+}
+
+export {
+  context,
+  document,
+  selection,
+  sketch,
+  pluginFolderPath
 };

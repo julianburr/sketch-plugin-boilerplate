@@ -1,36 +1,45 @@
-import Core from 'utils/core';
+import { pluginFolderPath, document } from 'utils/core';
 
-export default {
-  identifierWindow: 'satchel-plugin-boilerplate--window',
-  identifierPanel: 'satchel-plugin-boilerplate--panel',
+// These are just used to identify the window(s)
+// Change them to whatever you need e.g. if you need to support multiple
+// windows at the same time...
+let windowIdentifier = 'sketch-plugin-boilerplate--window';
+let panelIdentifier = 'sketch-plugin-boilerplate--panel';
 
-  getFilePath (file) {
-    return `${Core.pluginFolderPath}/Contents/Resources/webview/${file}`;
-  },
+export function getFilePath (file) {
+  return `${pluginFolderPath}/Contents/Resources/webview/${file}`;
+}
 
-  createWebView (path, frame) {
-    const config = WKWebViewConfiguration.alloc().init();
-    const messageHandler = SPBWebViewMessageHandler.alloc().init();
-    config.userContentController().addScriptMessageHandler_name(messageHandler, 'Sketch');
+export function createWebView (path, frame) {
+  const config = WKWebViewConfiguration.alloc().init();
+  const messageHandler = SPBWebViewMessageHandler.alloc().init();
+  config.userContentController().addScriptMessageHandler_name(messageHandler, 'Sketch');
 
-    const webView = WKWebView.alloc().initWithFrame_configuration(frame, config);
-    const url = NSURL.fileURLWithPath(this.getFilePath(path));
+  const webView = WKWebView.alloc().initWithFrame_configuration(frame, config);
+  const url = NSURL.fileURLWithPath(getFilePath(path));
+  log('File URL')
+  log(url)
 
-    webView.setAutoresizingMask(NSViewWidthSizable | NSViewHeightSizable);
-    webView.loadRequest(NSURLRequest.requestWithURL(url));
+  webView.setAutoresizingMask(NSViewWidthSizable | NSViewHeightSizable);
+  webView.loadRequest(NSURLRequest.requestWithURL(url));
 
-    return webView;
-  },
+  return webView;
+}
 
-  sendAction (webView, name, payload = {}) {
-    if (!webView || !webView.evaluateJavaScript_completionHandler) {
-      return;
-    }
-    const script = `sketchBridge('${JSON.stringify({name, payload})}');`;
-    const check = webView.evaluateJavaScript_completionHandler(script, null);
-  },
-
-  receiveAction (name, payload = {}) {
-    Core.document.showMessage('I received a message! 😊🎉🎉');
+export function sendAction (webView, name, payload = {}) {
+  if (!webView || !webView.evaluateJavaScript_completionHandler) {
+    return;
   }
+  // `sketchBridge` is the JS function exposed on window in the webview!
+  const script = `sketchBridge('${JSON.stringify({name, payload})}');`;
+  const check = webView.evaluateJavaScript_completionHandler(script, null);
+}
+
+export function receiveAction (name, payload = {}) {
+  document.showMessage('I received a message! 😊🎉🎉');
+}
+
+export {
+  windowIdentifier,
+  panelIdentifier
 };

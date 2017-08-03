@@ -1,10 +1,39 @@
-import WebViewCore from './web-view';
-import WebViewWindow from './window';
-import WebViewPanel from './panel';
+import {
+  windowIdentifier,
+  panelIdentifier,
+  getFilePath,
+  createWebView,
+  sendAction as sendActionToWebView,
+  receiveAction
+} from './web-view';
 
-export default {
-  ...WebViewCore,
+import {
+  open as openWindow,
+  sendAction as sendWindowAction
+} from './window';
 
-  Window: WebViewWindow,
-  Panel: WebViewPanel
+import {
+  toggle as togglePanel,
+  open as openPanel,
+  close as closePanel,
+  isOpen as isPanelOpen,
+  sendAction as sendPanelAction
+} from './panel';
+
+export {
+  windowIdentifier,
+  panelIdentifier,
+  getFilePath,
+  createWebView,
+  sendActionToWebView,
+  receiveAction,
+
+  openWindow,
+  sendWindowAction,
+
+  togglePanel,
+  openPanel,
+  closePanel,
+  isPanelOpen,
+  sendPanelAction
 };
