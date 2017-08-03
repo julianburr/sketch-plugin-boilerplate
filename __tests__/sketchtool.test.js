@@ -23,6 +23,6 @@ describe('Check if sketchtool is set up correctly', () => {
   test('Can read dumped json', () => {
     var json = sketchtool.loadFile(testFilePath);
     expect(json.objectID).toBeTruthy();
-  })
+  });
 });
   

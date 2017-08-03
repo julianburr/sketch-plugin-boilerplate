@@ -45,19 +45,19 @@ yarn build
 ## Commands / Scripts
 
 ```bash
-# Build and watch plugin (hot, no need to run build to see changes in Sketch!
-yarn start:plugin
+# Build and watch plugin (🔥, no need to run build every time to see changes in Sketch!)
+yarn start
 
 # Build and watch webview(s) in browser
 yarn start:webview
 
-# Compile webview into correct folder structure to use it in Sketch
-yarn build:webview
+# Compile everything into correct folder structure to use it in Sketch
+yarn build
 
 # Run eslint --fix on the source directory
 yarn lint-fix
 
-# Run Jest tests (needs sketchtool installed locally)
+# Run Jest tests (needs Sketch / sketchtool installed locally)
 yarn test
 ```
 

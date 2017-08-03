@@ -1,6 +1,6 @@
 import { document } from 'utils/core';
 import { toArray } from 'utils/formatter';
-import { createWebView, sendAction as sendActionToWebView } from './web-view';
+import { createWebView, sendAction as sendActionToWebView } from './webview';
 
 export function toggle (identifier, path, width) {
   if (isOpen(identifier)) {

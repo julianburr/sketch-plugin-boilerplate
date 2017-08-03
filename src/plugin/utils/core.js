@@ -17,9 +17,9 @@ export function initWithContext (ctx) {
   // This function needs to be called in the beginning of every entry point!
   // Set all env variables according to current context
   context = ctx;
-  document = ctx.document 
-    || ctx.actionContext.document 
-    || MSDocument.currentDocument();
+  document = ctx.document ||
+    ctx.actionContext.document ||
+    MSDocument.currentDocument();
   selection = document ? document.selectedLayers() : null;
   pluginFolderPath = getPluginFolderPath();
 

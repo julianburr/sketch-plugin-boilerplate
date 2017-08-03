@@ -5,7 +5,7 @@ import {
   createWebView,
   sendAction as sendActionToWebView,
   receiveAction
-} from './web-view';
+} from './webview';
 
 import {
   open as openWindow,

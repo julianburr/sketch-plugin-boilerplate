@@ -1,6 +1,6 @@
 {
   "name": "Sketch Plugin Boilerplate",
-  "identifier": "com.julianburr.sketch-boilerplate",
+  "identifier": "com.julianburr.sketch-plugin-boilerplate",
   "description": "This is just a simple development boilerplate for sketch plugins!",
   "authorEmail": "julian.burr@rexsoftware.com",
   "author": "Julian Burr",

@@ -1,14 +1,14 @@
-import { 
-  createWebView, 
-  sendAction as sendActionToWebView 
-} from './web-view';
+import {
+  createWebView,
+  sendAction as sendActionToWebView
+} from './webview';
 
 export function open (identifier, path = 'index.html', options = {}) {
   // Sensible defaults for options
-  const { 
-    width = 450, 
-    height = 350, 
-    title = 'Sketch Plugin Boilerplate' 
+  const {
+    width = 450,
+    height = 350,
+    title = 'Sketch Plugin Boilerplate'
   } = options;
 
   const frame = NSMakeRect(0, 0, width, height);

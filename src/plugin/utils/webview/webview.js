@@ -17,8 +17,8 @@ export function createWebView (path, frame) {
 
   const webView = WKWebView.alloc().initWithFrame_configuration(frame, config);
   const url = NSURL.fileURLWithPath(getFilePath(path));
-  log('File URL')
-  log(url)
+  log('File URL');
+  log(url);
 
   webView.setAutoresizingMask(NSViewWidthSizable | NSViewHeightSizable);
   webView.loadRequest(NSURLRequest.requestWithURL(url));
@@ -32,7 +32,7 @@ export function sendAction (webView, name, payload = {}) {
   }
   // `sketchBridge` is the JS function exposed on window in the webview!
   const script = `sketchBridge('${JSON.stringify({name, payload})}');`;
-  const check = webView.evaluateJavaScript_completionHandler(script, null);
+  webView.evaluateJavaScript_completionHandler(script, null);
 }
 
 export function receiveAction (name, payload = {}) {
