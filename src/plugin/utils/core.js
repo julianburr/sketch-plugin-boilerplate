@@ -6,12 +6,6 @@ export default {
 
   pluginFolderPath: null,
 
-  frameworks: {
-    SketchPluginBoilerplate: {
-      SPBWebViewMessageHandler: 'SPBWebViewMessageHandler'
-    }
-  },
-
   getPluginFolderPath (context) {
     let split = context.scriptPath.split('/');
     split.splice(-3, 3);
@@ -21,20 +15,13 @@ export default {
   initWithContext (context) {
     this.context = context;
     this.document = context.document || context.actionContext.document || MSDocument.currentDocument();
-    // this.selection = this.document.findSelectedLayers();
+    this.selection = this.document.selectedLayers();
     this.sketch = this.context.api();
 
     this.pluginFolderPath = this.getPluginFolderPath(context);
 
-    this.loadFrameworks();
-  },
-
-  loadFrameworks () {
-    for (let framework in this.frameworks) {
-      for (let className in this.frameworks[framework]) {
-        this.loadFramework(framework, this.frameworks[framework][className]);
-      }
-    }
+    // Load your cocoa frameworks here :)
+    this.loadFramework('SketchPluginBoilerplate', 'SPBWebViewMessageHandler');
   },
 
   loadFramework (frameworkName, frameworkClass) {
