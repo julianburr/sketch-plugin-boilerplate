@@ -2,12 +2,11 @@ var fs = require('fs-extra');
 var chalk = require('chalk');
 var webpack = require('webpack');
 
-var config = require('../../config/plugin/webpack');
+var webpackConfig = require('../../config/plugin/webpack');
 var paths = require('../../config/plugin/paths');
 
 var manifest = require('../../src/plugin/manifest.json');
 var pkg = require('../../package.json');
-var fetch = require('sketch-fetch/lib/node');
 
 function build (callback) {
   console.log(chalk.grey.italic('Build plugin'));
@@ -15,7 +14,7 @@ function build (callback) {
   console.log('  ✓ Remove old build...');
   fs.emptyDirSync(paths.build);
 
-  webpack(config).run((err, stats) => {
+  webpack(webpackConfig).run((err, stats) => {
     // Catch all errors
     var error = null;
     if (err) {
@@ -55,7 +54,6 @@ function build (callback) {
         fs.copySync(paths.frameworks + '/' + item, paths.frameworksBuild + '/' + item);
       }
     });
-    fetch.copyFrameworks(paths.frameworksBuild);
 
     // Done :)
     console.log(chalk.green.bold('  ✓ Plugin compiled successfully'));

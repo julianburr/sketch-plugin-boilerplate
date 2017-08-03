@@ -26,6 +26,7 @@ module.exports = {
       {
         test: /\.(js|jsx)$/,
         include: paths.src,
+        exclude: /(node_modules)/,
         use: {
           loader: 'babel-loader',
           options: babelConfig

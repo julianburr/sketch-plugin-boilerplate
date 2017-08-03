@@ -1,5 +1,3 @@
-import { FetchCore } from 'sketch-fetch';
-
 export default {
   context: null,
   document: null,
@@ -10,8 +8,8 @@ export default {
 
   frameworks: {
     SketchPluginBoilerplate: {
-      SPBWebViewMessageHandler: 'SPBWebViewMessageHandler',
-    },
+      SPBWebViewMessageHandler: 'SPBWebViewMessageHandler'
+    }
   },
 
   getPluginFolderPath (context) {
@@ -23,13 +21,12 @@ export default {
   initWithContext (context) {
     this.context = context;
     this.document = context.document || context.actionContext.document || MSDocument.currentDocument();
-    this.selection = this.document.findSelectedLayers();
+    // this.selection = this.document.findSelectedLayers();
     this.sketch = this.context.api();
 
     this.pluginFolderPath = this.getPluginFolderPath(context);
 
     this.loadFrameworks();
-    FetchCore.initWithContext(this.context, 'sketch-plugin-boilerplate');
   },
 
   loadFrameworks () {

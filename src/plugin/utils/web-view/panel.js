@@ -30,7 +30,7 @@ export default {
       const view = views.objectAtIndex(i);
       finalViews.push(view);
       // NOTE: change the view identifier here if you want to add
-      //  your panel anywhere else 
+      //  your panel anywhere else
       if (!pushedWebView && view.identifier() == 'view_canvas') {
         finalViews.push(webView);
         pushedWebView = true;

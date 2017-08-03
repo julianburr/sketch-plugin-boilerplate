@@ -1,3 +1,6 @@
+// Fix deprecation warning
+process.noDeprecation = true;
+
 const autoprefixer = require('autoprefixer');
 const path = require('path');
 const webpack = require('webpack');
@@ -11,6 +14,7 @@ const ModuleScopePlugin = require('react-dev-utils/ModuleScopePlugin');
 
 const paths = require('./paths');
 const getClientEnvironment = require('./env');
+const babelConfig = require('./babel');
 
 // Webpack uses `publicPath` to determine where the app is being served from.
 // It requires a trailing slash, or the file assets will get an incorrect path.
@@ -180,7 +184,7 @@ module.exports = {
         test: /\.(js|jsx)$/,
         include: paths.src,
         loader: require.resolve('babel-loader'),
-        options: require.resolve('./babel'),
+        options: babelConfig,
       },
 
       // "sass" loader applies to SCSS files

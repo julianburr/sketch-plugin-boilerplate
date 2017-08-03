@@ -2,7 +2,7 @@ var fs = require('fs-extra');
 var chalk = require('chalk');
 var webpack = require('webpack');
 
-var config = require('../../config/webview/webpack-prod');
+var webpackConfig = require('../../config/webview/webpack-prod');
 var paths = require('../../config/webview/paths');
 
 function build (callback) {
@@ -11,7 +11,7 @@ function build (callback) {
   console.log('  ✓ Remove old build...');
   fs.emptyDirSync(paths.build);
 
-  webpack(config).run((err, stats) => {
+  webpack(webpackConfig).run((err, stats) => {
     // Catch all errors
     var error = null;
     if (err) {

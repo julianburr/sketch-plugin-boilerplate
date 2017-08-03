@@ -1,4 +1,3 @@
-
 import Core from 'utils/core';
 
 export default {
