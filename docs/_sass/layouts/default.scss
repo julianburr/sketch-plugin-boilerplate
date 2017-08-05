@@ -4,6 +4,30 @@
   .sidebar-nav {
     width: 30%;
     float: left;
+    padding: 0 4rem 0 0;
+
+    h3 {
+      margin: 2rem 0 1rem;
+      padding: 0;
+    }
+
+    ul, li {
+      list-style: none;
+    }
+    
+    ul {
+      margin: 0 0 3rem;
+      padding: 0;
+    }
+
+    li {
+      padding: 0;
+      margin: 1rem 0;
+
+      a {
+        font-weight: 500;
+      }
+    }
   }
 
   .sidebar-content {

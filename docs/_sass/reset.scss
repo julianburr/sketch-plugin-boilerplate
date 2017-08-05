@@ -21,6 +21,24 @@ body {
 
 h1, h2, h3, h4, h5 {
   font-weight: 600;
+  display: inline-block;
+  width: 100%;
+}
+
+h1 {
+  margin: 2rem 0 1rem;
+}
+
+h2 {
+  margin: 1.5rem 0 .75rem;
+}
+
+h3 {
+  margin: 1.5rem 0 .3rem;
+}
+
+h4, h5 {
+  margin: 1rem 0 .3rem;
 }
 
 a {
