@@ -6,7 +6,7 @@ let sketch = null;
 let pluginFolderPath = null;
 let frameworkFolderPath = '/Contents/Resources/frameworks/';
 
-export function getPluginFolderPath () {
+function getPluginFolderPath () {
   // Get absolute folder path of plugin
   let split = context.scriptPath.split('/');
   split.splice(-3, 3);
