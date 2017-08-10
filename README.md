@@ -100,6 +100,6 @@ The build structure follows [Sketch's guidelines](http://developer.sketchapp.com
  - [ ] Create useful documentation (integrated into a simple github.io page)
  - [ ] Create tutorials for JS developers to get started with Sketch plugins
  - [x] ~~Implement testing ([Jest](https://facebook.github.io/jest/)?)~~ *- Note: using [sketchtool](https://www.sketchapp.com/tool/) for accessing Sketch files and running plugin commands, however using own util functions, since the [node package](https://github.com/marekhrabe/sketchtool) does not seem to be maintained anymore (currently at version 39.x)*
- - [ ] Migrate the webview build from webpack to rollup, so we only have one build system to care about
- - [ ] Re-Implement `fetch` polyfill
- - [ ] Try to use WKUser​Content​Controller without the xcode framework (would get rid of one dependecy?!)
+ - [x] Migrate the webview build from webpack to rollup, so we only have one build system to care about
+ - [ ] Re-Implement `fetch` polyfill (see master before merge for old solution with cocoa framework and plugin action handler)
+ - [ ] Try to get rid of cocoa framework if feasable
