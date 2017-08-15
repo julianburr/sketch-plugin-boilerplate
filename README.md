@@ -75,7 +75,7 @@ The build structure follows [Sketch's guidelines](http://developer.sketchapp.com
 └─── /config # Here you will find all necessary configurations, feel free to adjust them to your needs! :)
 │
 └─── /Contents  # This is the build folder that Sketch reads
-│    └─── /Resources  # Put your stuff here
+│    └─── /Resources  # Assets, frameworks, etc.
 │    └─── /Sketch  # plugin.js and manifest.json have to be here
 │    
 └─── /scripts  # The npm scripts, also feel free to change to your needs, this is a boilerplate, not an end product!
@@ -83,7 +83,7 @@ The build structure follows [Sketch's guidelines](http://developer.sketchapp.com
 │    └─── /webview
 │    
 └─── /src  # Source code, split into the different parts of your plugin
-│    └─── /framework  # Any xcode frameworks that support your plugin
+│    └─── /framework  # Any xcode cocoa frameworks you want to load into your plugin
 │    └─── /plugin  # The plugins JS source code
 │    │    └─── index.js  # By default, this will be used to bundle your production plugin.js file
 │    └─── /webview  # The source for possible web views
@@ -102,4 +102,8 @@ The build structure follows [Sketch's guidelines](http://developer.sketchapp.com
  - [x] ~~Implement testing ([Jest](https://facebook.github.io/jest/)?)~~ *- Note: using [sketchtool](https://www.sketchapp.com/tool/) for accessing Sketch files and running plugin commands, however using own util functions, since the [node package](https://github.com/marekhrabe/sketchtool) does not seem to be maintained anymore (currently at version 39.x)*
  - [x] ~~Migrate the webview build from webpack to rollup, so we only have one build system to care about~~
  - [ ] Re-Implement `fetch` polyfill (see master before merge for old solution with cocoa framework and plugin action handler)
- - [ ] Try to get rid of cocoa framework if feasable
+ - [x] ~~Try to get rid of cocoa framework if feasable~~
+
+## About Testing
+
+Testing is a bit of a question mark for Sketch plugins at the moment, as it's not that easy to unit test your plugin commands in the Sketch enviroment. I am currently working on a util library / plugin that lets you run and test Sketch commands with Jest or any similar JS unit testing framework. If you are interested, just hit me up, happy to share my progress on this and collaborate.
