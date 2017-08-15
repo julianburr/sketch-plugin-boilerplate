@@ -17,14 +17,15 @@ export function initWithContext (ctx) {
   // This function needs to be called in the beginning of every entry point!
   // Set all env variables according to current context
   context = ctx;
-  document = ctx.document ||
-    ctx.actionContext.document ||
-    MSDocument.currentDocument();
+  document = ctx.document
+    || ctx.actionContext.document
+    || MSDocument.currentDocument();
   selection = document ? document.selectedLayers() : null;
   pluginFolderPath = getPluginFolderPath();
 
-  // Load cocoa frameworks as you need them
-  loadFramework('SketchPluginBoilerplate', 'SPBWebViewMessageHandler');
+  // Here you could load custom cocoa frameworks if you need to
+  // loadFramework('FrameworkName', 'ClassName');
+  // => would be loaded into ClassName in global namespace!
 }
 
 export function loadFramework (frameworkName, frameworkClass) {

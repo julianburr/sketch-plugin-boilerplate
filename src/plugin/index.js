@@ -22,12 +22,6 @@ export function togglePanel (context) {
   WebViewUtils.togglePanel(WebViewUtils.panelIdentifier);
 }
 
-export function handleBridgeMessage (context) {
-  initWithContext(context);
-  let data = SPBWebViewMessageUtils.getPayload();
-  WebViewUtils.receiveAction(data.name, data.payload);
-}
-
 export function sendMessageToWindow (context) {
   initWithContext(context);
   WebViewUtils.sendWindowAction(WebViewUtils.windowIdentifier, 'foo', {foo: 'bar'});

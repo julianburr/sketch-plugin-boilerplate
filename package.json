@@ -80,6 +80,7 @@
     "test": "jest ./__tests__"
   },
   "dependencies": {
+    "cocoascript-class": "^0.1.2",
     "core-decorators": "^0.15.0",
     "moment": "^2.17.1",
     "react": "^15.4.2",
