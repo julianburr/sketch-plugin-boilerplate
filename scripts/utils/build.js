@@ -48,7 +48,7 @@ function getTimerText (start) {
   } else if (diff < 60 * 60) {
     txt = Math.round(diff / 60) + 'mins ago';
   } else if (diff < 60 * 60 * 10) {
-    txt = Math.round(diff / (60 * 10)) + 'hrs ago';
+    txt = Math.round(diff / (60 * 60 * 10)) + 'hrs ago';
   } else {
     txt = 'A long time ago'
   }

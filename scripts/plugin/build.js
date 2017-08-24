@@ -46,14 +46,17 @@ function build (callback) {
     fs.outputJson(paths.build + '/manifest.json', manifest);
 
     // Copy framework(s)
-    console.log('  ✓ Copy frameworks');
-    fs.emptyDirSync(paths.frameworksBuild);
-    var list = fs.readdirSync(paths.frameworks);
-    list.forEach(function (item) {
-      if (item.endsWith('.framework')) {
-        fs.copySync(paths.frameworks + '/' + item, paths.frameworksBuild + '/' + item);
+    if (fs.existsSync(paths.frameworks)) {
+      var list = fs.readdirSync(paths.frameworks);
+      var frameworks = list.filter(item => item.endsWith('.framework'));
+      if (frameworks.length) {
+        console.log('  ✓ Copy frameworks');
+        fs.emptyDirSync(paths.frameworksBuild);
+        frameworks.forEach(function (item) {
+          fs.copySync(paths.frameworks + '/' + item, paths.frameworksBuild + '/' + item);
+        });
       }
-    });
+    }
 
     // Done :)
     console.log(chalk.green.bold('  ✓ Plugin compiled successfully'));
