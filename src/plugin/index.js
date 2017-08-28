@@ -1,5 +1,6 @@
 import { initWithContext, document } from 'utils/core';
 import * as WebViewUtils from 'utils/webview';
+import fetch from 'utils/fetch';
 
 // All exported functions will be exposed as entry points to your plugin
 // and can be referenced in your `manifest.json`
@@ -30,4 +31,12 @@ export function sendMessageToWindow (context) {
 export function sendMessageToPanel (context) {
   initWithContext(context);
   WebViewUtils.sendPanelAction(WebViewUtils.panelIdentifier, 'foo', {foo: 'bar'});
+}
+
+export function sendRequest (context) {
+  initWithContext(context);
+  fetch('https://jsonplaceholder.typicode.com/posts/1')
+    .then(() => {
+      log('This gets resolved!');
+    });
 }

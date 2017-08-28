@@ -1,7 +1,5 @@
-import {
-  createWebView,
-  sendAction as sendActionToWebView
-} from './webview';
+import { storeOnMainThread } from 'utils/core';
+import { createWebView, sendAction as sendActionToWebView } from './webview';
 
 export function open (identifier, path = 'index.html', options = {}) {
   // Sensible defaults for options
@@ -20,7 +18,7 @@ export function open (identifier, path = 'index.html', options = {}) {
 
   // We use this dictionary to have a persistant storage of our NSWindow/NSPanel instance
   // Otherwise the instance is stored nowhere and gets release => Window closes
-  let threadDictionary = NSThread.mainThread().threadDictionary();
+  storeOnMainThread(identifier, window);
   threadDictionary[identifier] = window;
 
   const webView = createWebView(path, frame);

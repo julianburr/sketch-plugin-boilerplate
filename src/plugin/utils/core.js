@@ -38,6 +38,12 @@ export function loadFramework (frameworkName, frameworkClass) {
   return false;
 }
 
+export function storeOnMainThread (key, value) {
+  let threadDictionary = NSThread.mainThread().threadDictionary();
+  threadDictionary[key] = value;
+  return threadDictionary;
+}
+
 export {
   context,
   document,

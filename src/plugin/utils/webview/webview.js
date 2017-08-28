@@ -24,10 +24,6 @@ export const BridgeMessageHandler = new ObjCClass({
   }
 });
 
-log('BridgeMessageHandler');
-log(BridgeMessageHandler);
-log(BridgeMessageHandler.userContentController_didReceiveScriptMessage);
-
 export function initBridgedWebView (frame, bridgeName = 'SketchBridge') {
   const config = WKWebViewConfiguration.alloc().init();
   const messageHandler = BridgeMessageHandler.alloc().init();
