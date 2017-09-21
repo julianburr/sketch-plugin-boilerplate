@@ -32,12 +32,11 @@ function build () {
     }
 
     timer = observe({
-      interval: 10000, 
-      callback: build, 
+      interval: 10000,
+      callback: build,
       watching,
       paths: pluginPaths.watch
     });
     watching = true;
   });
 }
-

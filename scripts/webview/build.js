@@ -5,11 +5,13 @@ var webpack = require('webpack');
 var webpackConfig = require('../../config/webview/webpack-prod');
 var paths = require('../../config/webview/paths');
 
-function build (callback) {
-  console.log(chalk.grey.italic('Build web view'));
-
-  console.log('  ✓ Remove old build...');
+function build ({
+  onOldBuildRemoved = () => null,
+  onError = () => null,
+  onSuccess = () => {}
+}) {
   fs.emptyDirSync(paths.build);
+  onOldBuildRemoved();
 
   webpack(webpackConfig).run((err, stats) => {
     // Catch all errors
@@ -23,15 +25,11 @@ function build (callback) {
     }
 
     if (error) {
-      callback(error);
+      onError(error);
       return;
     }
 
-    // Done :)
-    console.log(chalk.green.bold('  ✓ Web view compiled successfully'));
-    console.log();
-
-    callback();
+    onSuccess();
   });
 }
 

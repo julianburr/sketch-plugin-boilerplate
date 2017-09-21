@@ -1,5 +1,4 @@
 var fs = require('fs-extra');
-var chalk = require('chalk');
 var webpack = require('webpack');
 
 var webpackConfig = require('../../config/plugin/webpack');
@@ -8,10 +7,15 @@ var paths = require('../../config/plugin/paths');
 var manifest = require('../../src/plugin/manifest.json');
 var pkg = require('../../package.json');
 
-function build (callback) {
-  console.log(chalk.grey.italic('Build plugin'));
-
-  console.log('  ✓ Remove old build...');
+function build ({
+  options = {},
+  onOldBuildRemoved = () => {},
+  onError = () => null,
+  onSuccess = () => {},
+  onGlobalHandlersAdded = () => {},
+  onManifestCopied = () => {},
+  onFrameworksCopied = () => {}
+}) {
   fs.emptyDirSync(paths.build);
 
   webpack(webpackConfig).run((err, stats) => {
@@ -26,43 +30,44 @@ function build (callback) {
     }
 
     if (error) {
-      callback(error);
+      onError(error);
       return;
     }
 
     // HACK!
     // Add global handlers
-    console.log('  ✓ Add global handlers');
-    manifest.commands.forEach(function (command) {
+    manifest.commands.forEach(command => {
       var file = paths.build + '/' + command.script;
       var compiled = fs.readFileSync(file);
-      compiled += "\n\nvar " + command.handler + " = handlers." + command.handler + ";";
+      compiled +=
+        '\n\nvar ' + command.handler + ' = handlers.' + command.handler + ';';
       fs.writeFileSync(file, compiled);
     });
+    onGlobalHandlersAdded(manifest.commands);
 
     // Copy manifest.json + add version number form manifest
-    console.log('  ✓ Copy manifest (version ' + pkg.version + ')');
-    manifest.version = pkg.version;
-    fs.outputJson(paths.build + '/manifest.json', manifest);
+    // manifest.version = pkg.version;
+    // fs.outputJson(paths.build + '/manifest.json', manifest);
+    // onManifestCopied(manifest);
 
     // Copy framework(s)
     if (fs.existsSync(paths.frameworks)) {
       var list = fs.readdirSync(paths.frameworks);
       var frameworks = list.filter(item => item.endsWith('.framework'));
       if (frameworks.length) {
-        console.log('  ✓ Copy frameworks');
         fs.emptyDirSync(paths.frameworksBuild);
-        frameworks.forEach(function (item) {
-          fs.copySync(paths.frameworks + '/' + item, paths.frameworksBuild + '/' + item);
+        frameworks.forEach(item => {
+          fs.copySync(
+            paths.frameworks + '/' + item,
+            paths.frameworksBuild + '/' + item
+          );
         });
+        onFrameworksCopied(frameworks);
       }
     }
 
     // Done :)
-    console.log(chalk.green.bold('  ✓ Plugin compiled successfully'));
-    console.log();
-
-    callback();
+    onSuccess();
   });
 }
 
