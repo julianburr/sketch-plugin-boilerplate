@@ -3,6 +3,7 @@ const path = require('path');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CaseSensitivePathsPlugin = require('case-sensitive-paths-webpack-plugin');
+const babel = require.resolve('./babel');
 
 const InterpolateHtmlPlugin = require('react-dev-utils/InterpolateHtmlPlugin');
 const WatchMissingNodeModulesPlugin = require('react-dev-utils/WatchMissingNodeModulesPlugin');
@@ -174,10 +175,7 @@ module.exports = {
         test: /\.(js|jsx)$/,
         include: paths.src,
         loader: require.resolve('babel-loader'),
-        options: Object.assign(
-          require.resolve('./babel'),
-          { cacheDirectory: true }
-        ),
+        options: babel
       },
 
       // "postcss" loader applies autoprefixer to our CSS.
