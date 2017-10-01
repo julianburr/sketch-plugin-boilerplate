@@ -205,7 +205,6 @@ module.exports = {
             extractTextPluginOptions
           )
         ),
-
       },
 
       // "postcss" loader applies autoprefixer to our CSS
