@@ -33,10 +33,18 @@ function build (callback) {
     // HACK!
     // Add global handlers
     console.log('  ✓ Add global handlers');
-    manifest.commands.forEach(function (command) {
+    manifest.commands.forEach(function(command) {
       var file = paths.build + '/' + command.script;
       var compiled = fs.readFileSync(file);
-      compiled += "\n\nvar " + command.handler + " = handlers." + command.handler + ";";
+      if (command.handlers) {
+        Object.values(command.handlers.actions).forEach((handler) => {
+          compiled += '\n\nvar ' + handler + ' = handlers.' + handler + ';';
+        });
+      } else {
+        compiled +=
+          '\n\nvar ' + command.handler + ' = handlers.' + command.handler + ';';
+      }
+
       fs.writeFileSync(file, compiled);
     });
 
