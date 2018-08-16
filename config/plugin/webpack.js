@@ -10,7 +10,7 @@ var babelConfig = require('./babel');
 var isDevelopment = process.env.NODE_ENV !== 'production';
 
 babelConfig = objectAssign(babelConfig, {
-  cacheDirectory: isDevelopment,
+  cacheDirectory: isDevelopment
 });
 
 module.exports = {
@@ -33,5 +33,9 @@ module.exports = {
         }
       }
     ]
-  }
-}
+  },
+  plugins: [
+    new webpack.IgnorePlugin(/^sketch\/[a-z]+$/),
+    new webpack.IgnorePlugin(/^sketch$/)
+  ]
+};
