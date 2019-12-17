@@ -41,5 +41,13 @@ Current layer selection from context.
 ### `sketch`
 Sketch JS API object.
 
+Notice: here is set for null as a placeholder.
+
+From `https://developer.sketch.com/reference/api`, you can write some code like below and export it
+```js
+export const sketch = require('sketch/dom')
+export const async = require('sketch/async')
+```
+
 ### `pluginFolderPath`
 The absoulte plugin folder root path (retreived from initial context).

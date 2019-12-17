@@ -35,8 +35,15 @@ module.exports = {
     ]
   },
   plugins: [
-    new webpack.IgnorePlugin(/^sketch\/[a-z]+$/),
-    new webpack.IgnorePlugin(/^sketch$/),
     new webpack.EnvironmentPlugin(['DEV']),
-  ]
+  ],
+  externals: [
+    (context, request, callback) => {
+      // sketch API
+      if (/^sketch\//.test(request) || request === 'sketch') {
+        return callback(null, `commonjs ${request}`)
+      }
+      return callback()
+    },
+  ],
 };
