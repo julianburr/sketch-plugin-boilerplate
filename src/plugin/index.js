@@ -31,3 +31,9 @@ export function sendMessageToPanel (context) {
   initWithContext(context);
   WebViewUtils.sendPanelAction(WebViewUtils.panelIdentifier, 'foo', {foo: 'bar'});
 }
+
+export async function sendRequest (context) {
+  initWithContext(context);
+  const result = await WebViewUtils.fetchExample()
+  document.showMessage(`I fetched ${JSON.stringify(result)}`)
+}

@@ -43,7 +43,7 @@ Sketch JS API object.
 
 Notice: here is set for null as a placeholder.
 
-From `https://developer.sketch.com/reference/api`, you can write some code like below and export it
+From <a href='https://developer.sketch.com/reference/api'>Sketch JS API</a>, you can write some code like below:
 ```js
 export const sketch = require('sketch/dom')
 export const async = require('sketch/async')

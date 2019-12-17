@@ -8,6 +8,10 @@ import {
 } from './webview';
 
 import {
+  fetchExample
+} from './utils';
+
+import {
   open as openWindow,
   sendAction as sendWindowAction
 } from './window';
@@ -27,6 +31,8 @@ export {
   createWebView,
   sendActionToWebView,
   receiveAction,
+
+  fetchExample,
 
   openWindow,
   sendWindowAction,
