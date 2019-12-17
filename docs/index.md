@@ -8,8 +8,6 @@ id: home
 Let's say you want to name your project `MyProject` and locate it at `MyPath`
 
 ```bash
-# setup your project
-
 cd MyPath
 
 git clone -b features https://github.com/colorgmi/sketch-plugin-boilerplate.git MyProject
@@ -17,22 +15,23 @@ git clone -b features https://github.com/colorgmi/sketch-plugin-boilerplate.git 
 
 cd MyProject
 
-# install dependencies
+# Install dependencies
 yarn
 
-# watch sketch plugin js code (backend code) 
+# Build and watch plugin (Backend: js code)
 yarn start 
 # Notice: need to restart Sketch when code changed 
 # [todo: how to avoid this uncomfortable behaviour]
 
-# another terminal to watch the code(js and scss) running in webview (frontend code)
+# Another terminal
+# Build and watch webview (Frontend: js and scss code)
 yarn start:webview 
 # Notice: when it done, open your Safari of url https://localhost:3000/ 
 # Then manually trust the localhost certificate in Keychain Access Application of Mac
 # And then, Sketch webview can load https://localhost:3000/
 
-# then make a symbol link from your project to Sketch Plugin folder
-# this will install Sketch plugin
+# Then make a symbol link from your project to Sketch Plugin folder
+# This will install Sketch plugin
 cd ~/Library/Application\ Support/com.bohemiancoding.sketch3/Plugins/
 mkdir MyProject.sketchplugin 
 cd MyProject.sketchPlugin 
@@ -43,7 +42,6 @@ And you can change your frontend code, and backend code(need Sketch restart).
 This way, you develop your plugin like a full stack developer.
 
 ```bash
+# Bundle your project
 yarn bundle
 ```
-When you want to publish, then bundle it
-And the MyProject.sketchplugin folder is the folder.
