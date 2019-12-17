@@ -15,6 +15,8 @@ cd MyPath
 git clone -b features https://github.com/colorgmi/sketch-plugin-boilerplate.git MyProject
 # [todo: git clone https://github.com/julianburr/sketch-plugin-boilerplate.git MyProject]
 
+cd MyProject
+
 # install dependencies
 yarn
 
@@ -30,14 +32,18 @@ yarn start:webview
 # And then, Sketch webview can load https://localhost:3000/
 
 # then make a symbol link from your project to Sketch Plugin folder
+# this will install Sketch plugin
 cd ~/Library/Application\ Support/com.bohemiancoding.sketch3/Plugins/
 mkdir MyProject.sketchplugin 
 cd MyProject.sketchPlugin 
 ln -s MyPath/MyProject/Contents .
 ```
+Now, you can open Sketch Application, and open your plugin.
+And you can change your frontend code, and backend code(need Sketch restart).
+This way, you develop your plugin like a full stack developer.
 
-When you want to publish, then bundle it
 ```bash
 yarn bundle
 ```
+When you want to publish, then bundle it
 And the MyProject.sketchplugin folder is the folder.
