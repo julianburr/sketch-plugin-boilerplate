@@ -23,7 +23,7 @@ yarn start
 # Notice: need to restart Sketch when code changed 
 # [todo: how to avoid this uncomfortable behaviour]
 
-# another terminal to watch the code running in webview (frontend code)
+# another terminal to watch the code(js and scss) running in webview (frontend code)
 yarn start:webview 
 # Notice: when it done, open your Safari of url https://localhost:3000/ 
 # Then manually trust the localhost certificate in Keychain Access Application of Mac

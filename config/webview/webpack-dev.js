@@ -185,7 +185,7 @@ module.exports = {
       // "css" loader resolves paths in CSS and adds assets as dependencies.
       {
         test: /\.scss$/,
-        loader: ExtractTextPlugin.extract(
+        use: ['css-hot-loader'].concat(ExtractTextPlugin.extract(
           Object.assign(
             {
               fallback: require.resolve('style-loader'),
@@ -199,7 +199,7 @@ module.exports = {
             },
             {}
           )
-        ),
+        )),
       },
 
       // "postcss" loader applies autoprefixer to our CSS.
