@@ -36,6 +36,7 @@ module.exports = {
   },
   plugins: [
     new webpack.IgnorePlugin(/^sketch\/[a-z]+$/),
-    new webpack.IgnorePlugin(/^sketch$/)
+    new webpack.IgnorePlugin(/^sketch$/),
+    new webpack.EnvironmentPlugin(['DEV']),
   ]
 };

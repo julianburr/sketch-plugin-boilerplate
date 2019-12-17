@@ -5,21 +5,39 @@ id: home
 
 # Get Started
 
+Let's say you want to name your project `MyProject` and locate it at `MyPath`
+
 ```bash
-# Change into your Sketch.app plugin directory
+# setup your project
+
+cd MyPath
+
+git clone -b features https://github.com/colorgmi/sketch-plugin-boilerplate.git MyProject
+# [todo: git clone https://github.com/julianburr/sketch-plugin-boilerplate.git MyProject]
+
+# install dependencies
+yarn
+
+# watch sketch plugin js code (backend code) 
+yarn start 
+# Notice: need to restart Sketch when code changed 
+# [todo: how to avoid this uncomfortable behaviour]
+
+# another terminal to watch the code running in webview (frontend code)
+yarn start:webview 
+# Notice: when it done, open your Safari of url https://localhost:3000/ 
+# Then manually trust the localhost certificate in Keychain Access Application of Mac
+# And then, Sketch webview can load https://localhost:3000/
+
+# then make a symbol link from your project to Sketch Plugin folder
 cd ~/Library/Application\ Support/com.bohemiancoding.sketch3/Plugins/
-
-# Clone repo (as .sketchplugin!)
-git clone https://github.com/julianburr/sketch-plugin-boilerplate.git sketch-plugin-boilerplate.sketchplugin
-cd sketch-plugin-boilerplate.sketchplugin
-
-# Install dependecies
-yarn install
-
-# ...and create a first build
-yarn build
+mkdir MyProject.sketchplugin 
+cd MyProject.sketchPlugin 
+ln -s MyPath/MyProject/Contents .
 ```
 
-That's it! You are ready to go. During development you can simply run `yarn start:plugin`, and the changes will be moved into the right folders on save to be visible and testable within Sketch immedietly. How great is that :D
-
-You want to learn more about this boilerplate and/or Sketch plugin development in general? Have a look at the [docs](docs/install)
+When you want to publish, then bundle it
+```bash
+yarn bundle
+```
+And the MyProject.sketchplugin folder is the folder.

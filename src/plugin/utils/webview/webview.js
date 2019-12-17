@@ -1,5 +1,7 @@
 import { pluginFolderPath, document, context } from 'utils/core';
 import ObjCClass from 'cocoascript-class';
+import { findWebView as findWebViewFromPanel } from "./panel"
+import { findWebView as findWebViewFromWindow } from "./panel"
 
 // These are just used to identify the window(s)
 // Change them to whatever you need e.g. if you need to support multiple
@@ -46,7 +48,16 @@ export function createWebView (path, frame) {
   log(url);
 
   webView.setAutoresizingMask(NSViewWidthSizable | NSViewHeightSizable);
-  webView.loadRequest(NSURLRequest.requestWithURL(url));
+
+  if (process.env.DEV) {
+    webView.loadRequest(
+      NSURLRequest.requestWithURL(
+        NSURL.URLWithString("https://localhost:3000")
+      )
+    )
+  } else {
+    webView.loadRequest(NSURLRequest.requestWithURL(url));
+  }
 
   return webView;
 }
@@ -62,6 +73,8 @@ export function sendAction (webView, name, payload = {}) {
 
 export function receiveAction (name, payload = {}) {
   document.showMessage('I received a message! 😊🎉🎉');
+  sendAction(findWebViewFromPanel(panelIdentifier), name, payload);
+  sendAction(findWebViewFromWindow(windowIdentifier), name, payload);
 }
 
 export {
