@@ -17,48 +17,58 @@ I tried to use as little Obj C as possible, again, this is supposed to be a help
 <br>
 
 ## Why
-Sketch is awesome. And they provided us an awesome API to develop plugins. But as a JS Developer, there are still many things that are quiet hard to achieve. The main problem I keep hearing of is the ability to build custom user interfaces (GUIs), which requires some knowledge of how web views work in Obj C, how you can communicate with them and then **a lot of** boilerplate.
+Sketch is awesome. And they provided us an awesome API to develop plugins. But as a JS Developer, there are still many things that are quite hard to achieve. The main problem I keep hearing of is the ability to build custom user interfaces (GUIs), which requires some knowledge of how web views work in Obj C, how you can communicate with them and then **a lot of** boilerplate.
 
 This repo should make it easier and faster to start new projects :)
 
 
 ## Getting started
 
+Let's say you want to name your project `MyProject` and locate it at `MyPath`
+
 ```bash
-# Change to plugin folder
-cd ~/Library/Application Support/com.bohemiancoding.sketch3/Plugins/
+cd MyPath
 
-# Clone repo (as .sketchplugin!)
-git clone https://github.com/julianburr/sketch-plugin-boilerplate.git sketch-plugin-boilerplate.sketchplugin
-cd sketch-plugin-boilerplate.sketchplugin
+git clone -b features https://github.com/colorgmi/sketch-plugin-boilerplate.git MyProject
+# [todo: git clone https://github.com/julianburr/sketch-plugin-boilerplate.git MyProject]
 
-# Install dependecies
-yarn install
+cd MyProject
 
-# ...and create a first build
-yarn build
+# Install dependencies
+yarn
+
+# Build and watch plugin (Backend: js code)
+yarn start 
+# Notice: need to restart Sketch when code changed 
+# Because we set `coscript.setShouldKeepAround(true)` for convenience and never set it `false`, so this is a long running JavaScript context; so can't reload unless restart Sketch.
+
+# Another terminal
+# Build and watch webview (Frontend: js and scss code)
+yarn start:webview 
+# Notice: when it done, open your Safari of url https://localhost:3000/ 
+# Then manually trust the localhost certificate in Keychain Access Application of Mac
+# And then, Sketch webview can load https://localhost:3000/
+
+# Then make a symbol link from your project to Sketch Plugin folder
+# This will install Sketch plugin
+cd ~/Library/Application\ Support/com.bohemiancoding.sketch3/Plugins/
+mkdir MyProject.sketchplugin 
+cd MyProject.sketchPlugin 
+ln -s MyPath/MyProject/Contents .
+```
+Now, you can open Sketch Application, and open your plugin.
+And you can change your frontend code, and backend code(need Sketch restart).
+This way, you develop your plugin like a full stack developer.
+
+```bash
+# Bundle your project
+yarn bundle
 ```
 
-... and you are ready to go :)
-
-
-## Commands / Scripts
-
 ```bash
-# Build and watch plugin (🔥, no need to run build every time to see changes in Sketch!)
-yarn start
-
-# Build and watch webview(s) in browser
-yarn start:webview
-
-# Compile everything into correct folder structure to use it in Sketch
-yarn build
-
 # Run eslint --fix on the source directory
 yarn lint-fix
 
-# Run Jest tests (needs Sketch / sketchtool installed locally)
-yarn test
 ```
 
 For the rest, see `package.json`
