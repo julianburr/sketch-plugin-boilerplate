@@ -12,10 +12,8 @@ export function open (identifier, path = 'index.html', options = {}) {
   } = options;
 
   const frame = NSMakeRect(0, 0, width, height);
-  const masks = NSTitledWindowMask |
-    NSWindowStyleMaskClosable |
-    NSResizableWindowMask;
-  const window = NSPanel.alloc().initWithContentRect_styleMask_backing_defer(frame, masks, NSBackingStoreBuffered, false);
+  const masks = 1 | 2;
+  const window = NSPanel.alloc().initWithContentRect_styleMask_backing_defer(frame, masks, 2, false);
   window.setMinSize({width: 200, height: 200});
 
   // We use this dictionary to have a persistant storage of our NSWindow/NSPanel instance

@@ -47,7 +47,8 @@ export function createWebView (path, frame) {
   log('File URL');
   log(url);
 
-  webView.setAutoresizingMask(NSViewWidthSizable | NSViewHeightSizable);
+  webView.setAutoresizingMask(2 | 16);
+  webView.configuration().preferences().setValue_forKey(true, "developerExtrasEnabled");
 
   if (process.env.DEV) {
     webView.loadRequest(
