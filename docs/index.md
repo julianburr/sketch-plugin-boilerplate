@@ -21,7 +21,7 @@ yarn
 # Build and watch plugin (Backend: js code)
 yarn start 
 # Notice: need to restart Sketch when code changed 
-# [todo: how to avoid this uncomfortable behaviour]
+# Because we set `coscript.setShouldKeepAround(true)` for convenience and never set it `false`, so this is a long running JavaScript context; so can't reload unless restart Sketch.
 
 # Another terminal
 # Build and watch webview (Frontend: js and scss code)
