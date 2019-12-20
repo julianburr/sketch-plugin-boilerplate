@@ -19,7 +19,6 @@ module.exports = {
   indexHtml: resolveApp('src/webview/index.html'),
   indexJs: resolveApp('src/webview/js/index.js'),
   packageJson: resolveApp('package.json'),
-  yarnLockFile: resolveApp('yarn.lock'),
   appNodeModules: resolveApp('node_modules'),
   ownNodeModules: resolveApp('node_modules'),
   nodePaths: nodePaths,
