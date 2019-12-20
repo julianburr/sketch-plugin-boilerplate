@@ -26,12 +26,6 @@
     },
     {
       "script": "plugin.js",
-      "handler": "handleBridgeMessage",
-      "name": "Handle Bridge Message",
-      "identifier": "handleBridgeMessage"
-    },
-    {
-      "script": "plugin.js",
       "handler": "sendMessageToWindow",
       "name": "Send Bridge Message",
       "identifier": "sendMessageToWindow"
@@ -47,12 +41,6 @@
       "handler": "sendRequest",
       "name": "Send HTTP Request",
       "identifier": "sendRequest"
-    },
-    {
-      "script": "plugin.js",
-      "handler": "handleHttpResponse",
-      "name": "Handle HTTP Response",
-      "identifier": "handleHttpResponse"
     }
   ],
   "menu": {
