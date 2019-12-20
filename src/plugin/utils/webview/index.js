@@ -5,16 +5,16 @@ import {
   createWebView,
   sendAction as sendActionToWebView,
   receiveAction
-} from './webview';
+} from './webview'
 
 import {
   fetchExample
-} from './utils';
+} from './utils'
 
 import {
   open as openWindow,
   sendAction as sendWindowAction
-} from './window';
+} from './window'
 
 import {
   toggle as togglePanel,
@@ -22,7 +22,7 @@ import {
   close as closePanel,
   isOpen as isPanelOpen,
   sendAction as sendPanelAction
-} from './panel';
+} from './panel'
 
 export {
   windowIdentifier,
@@ -42,4 +42,4 @@ export {
   closePanel,
   isPanelOpen,
   sendPanelAction
-};
+}

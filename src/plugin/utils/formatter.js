@@ -1,10 +1,10 @@
-export function toArray (object) {
+export function toArray(object) {
   if (Array.isArray(object)) {
-    return object;
+    return object
   }
-  let arr = [];
+  let arr = []
   for (let j = 0; j < object.count(); j++) {
-    arr.push(object.objectAtIndex(j));
+    arr.push(object.objectAtIndex(j))
   }
-  return arr;
+  return arr
 }

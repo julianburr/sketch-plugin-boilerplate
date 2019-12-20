@@ -14,7 +14,7 @@ function myFetch(request, completionHandler) {
       request,
       __mocha__.createBlock_function(
         'v32@?0@"NSData"8@"NSURLResponse"16@"NSError"24',
-        function (data, response, error) {
+        function(data, response, error) {
           completionHandler(resolve, reject)(data, response, error)
         }
       )
@@ -26,7 +26,7 @@ function myFetch(request, completionHandler) {
 // later somewhere
 export function fetchExample() {
   let request = NSMutableURLRequest.new()
-  request.setHTTPMethod("GET")
+  request.setHTTPMethod('GET')
   request.setURL(NSURL.URLWithString(`https://jsonplaceholder.typicode.com/todos/1`))
   return myFetch(request, (resolve, reject) => (data, response, error) => {
     if (error) {
