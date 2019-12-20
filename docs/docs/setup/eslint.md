@@ -15,6 +15,11 @@ Also disables `eqeqeq` rule, as it is not really feasable in Cocoascript, due to
 module.exports = {
   extends: ['semistandard'],
   globals: {
+    NSHTTPCookieStorage: false,
+    NSURLSessionConfiguration: false,
+    NSURLSession: false,
+    __mocha__: false,
+    coscript: false,
     MSDocument: false,
     MSDocumentWindow: false,
     MSPage: false,
@@ -65,6 +70,9 @@ module.exports = {
     'no-unused-vars-rest'
   ],
   rules: {
+    semi: [2, "never"],
+    "eol-last": 0,
+    "space-before-function-paren": ["error", "never"],
     eqeqeq: [
       0
     ]
@@ -78,7 +86,10 @@ Standard react app eslint rule set.
 ```js
 module.exports = {
   plugins: ['react'],
-  extends: ['semistandard'],
+  extends: [
+    'semistandard',
+    'plugin:react/recommended'
+  ],
   env: {
     es6: true
   },
@@ -91,6 +102,12 @@ module.exports = {
       experimentalObjectRestSpread: true,
       jsx: true
     }
+  },
+  rules: {
+    semi: [2, "never"],
+    "eol-last": 0,
+    "space-before-function-paren": ["error", "never"],
+    "react/prop-types": 0
   }
 }
 ```
