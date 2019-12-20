@@ -8,7 +8,7 @@ module.exports = {
     'transform-object-rest-spread',
     ['module-resolver', {
       alias: {
-        utils: './src/plugin/utils'
+        pluginUtils: './src/plugin/utils'
       }
     }]
   ]

@@ -34,7 +34,7 @@ module.exports = {
 }
 ```
 
-### Babel
+#### Babel
 Allows you to use ES6 syntax in your plugin code which will be transformed at build time. Also defined alias for `utils` folder.
 
 ```js
@@ -48,7 +48,7 @@ module.exports = {
     'transform-object-rest-spread',
     ['module-resolver', {
       alias: {
-        utils: './src/plugin/utils'
+        pluginUtils: './src/plugin/utils'
       }
     }]
   ]
@@ -58,7 +58,7 @@ module.exports = {
 ## Webviews
 The webpack config for the webviews was mostly taken from `create-react-app`. You can find the config in `config/webview/webpack-dev.js` and `config/webview/webpack-prod.js`.
 
-### Babel
+#### Babel
 React preset, as well as several aliases for convenience.
 
 ```js
@@ -81,3 +81,34 @@ module.exports = {
   ],
 }
 ```
+
+# Notices
+We add `jsconfig.json` file at the root directory; to sync the paths alias configuration of babel-plugin-module-resolver to **WebStorm**(Version >= 2019 3) or **VSCode**.
+
+So the IDE works well as normal.
+
+```json
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "*": ["src/*"],
+
+      "pluginUtils/*": ["src/plugin/utils/*"],
+
+      "webview/*": ["src/webview/*"],
+      "actions/*": ["src/webview/js/actions/*"],
+      "components/*": ["src/webview/js/components/*"],
+      "reducers/*": ["src/webview/js/reducers/*"],
+      "utils/*": ["src/webview/js/utils/*"],
+      "assets/*": ["src/webview/assets/*"],
+      "styles/*": ["src/webview/scss/*"]
+    }
+  }
+}
+```
+
+* We just copy babel.js alias into jsconfig.json
+* We use pluginUtils instead of utils cause there is already utils in webview
+* We unify the js code of two projects(plugin & webview), because this actually is one project(code in plugin can easily access webview js code through evaluateJavaScript).
+And I think unify them is a good decision.

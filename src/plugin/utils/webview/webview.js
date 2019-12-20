@@ -1,4 +1,4 @@
-import { pluginFolderPath, document, context } from 'utils/core';
+import { pluginFolderPath, document, context } from 'pluginUtils/core';
 import ObjCClass from 'cocoascript-class';
 import { findWebView as findWebViewFromPanel } from "./panel"
 import { findWebView as findWebViewFromWindow } from "./panel"

@@ -1,5 +1,5 @@
-import { initWithContext, document } from 'utils/core';
-import * as WebViewUtils from 'utils/webview';
+import { initWithContext, document } from 'pluginUtils/core';
+import * as WebViewUtils from 'pluginUtils/webview';
 
 // All exported functions will be exposed as entry points to your plugin
 // and can be referenced in your `manifest.json`

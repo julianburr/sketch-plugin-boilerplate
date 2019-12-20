@@ -1,5 +1,5 @@
-import { document } from 'utils/core';
-import { toArray } from 'utils/formatter';
+import { document } from 'pluginUtils/core';
+import { toArray } from 'pluginUtils/formatter';
 import { createWebView, sendAction as sendActionToWebView } from './webview';
 
 export function toggle (identifier, path, width) {
