@@ -1,0 +1,179 @@
+
+
+<!DOCTYPE html>
+<html>
+  
+
+
+<head>
+  <title>Setup &rsaquo; Webpack - Sketch Plugin Boilerplate</title>
+
+  <link rel="icon" type="image/png" href="/sketch-plugin-boilerplate/assets/images/favicon.png" />
+
+  
+  <link rel="stylesheet" href="/sketch-plugin-boilerplate/assets/styles/index.css" />
+  <link rel="stylesheet" href="/sketch-plugin-boilerplate/assets/styles/pygments/borland.css" />
+  <link rel="stylesheet" href="/sketch-plugin-boilerplate/assets/icomoon/style.css" />
+</head>
+  <body id="page-utils/fetch">
+    <nav class="nav nav--main">
+  <div class="container">
+    <a class="logo" href="/sketch-plugin-boilerplate/">
+      <?xml version="1.0" encoding="UTF-8"?>
+<svg width="93px" height="87px" viewBox="0 0 93 87" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 44.1 (41455) - http://www.bohemiancoding.com/sketch -->
+    <g id="logo" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linejoin="round">
+        <g id="logo-group" transform="translate(2.000000, 2.000000)" stroke-width="6" stroke="currentColor" vector-effect="non-scaling-stroke">
+            <polygon id="Path" points="44.7714844 82.9550781 0.538085938 22.8583984 12.9082031 7.33789062 27.953125 0.954101562 62.0507813 1.33007812 76.9160156 7.89746094 88.9335938 22.8447266"></polygon>
+            <polyline id="Path-2" points="44.8827159 81.550827 22.6470365 31.0499768 30.3457031 12.2958984"></polyline>
+            <polyline id="Path-3" points="13.1386708 7.30372124 29.8546124 11.9608367 59.6176687 12 76.6895791 7.55994224"></polyline>
+            <polyline id="Path-4" points="44.7304298 82.1307833 66.3303146 31.6466601 59.8193359 12.2138672"></polyline>
+            <polyline id="Path-5" points="0.926591748 22.720789 22.8088405 31.5489432 66.3081062 31.5997052 88.9441713 22.4257346"></polyline>
+        </g>
+    </g>
+</svg>
+      <span class="label">Sketch Plugin Boilerplate</span>
+    </a>
+    <ul>
+      <li><a class="nav--main--item--get-started" href="/sketch-plugin-boilerplate/#get-started">Get Started</a></li>
+      <li><a class="nav--main--item--docs" href="/sketch-plugin-boilerplate/docs/utils/core">Documentation</a></li>
+      <li><a class="nav--main--item--tutorials" href="/sketch-plugin-boilerplate/tutorials/">Tutorials</a></li>
+      <li><a class="nav--main--item--github" href="https://github.com/julianburr/sketch-plugin-boilerplate" target="_blank">Github</a></li>
+    </ul>
+  </div>
+</nav>
+    <main class="main-content">
+      <div class="docs">
+  <nav class="docs-nav sidebar-nav">
+    <h3>Basic</h3>
+  <li><a href="/sketch-plugin-boilerplate/docs/communication">Communication</a></li>
+</ul>
+
+<h3>Utils</h3>
+<ul>
+  <li><a href="/sketch-plugin-boilerplate/docs/utils/core">Core</a></li>
+  <li><a href="/sketch-plugin-boilerplate/docs/utils/webview">WebView</a></li>
+  <li><a href="/sketch-plugin-boilerplate/docs/utils/fetch">Fetch</a></li>
+</ul>
+
+<h3>Setup</h3>
+<ul>
+  <li><a href="/sketch-plugin-boilerplate/docs/setup/webpack">Webpack</a></li>
+  <li><a href="/sketch-plugin-boilerplate/docs/setup/eslint">ESLint</a></li>
+  <li><a href="/sketch-plugin-boilerplate/docs/setup/jest">Jest</a></li>
+</ul>
+  </nav>
+
+  <div class="docs-content sidebar-content">
+    <h1 id="webpack">Webpack</h1>
+
+<h2 id="plugin">Plugin</h2>
+<p>The plugin simply bundles to a handlers variable.</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">module</span><span class="p">.</span><span class="nx">exports</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="na">entry</span><span class="p">:</span> <span class="nx">paths</span><span class="p">.</span><span class="nx">entry</span><span class="p">,</span>
+  <span class="na">output</span><span class="p">:</span> <span class="p">{</span>
+    <span class="na">path</span><span class="p">:</span> <span class="nx">paths</span><span class="p">.</span><span class="nx">build</span><span class="p">,</span>
+    <span class="na">filename</span><span class="p">:</span> <span class="dl">'</span><span class="s1">plugin.js</span><span class="dl">'</span><span class="p">,</span>
+    <span class="na">library</span><span class="p">:</span> <span class="dl">'</span><span class="s1">handlers</span><span class="dl">'</span><span class="p">,</span>
+    <span class="na">libraryTarget</span><span class="p">:</span> <span class="dl">'</span><span class="s1">var</span><span class="dl">'</span>
+  <span class="p">},</span>
+  <span class="na">module</span><span class="p">:</span> <span class="p">{</span>
+    <span class="na">loaders</span><span class="p">:</span> <span class="p">[</span>
+      <span class="p">{</span>
+        <span class="na">test</span><span class="p">:</span> <span class="sr">/</span><span class="se">\.(</span><span class="sr">js|jsx</span><span class="se">)</span><span class="sr">$/</span><span class="p">,</span>
+        <span class="na">include</span><span class="p">:</span> <span class="nx">paths</span><span class="p">.</span><span class="nx">src</span><span class="p">,</span>
+        <span class="na">exclude</span><span class="p">:</span> <span class="sr">/</span><span class="se">(</span><span class="sr">node_modules</span><span class="se">)</span><span class="sr">/</span><span class="p">,</span>
+        <span class="na">use</span><span class="p">:</span> <span class="p">{</span>
+          <span class="na">loader</span><span class="p">:</span> <span class="dl">'</span><span class="s1">babel-loader</span><span class="dl">'</span><span class="p">,</span>
+          <span class="na">options</span><span class="p">:</span> <span class="nx">babelConfig</span>
+        <span class="p">}</span>
+      <span class="p">}</span>
+    <span class="p">]</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h4 id="babel">Babel</h4>
+<p>Allows you to use ES6 syntax in your plugin code which will be transformed at build time. Also defined alias for <code class="highlighter-rouge">utils</code> folder.</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">module</span><span class="p">.</span><span class="nx">exports</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="na">presets</span><span class="p">:</span> <span class="p">[</span>
+    <span class="p">[</span><span class="dl">'</span><span class="s1">es2015</span><span class="dl">'</span><span class="p">,</span> <span class="p">{</span>
+      <span class="na">modules</span><span class="p">:</span> <span class="kc">false</span>
+    <span class="p">}]</span>
+  <span class="p">],</span>
+  <span class="dl">'</span><span class="s1">plugins</span><span class="dl">'</span><span class="p">:</span> <span class="p">[</span>
+    <span class="dl">'</span><span class="s1">transform-object-rest-spread</span><span class="dl">'</span><span class="p">,</span>
+    <span class="p">[</span><span class="dl">'</span><span class="s1">module-resolver</span><span class="dl">'</span><span class="p">,</span> <span class="p">{</span>
+      <span class="na">alias</span><span class="p">:</span> <span class="p">{</span>
+        <span class="na">pluginUtils</span><span class="p">:</span> <span class="dl">'</span><span class="s1">./src/plugin/utils</span><span class="dl">'</span>
+      <span class="p">}</span>
+    <span class="p">}]</span>
+  <span class="p">]</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h2 id="webviews">Webviews</h2>
+<p>The webpack config for the webviews was mostly taken from <code class="highlighter-rouge">create-react-app</code>. You can find the config in <code class="highlighter-rouge">config/webview/webpack-dev.js</code> and <code class="highlighter-rouge">config/webview/webpack-prod.js</code>.</p>
+
+<h4 id="babel-1">Babel</h4>
+<p>React preset, as well as several aliases for convenience.</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">module</span><span class="p">.</span><span class="nx">exports</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="na">presets</span><span class="p">:</span> <span class="p">[</span><span class="dl">'</span><span class="s1">react-app</span><span class="dl">'</span><span class="p">],</span>
+  <span class="na">plugins</span><span class="p">:</span> <span class="p">[</span>
+    <span class="dl">'</span><span class="s1">transform-object-rest-spread</span><span class="dl">'</span><span class="p">,</span>
+    <span class="dl">'</span><span class="s1">transform-decorators-legacy</span><span class="dl">'</span><span class="p">,</span>
+    <span class="p">[</span><span class="dl">'</span><span class="s1">module-resolver</span><span class="dl">'</span><span class="p">,</span> <span class="p">{</span>
+      <span class="na">alias</span><span class="p">:</span> <span class="p">{</span>
+        <span class="na">webview</span><span class="p">:</span> <span class="dl">'</span><span class="s1">./src/webview</span><span class="dl">'</span><span class="p">,</span>
+        <span class="na">components</span><span class="p">:</span> <span class="dl">'</span><span class="s1">./src/webview/js/components</span><span class="dl">'</span><span class="p">,</span>
+        <span class="na">actions</span><span class="p">:</span> <span class="dl">'</span><span class="s1">./src/webview/js/actions</span><span class="dl">'</span><span class="p">,</span>
+        <span class="na">reducers</span><span class="p">:</span> <span class="dl">'</span><span class="s1">./src/webview/js/reducers</span><span class="dl">'</span><span class="p">,</span>
+        <span class="na">utils</span><span class="p">:</span> <span class="dl">'</span><span class="s1">./src/webview/js/utils</span><span class="dl">'</span><span class="p">,</span>
+        <span class="na">assets</span><span class="p">:</span> <span class="dl">'</span><span class="s1">./src/webview/assets</span><span class="dl">'</span><span class="p">,</span>
+        <span class="na">styles</span><span class="p">:</span> <span class="dl">'</span><span class="s1">./src/webview/scss</span><span class="dl">'</span>
+      <span class="p">}</span>
+    <span class="p">}]</span>
+  <span class="p">],</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h1 id="notices">Notices</h1>
+<p>We add <code class="highlighter-rouge">jsconfig.json</code> file at the root directory; to sync the paths alias configuration of babel-plugin-module-resolver to <strong>WebStorm</strong>(Version &gt;= 2019 3) or <strong>VSCode</strong>.</p>
+
+<p>So the IDE works well as normal.</p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"compilerOptions"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"baseUrl"</span><span class="p">:</span><span class="w"> </span><span class="s2">"."</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"paths"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"*"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"src/*"</span><span class="p">],</span><span class="w">
+
+      </span><span class="nl">"pluginUtils/*"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"src/plugin/utils/*"</span><span class="p">],</span><span class="w">
+
+      </span><span class="nl">"webview/*"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"src/webview/*"</span><span class="p">],</span><span class="w">
+      </span><span class="nl">"actions/*"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"src/webview/js/actions/*"</span><span class="p">],</span><span class="w">
+      </span><span class="nl">"components/*"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"src/webview/js/components/*"</span><span class="p">],</span><span class="w">
+      </span><span class="nl">"reducers/*"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"src/webview/js/reducers/*"</span><span class="p">],</span><span class="w">
+      </span><span class="nl">"utils/*"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"src/webview/js/utils/*"</span><span class="p">],</span><span class="w">
+      </span><span class="nl">"assets/*"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"src/webview/assets/*"</span><span class="p">],</span><span class="w">
+      </span><span class="nl">"styles/*"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"src/webview/scss/*"</span><span class="p">]</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<ul>
+  <li>We just copy babel.js alias into jsconfig.json</li>
+  <li>We use pluginUtils instead of utils cause there is already utils in webview</li>
+  <li>We unify the js code of two projects(plugin &amp; webview), because this actually is one project(code in plugin can easily access webview js code through evaluateJavaScript).
+And I think unify them is a good decision.</li>
+</ul>
+
+  </div>
+</div>
+    </main>
+  </body>
+</html>

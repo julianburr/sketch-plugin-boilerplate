@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+  
+
+
+<head>
+  <title>Sketch Plugin Boilerplate</title>
+
+  <link rel="icon" type="image/png" href="/sketch-plugin-boilerplate/assets/images/favicon.png" />
+
+  
+  <link rel="stylesheet" href="/sketch-plugin-boilerplate/assets/styles/index.css" />
+  <link rel="stylesheet" href="/sketch-plugin-boilerplate/assets/styles/pygments/borland.css" />
+  <link rel="stylesheet" href="/sketch-plugin-boilerplate/assets/icomoon/style.css" />
+</head>
+  <body id="page-home">
+    <nav class="nav nav--main">
+  <div class="container">
+    <a class="logo" href="/sketch-plugin-boilerplate/">
+      <?xml version="1.0" encoding="UTF-8"?>
+<svg width="93px" height="87px" viewBox="0 0 93 87" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 44.1 (41455) - http://www.bohemiancoding.com/sketch -->
+    <g id="logo" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linejoin="round">
+        <g id="logo-group" transform="translate(2.000000, 2.000000)" stroke-width="6" stroke="currentColor" vector-effect="non-scaling-stroke">
+            <polygon id="Path" points="44.7714844 82.9550781 0.538085938 22.8583984 12.9082031 7.33789062 27.953125 0.954101562 62.0507813 1.33007812 76.9160156 7.89746094 88.9335938 22.8447266"></polygon>
+            <polyline id="Path-2" points="44.8827159 81.550827 22.6470365 31.0499768 30.3457031 12.2958984"></polyline>
+            <polyline id="Path-3" points="13.1386708 7.30372124 29.8546124 11.9608367 59.6176687 12 76.6895791 7.55994224"></polyline>
+            <polyline id="Path-4" points="44.7304298 82.1307833 66.3303146 31.6466601 59.8193359 12.2138672"></polyline>
+            <polyline id="Path-5" points="0.926591748 22.720789 22.8088405 31.5489432 66.3081062 31.5997052 88.9441713 22.4257346"></polyline>
+        </g>
+    </g>
+</svg>
+      <span class="label">Sketch Plugin Boilerplate</span>
+    </a>
+    <ul>
+      <li><a class="nav--main--item--get-started" href="/sketch-plugin-boilerplate/#get-started">Get Started</a></li>
+      <li><a class="nav--main--item--docs" href="/sketch-plugin-boilerplate/docs/utils/core">Documentation</a></li>
+      <li><a class="nav--main--item--tutorials" href="/sketch-plugin-boilerplate/tutorials/">Tutorials</a></li>
+      <li><a class="nav--main--item--github" href="https://github.com/julianburr/sketch-plugin-boilerplate" target="_blank">Github</a></li>
+    </ul>
+  </div>
+</nav>
+    
+    <div class="hero">
+  <div class="content">
+    <div class="hero--content">
+      <h1 class="hero--title">
+        <span class="large">Sketch</span>
+        <span class="small">Plugin Boilerplate</span>
+      </h1>
+      <div class="hero--buttons">
+        <a class="button button--get-started" href="/sketch-plugin-boilerplate/#get-started">Get Started</a>
+        <a class="button button--docs" href="/sketch-plugin-boilerplate/docs/utils/core">Documentation</a>
+        <a class="button button--github" href="https://github.com/julianburr/sketch-plugin-boilerplate" target="_blank">Github</a>
+      </div>
+    </div>
+  </div>
+</div>
+    <section class="features">
+  <div class="content">
+
+    <div class="feature feature--ui">
+      <span class="icon icon-interface"></span>
+      <h2>Build Interfaces</h2>
+      <p>Creating UIs and GUIs for your Sketch Plugin can be a pain, even more when you try to do it with plain JS / Cocoascript. This boilerplate gives you useful helpers to achieve that goal.</p>
+    </div>
+
+    <div class="feature feature--http">
+      <span class="icon icon-ethernet"></span>
+      <h2>Async HTTP Requests</h2>
+      <p>You need to do API requests from your plugin? The boilerplate comes with helpful utils and a fetch polyfill that make asynchronous network request and downloads super easy.</p>
+    </div>
+
+    <div class="feature feature--speed">
+      <span class="icon icon-flash"></span>
+      <h2>Get Up and Running</h2>
+      <p>If you are tired of setting up projects from skretch you came to the right place. This boilerplate comes with a comprehensive setup, so you can start doing the fun stuff straight away.</p>
+    </div>
+    
+  </div>
+</section>
+
+
+    <main class="main-content">
+      <h1 id="get-started">Get Started</h1>
+
+<p>Let’s say you want to name your project <code class="highlighter-rouge">MyProject</code> and locate it at <code class="highlighter-rouge">MyPath</code></p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cd </span>MyPath
+
+git clone <span class="nt">-b</span> features https://github.com/colorgmi/sketch-plugin-boilerplate.git MyProject
+<span class="c"># [todo: git clone https://github.com/julianburr/sketch-plugin-boilerplate.git MyProject]</span>
+
+<span class="nb">cd </span>MyProject
+
+<span class="c"># Install dependencies</span>
+yarn
+
+<span class="c"># Build and watch plugin (Backend: js code)</span>
+yarn start 
+<span class="c"># Notice: need to restart Sketch when code changed </span>
+<span class="c"># Because we set `coscript.setShouldKeepAround(true)` for convenience and never set it `false`, so this is a long running JavaScript context; so can't reload unless restart Sketch.</span>
+
+<span class="c"># Another terminal</span>
+<span class="c"># Build and watch webview (Frontend: js and scss code)</span>
+yarn start:webview 
+<span class="c"># Notice: when it done, open your Safari of url https://localhost:3000/ </span>
+<span class="c"># Then manually trust the localhost certificate in Keychain Access Application of Mac</span>
+<span class="c"># And then, Sketch webview can load https://localhost:3000/</span>
+
+<span class="c"># Then make a symbol link from your project to Sketch Plugin folder</span>
+<span class="c"># This will install Sketch plugin</span>
+<span class="nb">cd</span> ~/Library/Application<span class="se">\ </span>Support/com.bohemiancoding.sketch3/Plugins/
+<span class="nb">mkdir </span>MyProject.sketchplugin 
+<span class="nb">cd </span>MyProject.sketchPlugin 
+<span class="nb">ln</span> <span class="nt">-s</span> MyPath/MyProject/Contents <span class="nb">.</span>
+</code></pre></div></div>
+<p>Now, you can open Sketch Application, and open your plugin.
+And you can change your frontend code, and backend code(need Sketch restart).
+This way, you develop your plugin like a full stack developer.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Bundle your project</span>
+yarn bundle
+</code></pre></div></div>
+
+    </main>
+  </body>
+</html>
