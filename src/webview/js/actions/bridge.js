@@ -1,5 +1,5 @@
-export const SEND_ACTION = 'sketch/bridge/SEND_ACTION';
-export const RECEIVE_ACTION = 'sketch/bridge/RECEIVE_ACTION';
+export const SEND_ACTION = 'sketch/bridge/SEND_ACTION'
+export const RECEIVE_ACTION = 'sketch/bridge/RECEIVE_ACTION'
 
 export const sendAction = (name, payload) => {
   return {
@@ -8,8 +8,8 @@ export const sendAction = (name, payload) => {
       name,
       payload
     }
-  };
-};
+  }
+}
 
 export const receiveAction = (name, payload) => {
   return {
@@ -18,5 +18,5 @@ export const receiveAction = (name, payload) => {
       name,
       payload
     }
-  };
-};
+  }
+}
