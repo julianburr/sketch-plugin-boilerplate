@@ -6,6 +6,8 @@ let sketch = null
 let pluginFolderPath = null
 let frameworkFolderPath = '/Contents/Resources/frameworks/'
 
+let sampleFramework = null
+
 function getPluginFolderPath() {
   // Get absolute folder path of plugin
   let split = context.scriptPath.split('/')
@@ -26,6 +28,11 @@ export function initWithContext(ctx) {
   // Here you could load custom cocoa frameworks if you need to
   // loadFramework('FrameworkName', 'ClassName');
   // => would be loaded into ClassName in global namespace!
+  if (loadFramework('SampleFramework', 'SampleFramework')) {
+    sampleFramework = SampleFramework.alloc().init();
+  } else {
+    throw Error('loadFramework or new instance failed')
+  }
 }
 
 export function loadFramework(frameworkName, frameworkClass) {
@@ -43,5 +50,6 @@ export {
   document,
   selection,
   sketch,
-  pluginFolderPath
+  pluginFolderPath,
+  sampleFramework,
 }

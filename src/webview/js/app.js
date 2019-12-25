@@ -68,13 +68,13 @@ export default class App extends Component {
           </div>
           <div className="runtime-test">
             <button onClick={this.runBusyOnCocoaScript}>
-              Run Busy On CocoaScript
+              Run Busy On CocoaScript (default on Main Thread)
             </button>
             {this.props.runBusyOnCocoaScriptState === 'done' && <p>Busy Done!</p>}
           </div>
           <div className="runtime-test">
             <button onClick={this.runBusyOnFramework}>
-              Run Busy On Framework
+              Run Busy On Framework on Background Thread
             </button>
             {this.props.runBusyOnFrameworkState === 'done' && <p>Busy Done!</p>}
           </div>

@@ -1,4 +1,4 @@
-import { pluginFolderPath, document } from 'pluginUtils/core'
+import {pluginFolderPath, document, sampleFramework} from 'pluginUtils/core'
 import ObjCClass from 'cocoascript-class'
 import { findWebView as findWebViewFromPanel, findWebView as findWebViewFromWindow } from './panel'
 
@@ -83,9 +83,10 @@ export function receiveAction(name, payload = {}) {
 
   if (name === 'runBusyOnFramework') {
     document.showMessage(`I received a message: ${name}, ${JSON.stringify(payload)}`)
-    for (let i=0; i < 10000000000; i++) {}
-    sendAction(findWebViewFromPanel(panelIdentifier), 'runBusyOnFrameworkDone', payload)
-    sendAction(findWebViewFromWindow(windowIdentifier), 'runBusyOnFrameworkDone', payload)
+    sampleFramework.runBusyOnBackGround(nameFromOc => {
+      sendAction(findWebViewFromPanel(panelIdentifier), nameFromOc, payload)
+      sendAction(findWebViewFromWindow(windowIdentifier), nameFromOc, payload)
+    })
     return
   }
 
