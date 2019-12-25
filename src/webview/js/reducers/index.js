@@ -6,5 +6,5 @@ import bridge from './bridge'
 
 export default combineReducers({
   bridge,
-  routing: routerReducer
+  routing: routerReducer,
 })

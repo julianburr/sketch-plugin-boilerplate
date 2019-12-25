@@ -72,7 +72,24 @@ export function sendAction(webView, name, payload = {}) {
 }
 
 export function receiveAction(name, payload = {}) {
-  document.showMessage('I received a message! 😊🎉🎉')
+
+  if (name === 'runBusyOnCocoaScript') {
+    document.showMessage(`I received a message: ${name}, ${JSON.stringify(payload)}`)
+    for (let i=0; i < 10000000000; i++) {}
+    sendAction(findWebViewFromPanel(panelIdentifier), 'runBusyOnCocoaScriptDone', payload)
+    sendAction(findWebViewFromWindow(windowIdentifier), 'runBusyOnCocoaScriptDone', payload)
+    return
+  }
+
+  if (name === 'runBusyOnFramework') {
+    document.showMessage(`I received a message: ${name}, ${JSON.stringify(payload)}`)
+    for (let i=0; i < 10000000000; i++) {}
+    sendAction(findWebViewFromPanel(panelIdentifier), 'runBusyOnFrameworkDone', payload)
+    sendAction(findWebViewFromWindow(windowIdentifier), 'runBusyOnFrameworkDone', payload)
+    return
+  }
+
+  document.showMessage(`I received a message: ${name}, ${JSON.stringify(payload)}`)
   sendAction(findWebViewFromPanel(panelIdentifier), name, payload)
   sendAction(findWebViewFromWindow(windowIdentifier), name, payload)
 }

@@ -3,7 +3,9 @@ import { SEND_ACTION, RECEIVE_ACTION } from 'actions/bridge'
 import moment from 'moment'
 
 export let defaultState = {
-  actions: []
+  actions: [],
+  runBusyOnCocoaScriptState: 'not_start',
+  runBusyOnFrameworkState: 'not_start',
 }
 
 export default (state, action) => {
@@ -28,6 +30,18 @@ export default (state, action) => {
       }
 
     case RECEIVE_ACTION:
+      if (action.payload.name === 'runBusyOnCocoaScriptDone') {
+        return {
+          ...state,
+          runBusyOnCocoaScriptState: 'done'
+        }
+      }
+      if (action.payload.name === 'runBusyOnFrameworkDone') {
+        return {
+          ...state,
+          runBusyOnFrameworkState: 'done'
+        }
+      }
       return {
         ...state,
         actions: [...state.actions].concat([{

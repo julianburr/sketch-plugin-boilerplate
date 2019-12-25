@@ -8,7 +8,9 @@ import 'styles/index.scss'
 
 const mapStateToProps = state => {
   return {
-    actions: state.bridge.actions
+    actions: state.bridge.actions,
+    runBusyOnCocoaScriptState: state.bridge.runBusyOnCocoaScriptState,
+    runBusyOnFrameworkState: state.bridge.runBusyOnFrameworkState,
   }
 }
 
@@ -21,8 +23,28 @@ const mapDispatchToProps = dispatch => {
 @connect(mapStateToProps, mapDispatchToProps)
 @autobind
 export default class App extends Component {
+
+  state = {
+    busy: 'not_start',
+  }
+
   sendMessage() {
     this.props.sendAction('foo', {foo: 'bar'})
+  }
+
+  runBusyOnWebView() {
+    this.setState({ busy: 'busy' }, () => {
+      for (let i=0; i < 10000000000; i++) {}
+      this.setState({ busy: 'done' })
+    })
+  }
+
+  runBusyOnCocoaScript() {
+    this.props.sendAction('runBusyOnCocoaScript')
+  }
+
+  runBusyOnFramework() {
+    this.props.sendAction('runBusyOnFramework')
   }
 
   render() {
@@ -33,9 +55,29 @@ export default class App extends Component {
         <div className="app-content">
           <p>To get started, edit <code>src/webview/js/app.js</code> and save to reload.</p>
           <p><button onClick={this.sendMessage}>Send Action</button></p>
-          {this.props.actions.map(action => {
-            return <pre>{JSON.stringify(action, null, 2)}</pre>
-          })}
+          {/*{this.props.actions.map(action => {*/}
+          {/*  return <pre>{JSON.stringify(action, null, 2)}</pre>*/}
+          {/*})}*/}
+        </div>
+        <div className="runtime-test-container">
+          <div className="runtime-test">
+            <button onClick={this.runBusyOnWebView}>
+              Run Busy On WebView
+            </button>
+            {this.state.busy === 'done' && <p>Busy Done!</p>}
+          </div>
+          <div className="runtime-test">
+            <button onClick={this.runBusyOnCocoaScript}>
+              Run Busy On CocoaScript
+            </button>
+            {this.props.runBusyOnCocoaScriptState === 'done' && <p>Busy Done!</p>}
+          </div>
+          <div className="runtime-test">
+            <button onClick={this.runBusyOnFramework}>
+              Run Busy On Framework
+            </button>
+            {this.props.runBusyOnFrameworkState === 'done' && <p>Busy Done!</p>}
+          </div>
         </div>
       </div>
     )
