@@ -28,11 +28,8 @@ export function initWithContext(ctx) {
   // Here you could load custom cocoa frameworks if you need to
   // loadFramework('FrameworkName', 'ClassName');
   // => would be loaded into ClassName in global namespace!
-  if (loadFramework('SampleFramework', 'SampleFramework')) {
-    sampleFramework = SampleFramework.alloc().init();
-  } else {
-    throw Error('loadFramework or new instance failed')
-  }
+  loadFramework('SampleFramework', 'SampleFramework')
+  sampleFramework = SampleFramework.alloc().init()
 }
 
 export function loadFramework(frameworkName, frameworkClass) {

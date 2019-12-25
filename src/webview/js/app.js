@@ -55,9 +55,9 @@ export default class App extends Component {
         <div className="app-content">
           <p>To get started, edit <code>src/webview/js/app.js</code> and save to reload.</p>
           <p><button onClick={this.sendMessage}>Send Action</button></p>
-          {/*{this.props.actions.map(action => {*/}
-          {/*  return <pre>{JSON.stringify(action, null, 2)}</pre>*/}
-          {/*})}*/}
+          {this.props.actions.map(action => {
+            return <pre>{JSON.stringify(action, null, 2)}</pre>
+          })}
         </div>
         <div className="runtime-test-container">
           <div className="runtime-test">
