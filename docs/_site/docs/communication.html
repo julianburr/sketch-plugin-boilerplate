@@ -1,0 +1,117 @@
+
+
+<!DOCTYPE html>
+<html>
+  
+
+
+<head>
+  <title>Communication - Sketch Plugin Boilerplate</title>
+
+  <link rel="icon" type="image/png" href="/sketch-plugin-boilerplate/assets/images/favicon.png" />
+
+  
+  <link rel="stylesheet" href="/sketch-plugin-boilerplate/assets/styles/index.css" />
+  <link rel="stylesheet" href="/sketch-plugin-boilerplate/assets/styles/pygments/borland.css" />
+  <link rel="stylesheet" href="/sketch-plugin-boilerplate/assets/icomoon/style.css" />
+</head>
+  <body id="page-docs/communication">
+    <nav class="nav nav--main">
+  <div class="container">
+    <a class="logo" href="/sketch-plugin-boilerplate/">
+      <?xml version="1.0" encoding="UTF-8"?>
+<svg width="93px" height="87px" viewBox="0 0 93 87" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 44.1 (41455) - http://www.bohemiancoding.com/sketch -->
+    <g id="logo" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linejoin="round">
+        <g id="logo-group" transform="translate(2.000000, 2.000000)" stroke-width="6" stroke="currentColor" vector-effect="non-scaling-stroke">
+            <polygon id="Path" points="44.7714844 82.9550781 0.538085938 22.8583984 12.9082031 7.33789062 27.953125 0.954101562 62.0507813 1.33007812 76.9160156 7.89746094 88.9335938 22.8447266"></polygon>
+            <polyline id="Path-2" points="44.8827159 81.550827 22.6470365 31.0499768 30.3457031 12.2958984"></polyline>
+            <polyline id="Path-3" points="13.1386708 7.30372124 29.8546124 11.9608367 59.6176687 12 76.6895791 7.55994224"></polyline>
+            <polyline id="Path-4" points="44.7304298 82.1307833 66.3303146 31.6466601 59.8193359 12.2138672"></polyline>
+            <polyline id="Path-5" points="0.926591748 22.720789 22.8088405 31.5489432 66.3081062 31.5997052 88.9441713 22.4257346"></polyline>
+        </g>
+    </g>
+</svg>
+      <span class="label">Sketch Plugin Boilerplate</span>
+    </a>
+    <ul>
+      <li><a class="nav--main--item--get-started" href="/sketch-plugin-boilerplate/#get-started">Get Started</a></li>
+      <li><a class="nav--main--item--docs" href="/sketch-plugin-boilerplate/docs/communication">Documentation</a></li>
+      <li><a class="nav--main--item--tutorials" href="/sketch-plugin-boilerplate/tutorials/">Tutorials</a></li>
+      <li><a class="nav--main--item--github" href="https://github.com/julianburr/sketch-plugin-boilerplate" target="_blank">Github</a></li>
+    </ul>
+  </div>
+</nav>
+    <main class="main-content">
+      <div class="docs">
+  <nav class="docs-nav sidebar-nav">
+    <h3>Basic</h3>
+  <li><a href="/sketch-plugin-boilerplate/docs/communication">Communication</a></li>
+</ul>
+
+<h3>Utils</h3>
+<ul>
+  <li><a href="/sketch-plugin-boilerplate/docs/utils/core">Core</a></li>
+  <li><a href="/sketch-plugin-boilerplate/docs/utils/webview">WebView</a></li>
+  <li><a href="/sketch-plugin-boilerplate/docs/utils/fetch">Fetch</a></li>
+</ul>
+
+<h3>Setup</h3>
+<ul>
+  <li><a href="/sketch-plugin-boilerplate/docs/setup/webpack">Webpack</a></li>
+  <li><a href="/sketch-plugin-boilerplate/docs/setup/eslint">ESLint</a></li>
+  <li><a href="/sketch-plugin-boilerplate/docs/setup/jest">Jest</a></li>
+</ul>
+  </nav>
+
+  <div class="docs-content sidebar-content">
+    <h1 id="communication-and-architecture">Communication and Architecture</h1>
+
+<p><img src="communication.png" width="1000" /></p>
+
+<h2 id="notices">Notices</h2>
+<h4 id="webpack-dev-server">Webpack dev server</h4>
+
+<ul>
+  <li>
+    <p>When developing the frontend code, we use webpack dev server to serve https://localhost:3000.</p>
+
+    <p>This way, we make our frontend developing the same as web developing experience. (js scss live-reload, safari web inspector debugging)</p>
+
+    <p>Notice, it needs https protocol to load in Sketch webview. 
+The easiest way to solve this, is to manually trust the webpack dev server default localhost certificate in <strong>Keychain Access</strong> Application on your Mac.</p>
+  </li>
+  <li>
+    <p>When deploy the plugin, from <code class="highlighter-rouge">yarn bundle</code>, we load the build file.</p>
+  </li>
+</ul>
+
+<h4 id="framework">Framework</h4>
+<p>I use Xcode and CocoaPods to create framework, which is loaded by CocoaScript.</p>
+
+<p>Why I need to build framework, because:</p>
+
+<ol>
+  <li>
+    <p>CocoaScript can’t identify <code class="highlighter-rouge">dispatch_async</code>, so multi thread programs should be written in ObjC and called by js.
+Be careful, the js code should be in the <code class="highlighter-rouge">block</code> of <code class="highlighter-rouge">dispatch_async(dispatch_get_main_queue(), block)</code> cause it should be run on the main thread.</p>
+  </li>
+  <li>
+    <p>Because there is already been a lot of third party ObjC frameworks, we can develop some code based on them. 
+Coding objective C on Xcode is a good selection while hand writing javascript is not. 
+Because no type information, no IDE, and translation between the two languages is disturbing.</p>
+  </li>
+</ol>
+
+<p>You need to notarize all your frameworks.</p>
+
+<p>You can debug your framework code by set <strong>Edit Scheme/Run/Debug &amp; Ask on Launch</strong>, then select <strong>Sketch</strong>.</p>
+
+<p>I manually copy the released frameworks build by Xcode into the <code class="highlighter-rouge">./src/frameworks</code> folder, 
+then call <code class="highlighter-rouge">loadFramework</code> to load them. I think this is not so elegant, [todo].</p>
+
+  </div>
+</div>
+    </main>
+  </body>
+</html>

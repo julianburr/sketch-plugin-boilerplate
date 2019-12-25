@@ -8,5 +8,9 @@ Contents/
 knowledge/
 
 # Docs files
+docs/.jekyll-cache
 docs/.sass-cache
-docs/_site
+
+# Idea
+.idea/
+

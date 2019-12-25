@@ -1,0 +1,178 @@
+
+
+<!DOCTYPE html>
+<html>
+  
+
+
+<head>
+  <title>Setup &rsaquo; ESLint - Sketch Plugin Boilerplate</title>
+
+  <link rel="icon" type="image/png" href="/sketch-plugin-boilerplate/assets/images/favicon.png" />
+
+  
+  <link rel="stylesheet" href="/sketch-plugin-boilerplate/assets/styles/index.css" />
+  <link rel="stylesheet" href="/sketch-plugin-boilerplate/assets/styles/pygments/borland.css" />
+  <link rel="stylesheet" href="/sketch-plugin-boilerplate/assets/icomoon/style.css" />
+</head>
+  <body id="page-setup/eslint">
+    <nav class="nav nav--main">
+  <div class="container">
+    <a class="logo" href="/sketch-plugin-boilerplate/">
+      <?xml version="1.0" encoding="UTF-8"?>
+<svg width="93px" height="87px" viewBox="0 0 93 87" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 44.1 (41455) - http://www.bohemiancoding.com/sketch -->
+    <g id="logo" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linejoin="round">
+        <g id="logo-group" transform="translate(2.000000, 2.000000)" stroke-width="6" stroke="currentColor" vector-effect="non-scaling-stroke">
+            <polygon id="Path" points="44.7714844 82.9550781 0.538085938 22.8583984 12.9082031 7.33789062 27.953125 0.954101562 62.0507813 1.33007812 76.9160156 7.89746094 88.9335938 22.8447266"></polygon>
+            <polyline id="Path-2" points="44.8827159 81.550827 22.6470365 31.0499768 30.3457031 12.2958984"></polyline>
+            <polyline id="Path-3" points="13.1386708 7.30372124 29.8546124 11.9608367 59.6176687 12 76.6895791 7.55994224"></polyline>
+            <polyline id="Path-4" points="44.7304298 82.1307833 66.3303146 31.6466601 59.8193359 12.2138672"></polyline>
+            <polyline id="Path-5" points="0.926591748 22.720789 22.8088405 31.5489432 66.3081062 31.5997052 88.9441713 22.4257346"></polyline>
+        </g>
+    </g>
+</svg>
+      <span class="label">Sketch Plugin Boilerplate</span>
+    </a>
+    <ul>
+      <li><a class="nav--main--item--get-started" href="/sketch-plugin-boilerplate/#get-started">Get Started</a></li>
+      <li><a class="nav--main--item--docs" href="/sketch-plugin-boilerplate/docs/communication">Documentation</a></li>
+      <li><a class="nav--main--item--tutorials" href="/sketch-plugin-boilerplate/tutorials/">Tutorials</a></li>
+      <li><a class="nav--main--item--github" href="https://github.com/julianburr/sketch-plugin-boilerplate" target="_blank">Github</a></li>
+    </ul>
+  </div>
+</nav>
+    <main class="main-content">
+      <div class="docs">
+  <nav class="docs-nav sidebar-nav">
+    <h3>Basic</h3>
+  <li><a href="/sketch-plugin-boilerplate/docs/communication">Communication</a></li>
+</ul>
+
+<h3>Utils</h3>
+<ul>
+  <li><a href="/sketch-plugin-boilerplate/docs/utils/core">Core</a></li>
+  <li><a href="/sketch-plugin-boilerplate/docs/utils/webview">WebView</a></li>
+  <li><a href="/sketch-plugin-boilerplate/docs/utils/fetch">Fetch</a></li>
+</ul>
+
+<h3>Setup</h3>
+<ul>
+  <li><a href="/sketch-plugin-boilerplate/docs/setup/webpack">Webpack</a></li>
+  <li><a href="/sketch-plugin-boilerplate/docs/setup/eslint">ESLint</a></li>
+  <li><a href="/sketch-plugin-boilerplate/docs/setup/jest">Jest</a></li>
+</ul>
+  </nav>
+
+  <div class="docs-content sidebar-content">
+    <h1 id="eslint">ESLint</h1>
+
+<h2 id="plugin">Plugin</h2>
+<p>Uses semistandard. On top of that defines all globals for exposed sketch classes and some other globals available through Cocoascript environment.</p>
+
+<p>Also disables <code class="highlighter-rouge">eqeqeq</code> rule, as it is not really feasable in Cocoascript, due to the various different types you are dealing with (NSString == string, but NSString !== string).</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">module</span><span class="p">.</span><span class="nx">exports</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="na">extends</span><span class="p">:</span> <span class="p">[</span><span class="dl">'</span><span class="s1">semistandard</span><span class="dl">'</span><span class="p">],</span>
+  <span class="na">globals</span><span class="p">:</span> <span class="p">{</span>
+    <span class="na">NSHTTPCookieStorage</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+    <span class="na">NSURLSessionConfiguration</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+    <span class="na">NSURLSession</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+    <span class="na">__mocha__</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+    <span class="na">coscript</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+    <span class="na">MSDocument</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+    <span class="na">MSDocumentWindow</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+    <span class="na">MSPage</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+    <span class="na">MSSymbolInstance</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+    <span class="na">MSSymbolMaster</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+    <span class="na">MSTextLayer</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+    <span class="na">NSAlert</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+    <span class="na">NSApp</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+    <span class="na">NSClassFromString</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+    <span class="na">NSColor</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+    <span class="na">NSData</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+    <span class="na">NSDocument</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+    <span class="na">NSDocumentController</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+    <span class="na">NSFileManager</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+    <span class="na">NSImage</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+    <span class="na">NSJSONSerialization</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+    <span class="na">NSMakeRect</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+    <span class="na">NSMutableData</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+    <span class="na">NSMutableURLRequest</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+    <span class="na">NSSaveOperation</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+    <span class="na">NSString</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+    <span class="na">NSTextField</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+    <span class="na">NSTextView</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+    <span class="na">NSThread</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+    <span class="na">NSTitledWindowMask</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+    <span class="na">NSURL</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+    <span class="na">NSURLRequest</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+    <span class="na">NSUTF8StringEncoding</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+    <span class="na">NSUserDefaults</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+    <span class="na">NSView</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+    <span class="na">NSViewHeightSizable</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+    <span class="na">NSViewWidthSizable</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+    <span class="na">NSWindow</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+    <span class="na">NSWorkspace</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+    <span class="na">WKWebView</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+    <span class="na">WKWebViewConfiguration</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+    <span class="na">Mocha</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+    <span class="na">log</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+    <span class="na">NSBackingStoreBuffered</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+    <span class="na">NSPanel</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+    <span class="na">NSResizableWindowMask</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+    <span class="na">NSWindowStyleMaskClosable</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+    <span class="na">SPBWebViewMessageHandler</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+    <span class="na">SPBWebViewMessageUtils</span><span class="p">:</span> <span class="kc">false</span>
+  <span class="p">},</span>
+  <span class="na">parser</span><span class="p">:</span> <span class="dl">'</span><span class="s1">babel-eslint</span><span class="dl">'</span><span class="p">,</span>
+  <span class="na">plugins</span><span class="p">:</span> <span class="p">[</span>
+    <span class="dl">'</span><span class="s1">no-unused-vars-rest</span><span class="dl">'</span>
+  <span class="p">],</span>
+  <span class="na">rules</span><span class="p">:</span> <span class="p">{</span>
+    <span class="na">semi</span><span class="p">:</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="dl">"</span><span class="s2">never</span><span class="dl">"</span><span class="p">],</span>
+    <span class="dl">"</span><span class="s2">eol-last</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">space-before-function-paren</span><span class="dl">"</span><span class="p">:</span> <span class="p">[</span><span class="dl">"</span><span class="s2">error</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">never</span><span class="dl">"</span><span class="p">],</span>
+    <span class="na">eqeqeq</span><span class="p">:</span> <span class="p">[</span>
+      <span class="mi">0</span>
+    <span class="p">]</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h2 id="webviews">Webviews</h2>
+<p>Standard react app eslint rule set.</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">module</span><span class="p">.</span><span class="nx">exports</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="na">plugins</span><span class="p">:</span> <span class="p">[</span><span class="dl">'</span><span class="s1">react</span><span class="dl">'</span><span class="p">],</span>
+  <span class="na">extends</span><span class="p">:</span> <span class="p">[</span>
+    <span class="dl">'</span><span class="s1">semistandard</span><span class="dl">'</span><span class="p">,</span>
+    <span class="dl">'</span><span class="s1">plugin:react/recommended</span><span class="dl">'</span>
+  <span class="p">],</span>
+  <span class="na">env</span><span class="p">:</span> <span class="p">{</span>
+    <span class="na">es6</span><span class="p">:</span> <span class="kc">true</span>
+  <span class="p">},</span>
+  <span class="na">parser</span><span class="p">:</span> <span class="dl">'</span><span class="s1">babel-eslint</span><span class="dl">'</span><span class="p">,</span>
+  <span class="na">parserOptions</span><span class="p">:</span> <span class="p">{</span>
+    <span class="na">sourceType</span><span class="p">:</span> <span class="dl">'</span><span class="s1">module</span><span class="dl">'</span><span class="p">,</span>
+    <span class="na">ecmaVersion</span><span class="p">:</span> <span class="mi">6</span><span class="p">,</span>
+    <span class="na">ecmaFeatures</span><span class="p">:</span> <span class="p">{</span>
+      <span class="na">impliedStrict</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+      <span class="na">experimentalObjectRestSpread</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+      <span class="na">jsx</span><span class="p">:</span> <span class="kc">true</span>
+    <span class="p">}</span>
+  <span class="p">},</span>
+  <span class="na">rules</span><span class="p">:</span> <span class="p">{</span>
+    <span class="na">semi</span><span class="p">:</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="dl">"</span><span class="s2">never</span><span class="dl">"</span><span class="p">],</span>
+    <span class="dl">"</span><span class="s2">eol-last</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">space-before-function-paren</span><span class="dl">"</span><span class="p">:</span> <span class="p">[</span><span class="dl">"</span><span class="s2">error</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">never</span><span class="dl">"</span><span class="p">],</span>
+    <span class="dl">"</span><span class="s2">react/prop-types</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+  </div>
+</div>
+    </main>
+  </body>
+</html>

@@ -1,5 +1,5 @@
-import store from 'webview/js/store';
-import { receiveAction } from 'actions/bridge';
+import store from 'webview/js/store'
+import { receiveAction } from 'actions/bridge'
 
 /**
  * Bridge function that allows the plugin to send data to the
@@ -8,12 +8,12 @@ import { receiveAction } from 'actions/bridge';
  */
 export const bridge = (jsonString) => {
   try {
-    let jsonData = jsonString ? JSON.parse(jsonString) : {};
-    store.dispatch(receiveAction(jsonData.name, jsonData.payload));
+    let jsonData = jsonString ? JSON.parse(jsonString) : {}
+    store.dispatch(receiveAction(jsonData.name, jsonData.payload))
   } catch (error) {
-    console.error(error);
+    console.error(error)
   }
-};
+}
 
 /**
  * Check if message handler is available
@@ -23,8 +23,8 @@ export const bridge = (jsonString) => {
 export const check = () => {
   return window.webkit &&
     window.webkit.messageHandlers &&
-    window.webkit.messageHandlers.Sketch;
-};
+    window.webkit.messageHandlers.Sketch
+}
 
 /**
  * Send message to plugin using the message handler
@@ -33,9 +33,9 @@ export const check = () => {
 export const sendAction = (name, payload = {}) => {
   return new Promise((resolve, reject) => {
     if (!check()) {
-      reject(new Error('Could not connect to Sketch!'));
+      reject(new Error('Could not connect to Sketch!'))
     }
-    window.webkit.messageHandlers.Sketch.postMessage(JSON.stringify({name, payload}));
-    resolve();
-  });
-};
+    window.webkit.messageHandlers.Sketch.postMessage(JSON.stringify({name, payload}))
+    resolve()
+  })
+}

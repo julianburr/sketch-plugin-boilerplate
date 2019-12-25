@@ -1,0 +1,18 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "*": ["src/*"],
+
+      "pluginUtils/*": ["src/plugin/utils/*"],
+
+      "webview/*": ["src/webview/*"],
+      "actions/*": ["src/webview/js/actions/*"],
+      "components/*": ["src/webview/js/components/*"],
+      "reducers/*": ["src/webview/js/reducers/*"],
+      "utils/*": ["src/webview/js/utils/*"],
+      "assets/*": ["src/webview/assets/*"],
+      "styles/*": ["src/webview/scss/*"]
+    }
+  }
+}

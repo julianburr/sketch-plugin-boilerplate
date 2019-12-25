@@ -1,0 +1,160 @@
+
+
+<!DOCTYPE html>
+<html>
+  
+
+
+<head>
+  <title>Utils &rsaquo; Fetch - Sketch Plugin Boilerplate</title>
+
+  <link rel="icon" type="image/png" href="/sketch-plugin-boilerplate/assets/images/favicon.png" />
+
+  
+  <link rel="stylesheet" href="/sketch-plugin-boilerplate/assets/styles/index.css" />
+  <link rel="stylesheet" href="/sketch-plugin-boilerplate/assets/styles/pygments/borland.css" />
+  <link rel="stylesheet" href="/sketch-plugin-boilerplate/assets/icomoon/style.css" />
+</head>
+  <body id="page-utils/fetch">
+    <nav class="nav nav--main">
+  <div class="container">
+    <a class="logo" href="/sketch-plugin-boilerplate/">
+      <?xml version="1.0" encoding="UTF-8"?>
+<svg width="93px" height="87px" viewBox="0 0 93 87" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 44.1 (41455) - http://www.bohemiancoding.com/sketch -->
+    <g id="logo" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linejoin="round">
+        <g id="logo-group" transform="translate(2.000000, 2.000000)" stroke-width="6" stroke="currentColor" vector-effect="non-scaling-stroke">
+            <polygon id="Path" points="44.7714844 82.9550781 0.538085938 22.8583984 12.9082031 7.33789062 27.953125 0.954101562 62.0507813 1.33007812 76.9160156 7.89746094 88.9335938 22.8447266"></polygon>
+            <polyline id="Path-2" points="44.8827159 81.550827 22.6470365 31.0499768 30.3457031 12.2958984"></polyline>
+            <polyline id="Path-3" points="13.1386708 7.30372124 29.8546124 11.9608367 59.6176687 12 76.6895791 7.55994224"></polyline>
+            <polyline id="Path-4" points="44.7304298 82.1307833 66.3303146 31.6466601 59.8193359 12.2138672"></polyline>
+            <polyline id="Path-5" points="0.926591748 22.720789 22.8088405 31.5489432 66.3081062 31.5997052 88.9441713 22.4257346"></polyline>
+        </g>
+    </g>
+</svg>
+      <span class="label">Sketch Plugin Boilerplate</span>
+    </a>
+    <ul>
+      <li><a class="nav--main--item--get-started" href="/sketch-plugin-boilerplate/#get-started">Get Started</a></li>
+      <li><a class="nav--main--item--docs" href="/sketch-plugin-boilerplate/docs/communication">Documentation</a></li>
+      <li><a class="nav--main--item--tutorials" href="/sketch-plugin-boilerplate/tutorials/">Tutorials</a></li>
+      <li><a class="nav--main--item--github" href="https://github.com/julianburr/sketch-plugin-boilerplate" target="_blank">Github</a></li>
+    </ul>
+  </div>
+</nav>
+    <main class="main-content">
+      <div class="docs">
+  <nav class="docs-nav sidebar-nav">
+    <h3>Basic</h3>
+  <li><a href="/sketch-plugin-boilerplate/docs/communication">Communication</a></li>
+</ul>
+
+<h3>Utils</h3>
+<ul>
+  <li><a href="/sketch-plugin-boilerplate/docs/utils/core">Core</a></li>
+  <li><a href="/sketch-plugin-boilerplate/docs/utils/webview">WebView</a></li>
+  <li><a href="/sketch-plugin-boilerplate/docs/utils/fetch">Fetch</a></li>
+</ul>
+
+<h3>Setup</h3>
+<ul>
+  <li><a href="/sketch-plugin-boilerplate/docs/setup/webpack">Webpack</a></li>
+  <li><a href="/sketch-plugin-boilerplate/docs/setup/eslint">ESLint</a></li>
+  <li><a href="/sketch-plugin-boilerplate/docs/setup/jest">Jest</a></li>
+</ul>
+  </nav>
+
+  <div class="docs-content sidebar-content">
+    <h1 id="fetch-and-more">Fetch and More</h1>
+
+<p>From Sketch 54 (include 54), CocoaScript js can call ObjC-Block-API.</p>
+
+<p>So I think this is a very useful feature.</p>
+
+<h2 id="fetch">Fetch</h2>
+<p>And we can write out fetch easily in js just wrap the MacOS ObjC API.</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">mySession</span> <span class="o">=</span> <span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+  <span class="kd">const</span> <span class="nx">cookieStorage</span> <span class="o">=</span> <span class="nx">NSHTTPCookieStorage</span><span class="p">.</span><span class="nx">sharedCookieStorageForGroupContainerIdentifier</span><span class="p">(</span><span class="dl">'</span><span class="s1">seCrET</span><span class="dl">'</span><span class="p">)</span>
+
+  <span class="kd">const</span> <span class="nx">configuration</span> <span class="o">=</span> <span class="nx">NSURLSessionConfiguration</span><span class="p">.</span><span class="nx">defaultSessionConfiguration</span><span class="p">()</span>
+  <span class="nx">configuration</span><span class="p">.</span><span class="nx">setHTTPCookieStorage</span><span class="p">(</span><span class="nx">cookieStorage</span><span class="p">)</span>
+
+  <span class="kd">const</span> <span class="nx">session</span> <span class="o">=</span> <span class="nx">NSURLSession</span><span class="p">.</span><span class="nx">sessionWithConfiguration</span><span class="p">(</span><span class="nx">configuration</span><span class="p">)</span>
+  <span class="k">return</span> <span class="nx">session</span>
+<span class="p">})()</span>
+
+<span class="kd">function</span> <span class="nx">myFetch</span><span class="p">(</span><span class="nx">request</span><span class="p">,</span> <span class="nx">completionHandler</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="k">new</span> <span class="nb">Promise</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">resolve</span><span class="p">,</span> <span class="nx">reject</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">const</span> <span class="nx">task</span> <span class="o">=</span> <span class="nx">mySession</span><span class="p">.</span><span class="nx">dataTaskWithRequest_completionHandler</span><span class="p">(</span>
+      <span class="nx">request</span><span class="p">,</span>
+      <span class="nx">__mocha__</span><span class="p">.</span><span class="nx">createBlock_function</span><span class="p">(</span>
+        <span class="dl">'</span><span class="s1">v32@?0@"NSData"8@"NSURLResponse"16@"NSError"24</span><span class="dl">'</span><span class="p">,</span>
+        <span class="kd">function</span> <span class="p">(</span><span class="nx">data</span><span class="p">,</span> <span class="nx">response</span><span class="p">,</span> <span class="nx">error</span><span class="p">)</span> <span class="p">{</span>
+          <span class="nx">completionHandler</span><span class="p">(</span><span class="nx">resolve</span><span class="p">,</span> <span class="nx">reject</span><span class="p">)(</span><span class="nx">data</span><span class="p">,</span> <span class="nx">response</span><span class="p">,</span> <span class="nx">error</span><span class="p">)</span>
+        <span class="p">}</span>
+      <span class="p">)</span>
+    <span class="p">)</span>
+    <span class="nx">task</span><span class="p">.</span><span class="nx">resume</span><span class="p">()</span>
+  <span class="p">})</span>
+<span class="p">}</span>
+
+<span class="k">export</span> <span class="kd">function</span> <span class="nx">fetchExample</span><span class="p">()</span> <span class="p">{</span>
+  <span class="kd">let</span> <span class="nx">request</span> <span class="o">=</span> <span class="nx">NSMutableURLRequest</span><span class="p">.</span><span class="k">new</span><span class="p">()</span>
+  <span class="nx">request</span><span class="p">.</span><span class="nx">setHTTPMethod</span><span class="p">(</span><span class="dl">"</span><span class="s2">GET</span><span class="dl">"</span><span class="p">)</span>
+  <span class="nx">request</span><span class="p">.</span><span class="nx">setURL</span><span class="p">(</span><span class="nx">NSURL</span><span class="p">.</span><span class="nx">URLWithString</span><span class="p">(</span><span class="s2">`https://jsonplaceholder.typicode.com/todos/1`</span><span class="p">))</span>
+  <span class="k">return</span> <span class="nx">myFetch</span><span class="p">(</span><span class="nx">request</span><span class="p">,</span> <span class="p">(</span><span class="nx">resolve</span><span class="p">,</span> <span class="nx">reject</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">(</span><span class="nx">data</span><span class="p">,</span> <span class="nx">response</span><span class="p">,</span> <span class="nx">error</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">error</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">reject</span><span class="p">(</span><span class="nb">Error</span><span class="p">(</span><span class="dl">'</span><span class="s1">Fetch Example Error</span><span class="dl">'</span><span class="p">))</span>
+      <span class="k">return</span>
+    <span class="p">}</span>
+    <span class="kd">const</span> <span class="nx">responseJsonStr</span> <span class="o">=</span> <span class="nx">NSString</span><span class="p">.</span><span class="nx">alloc</span><span class="p">().</span><span class="nx">initWithData_encoding</span><span class="p">(</span><span class="nx">data</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span> <span class="c1">// type is NSString</span>
+    <span class="kd">const</span> <span class="nx">responseJson</span> <span class="o">=</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">parse</span><span class="p">(</span><span class="nx">responseJsonStr</span><span class="p">)</span> <span class="c1">// type is jsObject</span>
+    <span class="nx">resolve</span><span class="p">(</span><span class="nx">responseJson</span><span class="p">)</span>
+  <span class="p">})</span>
+<span class="p">}</span>
+
+<span class="c1">// later somewhere call below</span>
+<span class="k">async</span> <span class="kd">function</span> <span class="nx">testFetchExample</span><span class="p">()</span> <span class="p">{</span>
+  <span class="kd">const</span> <span class="nx">result</span> <span class="o">=</span> <span class="k">await</span> <span class="nx">WebViewUtils</span><span class="p">.</span><span class="nx">fetchExample</span><span class="p">()</span>
+  <span class="nb">document</span><span class="p">.</span><span class="nx">showMessage</span><span class="p">(</span><span class="s2">`I fetched </span><span class="p">${</span><span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">result</span><span class="p">)}</span><span class="s2">`</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>You can see the <code class="highlighter-rouge">fetchExample</code> works to press <code class="highlighter-rouge">Send Http Request</code> Menu Button.</p>
+
+<h2 id="notices">Notices:</h2>
+<h4 id="because-we-already-set-the-environment-true-see-the-code-below-and-never-set-it-false-so-above-myfetch-code-works-well">Because we already set the environment true (See the code below) and never set it false, so above <code class="highlighter-rouge">myFetch</code> code works well.</h4>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">coscript</span><span class="p">.</span><span class="nx">setShouldKeepAround</span><span class="p">(</span><span class="kc">true</span><span class="p">);</span>
+</code></pre></div></div>
+
+<h4 id="you-see-here-is-very-flexible-so-i-just-write-some-code-for-demonstrate-the-idea">You see here is very flexible, so I just write some code for demonstrate the idea,</h4>
+<p>you can write your fetch, wrap any MacOS network ObjC-Block-API, or just use <code class="highlighter-rouge">myFetch</code>, 😀</p>
+
+<h4 id="have-a-look-at-v320nsdata8nsurlresponse16nserror24">Have a look at <code class="highlighter-rouge">'v32@?0@"NSData"8@"NSURLResponse"16@"NSError"24'</code></h4>
+<p>I think this is the string you have to write, from the parameter data type of the block</p>
+
+<p>Here, we call the ObjC-API</p>
+
+<div class="language-objc highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">(</span><span class="n">NSURLSessionDataTask</span> <span class="o">*</span><span class="p">)</span><span class="n">dataTaskWithRequest</span><span class="o">:</span><span class="p">(</span><span class="n">NSURLRequest</span> <span class="o">*</span><span class="p">)</span><span class="n">request</span> <span class="n">completionHandler</span><span class="o">:</span><span class="p">(</span><span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="p">)(</span><span class="n">NSData</span> <span class="o">*</span><span class="n">data</span><span class="p">,</span> <span class="n">NSURLResponse</span> <span class="o">*</span><span class="n">response</span><span class="p">,</span> <span class="n">NSError</span> <span class="o">*</span><span class="n">error</span><span class="p">))</span><span class="n">completionHandler</span><span class="p">;</span>
+</code></pre></div></div>
+
+<p>So, this mysterious string should be concatenate by:</p>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">v32</span><span class="p">@?</span><span class="mi">0</span><span class="p">@</span> <span class="c1">// 8*4=32</span>
+<span class="dl">"</span><span class="s2">NSData</span><span class="dl">"</span><span class="mi">8</span><span class="p">@</span> <span class="c1">// 8, 8 is the pointer size?!</span>
+<span class="dl">"</span><span class="s2">NSURLResponse</span><span class="dl">"</span><span class="mi">16</span><span class="p">@</span> <span class="c1">// 8*2=16</span>
+<span class="dl">"</span><span class="s2">NSError</span><span class="dl">"</span><span class="mi">24</span> <span class="c1">// 8*3=24, no more @</span>
+</code></pre></div></div>
+
+<p>I don’t understand exactly what is going on here, may be you could see this <a href="https://github.com/sketch-hq/CocoaScript">CocoaScript</a>.</p>
+
+<p>I think here is the type information the CocoaScript needs to dynamically generate and call the C data structure.</p>
+
+<h4 id="because-the-fetch-call-the-native-api-so-there-is-no-cross-domain-problems-here">Because the fetch call the native API, so there is no cross-domain problems here.</h4>
+
+  </div>
+</div>
+    </main>
+  </body>
+</html>

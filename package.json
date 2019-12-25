@@ -65,8 +65,8 @@
     "webpack-manifest-plugin": "^1.1.2"
   },
   "scripts": {
-    "start": "node scripts/start.js",
-    "start:webview": "node scripts/start-webview.js",
+    "start": "DEV=true node scripts/start.js",
+    "start:webview": "HTTPS=true node scripts/start-webview.js",
     "build": "node scripts/build.js",
     "bundle": "yarn build && node scripts/plugin/bundle.js",
     "lint": "yarn lint:plugin && yarn lint:webview",
@@ -82,6 +82,7 @@
   "dependencies": {
     "cocoascript-class": "^0.1.2",
     "core-decorators": "^0.15.0",
+    "css-hot-loader": "^1.4.4",
     "moment": "^2.17.1",
     "react": "^15.4.2",
     "react-dom": "^15.4.2",

@@ -21,6 +21,18 @@ body {
     text-align: left;
   }
 
+  .runtime-test-container {
+  }
+
+  .runtime-test {
+    border-top: 1px solid;
+    height: 30px;
+    background-color: #ecebdf;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
   code, pre {
     font-size: 90%;
     font-family: $fonts-mono;
