@@ -94,6 +94,7 @@ The build structure follows [Sketch's guidelines](http://developer.sketchapp.com
 │    
 └─── /src  # Source code, split into the different parts of your plugin
 │    └─── /framework  # Any xcode cocoa frameworks you want to load into your plugin
+│    └─── /objc  # Your objective c code of framework
 │    └─── /plugin  # The plugins JS source code
 │    │    └─── index.js  # By default, this will be used to bundle your production plugin.js file
 │    └─── /webview  # The source for possible web views
@@ -107,11 +108,11 @@ The build structure follows [Sketch's guidelines](http://developer.sketchapp.com
 
 ## Roadmap / Todos
 
- - [ ] Create useful documentation (integrated into a simple github.io page)
+ - [x] ~~Create useful documentation (integrated into a simple github.io page)~~
  - [ ] Create tutorials for JS developers to get started with Sketch plugins
  - [x] ~~Implement testing ([Jest](https://facebook.github.io/jest/)?)~~ *- Note: using [sketchtool](https://www.sketchapp.com/tool/) for accessing Sketch files and running plugin commands, however using own util functions, since the [node package](https://github.com/marekhrabe/sketchtool) does not seem to be maintained anymore (currently at version 39.x)*
  - [x] ~~Migrate the webview build from webpack to rollup, so we only have one build system to care about~~
- - [ ] Re-Implement `fetch` polyfill (see master before merge for old solution with cocoa framework and plugin action handler)
+ - [x] ~~Re-Implement `fetch` polyfill (see master before merge for old solution with cocoa framework and plugin action handler)~~
  - [x] ~~Try to get rid of cocoa framework if feasable~~
 
 ## About Testing
