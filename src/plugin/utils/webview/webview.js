@@ -1,6 +1,7 @@
 import {pluginFolderPath, document, sampleFramework} from 'pluginUtils/core'
 import ObjCClass from 'cocoascript-class'
-import { findWebView as findWebViewFromPanel, findWebView as findWebViewFromWindow } from './panel'
+import { findWebView as findWebViewFromPanel } from './panel'
+import { findWebView as findWebViewFromWindow } from './window'
 
 // These are just used to identify the window(s)
 // Change them to whatever you need e.g. if you need to support multiple
